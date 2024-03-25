@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Gellix-Regular';
+  src: url('../fonts/Gellix-Regular/Gellix-Regular.eot');
+  src:
+    url('../fonts/Gellix-Regular/Gellix-Regular.woff2') format('woff2'),
+    url('../fonts/Gellix-Regular/Gellix-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix-Medium';
+  src: url('../fonts/Gellix-Medium/Gellix-Medium.eot');
+  src:
+    url('../fonts/Gellix-Medium/Gellix-Medium.woff2') format('woff2'),
+    url('../fonts/Gellix-Medium/Gellix-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix-Bold';
+  src: url('../fonts/Gellix-Bold/Gellix-Bold.eot');
+  src:
+    url('../fonts/Gellix-Bold/Gellix-Bold.woff2') format('woff2'),
+    url('../fonts/Gellix-Bold/Gellix-Bold.woff') format('woff');
+}
+
+@layer base {
+  body {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply text-5xl/tight;
+    @apply font-medium;
+  }
+  h2 {
+    @apply text-4xl/tight;
+    @apply font-medium;
+  }
+  h3 {
+    @apply text-2xl;
+    @apply font-medium;
+  }
+  h4 {
+    @apply text-xl/relaxed;
+    @apply font-medium;
+  }
+
+  article {
+    @apply px-48;
+    @apply py-14;
+  }
+  article h1 {
+    @apply my-10;
+  }
+  article h2 {
+    @apply my-8;
+  }
+  article h3 {
+    @apply my-6;
+  }
+  article h4 {
+    @apply mt-10;
+    @apply mb-4;
+  }
+  article p {
+    @apply my-4;
+  }
+
+  a {
+    @apply underline;
+  }
+  header a,
+  footer a {
+    @apply no-underline;
+  }
+}
