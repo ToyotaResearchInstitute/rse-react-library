@@ -1,13 +1,13 @@
 {
-  "name": "@ToyotaResearchInstitute/rse-react-library",  
-  "version": "0.0.8",
+  "name": "@toyotaresearchinstitute/rse-react-library",  
+  "version": "0.0.9",
   "description": "A template for creating React component libraries with Vite, Tailwind, and Storybook.",
   "author": "TRI",
   "license": "MIT",
   "type": "module",
   "repository": "https://github.com/ToyotaResearchInstitute/rse-react-library",
   "publishConfig": {
-    "@ToyotaResearchInstitute:registry": "https://npm.pkg.github.com"
+    "@toyotaresearchinstitute:registry": "https://npm.pkg.github.com"
   },
   "files": [
     "dist"
