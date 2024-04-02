@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/      
+          registry-url: https://npm.pkg.github.com/
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build:lib
       - run: pnpm publish --access public --no-git-checks
