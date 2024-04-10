@@ -1,6 +1,6 @@
 {
   "name": "@toyota-research-institute/rse-react-library",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "RSE React component libraries with Vite, Tailwind, Material Tailwind and Storybook.",
   "author": "TRI",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "repository": "https://github.com/ToyotaResearchInstitute/rse-react-library",
   "keywords": [
     "toyota research",
-    "material tailwind"    
+    "material tailwind"
   ],
   "files": [
     "dist"
@@ -87,6 +87,6 @@
     "aws-amplify": "^5.3.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"    
+    "react-router-dom": "^6.22.3"
   }
 }
