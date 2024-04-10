@@ -1,14 +1,15 @@
 {
-  "name": "@toyotaresearchinstitute/rse-react-library",
+  "name": "@toyota-research-institute/rse-react-library",
   "version": "0.0.10",
-  "description": "A template for creating React component libraries with Vite, Tailwind, and Storybook.",
+  "description": "RSE React component libraries with Vite, Tailwind, Material Tailwind and Storybook.",
   "author": "TRI",
   "license": "MIT",
   "type": "module",
   "repository": "https://github.com/ToyotaResearchInstitute/rse-react-library",
-  "publishConfig": {
-    "@toyotaresearchinstitute:registry": "https://npm.pkg.github.com"
-  },
+  "keywords": [
+    "toyota research",
+    "material tailwind"    
+  ],
   "files": [
     "dist"
   ],
@@ -29,7 +30,7 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./css": "./dist/style.css"
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -86,7 +87,6 @@
     "aws-amplify": "^5.3.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3",
-    "@tanstack/react-query": "^5.28.4"
+    "react-router-dom": "^6.22.3"    
   }
 }
