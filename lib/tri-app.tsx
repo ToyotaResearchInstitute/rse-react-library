@@ -1,11 +1,8 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {} from 'aws-amplify';
 import { type ReactElement, createContext, useContext } from 'react';
 import FeedbackProvider from './feedback/FeedbackProvider';
 import CognitoProvider from './amplify/cognito-provider';
 import AppLayout from './layout/AppLayout';
-
-const queryClient = new QueryClient();
 
 export type TRIAppConfig = {
   name: string;
@@ -36,13 +33,11 @@ interface TRIAppProps {
 const TRIApp = ({ config, PreloginPage }: TRIAppProps) => {
   return (
     <TRIAppContext.Provider value={{ ...config, PreloginPage }}>
-      <QueryClientProvider client={queryClient}>
-        <FeedbackProvider>
-          <CognitoProvider>
-            <AppLayout />
-          </CognitoProvider>
-        </FeedbackProvider>
-      </QueryClientProvider>
+      <FeedbackProvider>
+        <CognitoProvider>
+          <AppLayout />
+        </CognitoProvider>
+      </FeedbackProvider>
     </TRIAppContext.Provider>
   );
 };
