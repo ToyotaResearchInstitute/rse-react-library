@@ -1,6 +1,6 @@
 import {} from 'aws-amplify';
 import { type ReactElement, createContext, useContext } from 'react';
-import FeedbackProvider from './feedback/FeedbackProvider';
+// import FeedbackProvider from './feedback/FeedbackProvider';
 import CognitoProvider from './amplify/cognito-provider';
 import AppLayout from './layout/AppLayout';
 
@@ -33,11 +33,9 @@ interface TRIAppProps {
 const TRIApp = ({ config, PreloginPage }: TRIAppProps) => {
   return (
     <TRIAppContext.Provider value={{ ...config, PreloginPage }}>
-      <FeedbackProvider>
-        <CognitoProvider>
-          <AppLayout />
-        </CognitoProvider>
-      </FeedbackProvider>
+      <CognitoProvider>
+        <AppLayout />
+      </CognitoProvider>
     </TRIAppContext.Provider>
   );
 };
