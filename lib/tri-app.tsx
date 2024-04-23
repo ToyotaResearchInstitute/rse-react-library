@@ -3,6 +3,7 @@ import { type ReactElement, createContext, useContext } from 'react';
 // import FeedbackProvider from './feedback/FeedbackProvider';
 import CognitoProvider from './amplify/cognito-provider';
 import AppLayout from './layout/AppLayout';
+import { ScrollRestoration } from 'react-router-dom';
 
 export type TRIAppConfig = {
   name: string;
@@ -34,6 +35,7 @@ const TRIApp = ({ config, PreloginPage }: TRIAppProps) => {
   return (
     <TRIAppContext.Provider value={{ ...config, PreloginPage }}>
       <CognitoProvider>
+        <ScrollRestoration />
         <AppLayout />
       </CognitoProvider>
     </TRIAppContext.Provider>
