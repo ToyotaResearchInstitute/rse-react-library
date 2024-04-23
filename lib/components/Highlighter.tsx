@@ -1,5 +1,5 @@
 import { createContext, type ReactNode, useState, useEffect, useMemo, useContext } from 'react';
-import { useLocation, ScrollRestoration } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const defaultHighlightDuration = 1000;
 const defaultTransitionDuration = 1000;
@@ -57,12 +57,7 @@ export const Highlighter = ({
     [highlighted, transitionDuration],
   );
 
-  return (
-    <>
-      <ScrollRestoration />
-      <HighlighterContext.Provider value={value}>{children}</HighlighterContext.Provider>
-    </>
-  );
+  return <HighlighterContext.Provider value={value}>{children}</HighlighterContext.Provider>;
 };
 
 interface HighlightProps {
