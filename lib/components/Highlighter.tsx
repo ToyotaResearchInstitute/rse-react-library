@@ -5,7 +5,7 @@ const defaultHighlightDuration = 1000;
 const defaultTransitionDuration = 1000;
 // TODO: Add props to override these defaults, if the need arises
 const defaultHighlightClassName =
-  'z-0 inset-[-1em] shadow-[0_0_10px_0_#757575] rounded-lg bg-white';
+  'z-0 inset-[-1em] rounded-lg bg-white w-full h-full py-2 px-4 -top-2';
 const defaultHighlightedClassName = 'opacity-1';
 const defaultUnhighlightedClassName = 'opacity-0';
 const defaultClassName = 'z1';
@@ -85,7 +85,10 @@ export const Highlight = ({ id, children: child }: HighlightProps) => {
       <div
         className={highlightClassName}
         style={{
+          boxSizing: 'content-box',
           position: 'absolute',
+          left: '-1rem',
+          boxShadow: '0 0 10px 0 #757575',
           transition: `all ${transitionDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
         }}
       />
