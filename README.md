@@ -53,6 +53,13 @@ function App() {
 createRoot.render(<App />, document.querySelector('#app'));
 ```
 
+## Component List
+| Component | Source Code |
+| -------- | ------- |
+| Highlighter | [lib/components/highlighter.tsx](lib/components/highlighter.tsx) |
+| Select | [lib/components/select.tsx](lib/components/select.tsx) |
+
+
 ## How to use
 
 1. Clone this repository
