@@ -23,4 +23,5 @@ const FeedbackButton = () => {
   );
 };
 
+export { FeedbackButton };
 export default FeedbackButton;
