@@ -7,7 +7,7 @@ export interface OptionType {
 
 interface SelectProps {
   options: OptionType[];
-  id: string;  
+  id: string;
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -25,9 +25,9 @@ export const Select = ({ options, id, value, onChange }: SelectProps) => {
       data-testid={`select-dropdown-${id}`}
       value={value}
       onChange={handleChange}
-      className="!border border-t-1 !border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:ring-gray-900/10"
+      className="text-black"
       labelProps={{
-        className: 'hidden',
+        className: 'before:mr-0 after:ml-0',
       }}
     >
       {options.map((option, index) => {
