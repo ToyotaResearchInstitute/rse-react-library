@@ -1,6 +1,6 @@
 {
   "name": "@toyota-research-institute/rse-react-library",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "RSE React component libraries with Vite, Tailwind, Material Tailwind and Storybook.",
   "author": "TRI",
   "license": "MIT",
