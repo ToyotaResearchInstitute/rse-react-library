@@ -13,7 +13,7 @@ const FeedbackButton = () => {
           variant="filled"
           size="lg"
           placeholder="Feedback"
-          className="rounded-b-sm rounded-t-none px-4 py-3 !font-medium text-base normal-case"
+          className="!rounded-b-sm !rounded-t-none px-4 py-3 !font-medium text-base normal-case"
           onClick={window.showCollectorDialog}
         >
           Feedback

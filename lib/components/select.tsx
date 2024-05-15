@@ -1,4 +1,5 @@
 import { Option, Select as MTSelect } from '@material-tailwind/react';
+import styles from './select.module.css';
 
 export interface OptionType {
   label: string;
@@ -25,9 +26,15 @@ export const Select = ({ options, id, value, onChange }: SelectProps) => {
       data-testid={`select-dropdown-${id}`}
       value={value}
       onChange={handleChange}
-      className="text-black"
+      className={`${styles['selectContainer']} text-gray-900 font-normal `}
+      containerProps={{
+        className: 'border-gray-400',
+      }}
       labelProps={{
         className: 'before:mr-0 after:ml-0',
+      }}
+      menuProps={{
+        className: 'font-medium text-gray-900 border-none shadow-md',
       }}
     >
       {options.map((option, index) => {
