@@ -27,9 +27,6 @@ export const Select = ({ options, id, value, onChange }: SelectProps) => {
       value={value}
       onChange={handleChange}
       className={`${styles['selectContainer']} text-gray-900 font-normal `}
-      containerProps={{
-        className: 'border-gray-400',
-      }}
       labelProps={{
         className: 'before:mr-0 after:ml-0',
       }}
