@@ -57,7 +57,6 @@ export function TokenProvider({ children }: TokenProps) {
 
   const currentSession = async (): Promise<void> => {
     try {
-      // const { idToken, accessToken: accToken } = (await fetchAuthSession()).tokens ?? {};
       const tokens = (await fetchAuthSession()).tokens;
       if (!tokens) {
         return;
