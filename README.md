@@ -58,6 +58,7 @@ createRoot.render(<App />, document.querySelector('#app'));
 | -------- | ------- |
 | Highlighter | [lib/components/highlighter.tsx](lib/components/highlighter.tsx) |
 | Select | [lib/components/select.tsx](lib/components/select.tsx) |
+| CognitoProvider | [lib/amplify/cognito-provider.tsx](lib/amplify/cognito-provider.tsx) |
 
 
 ## How to use
