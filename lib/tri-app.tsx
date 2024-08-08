@@ -1,4 +1,3 @@
-import {} from 'aws-amplify';
 import { type ReactElement, createContext, useContext } from 'react';
 // import FeedbackProvider from './feedback/FeedbackProvider';
 import CognitoProvider from './amplify/cognito-provider';
@@ -7,7 +6,16 @@ import { ScrollRestoration } from 'react-router-dom';
 
 export type TRIAppConfig = {
   name: string;
-  AWSConfig: unknown;
+  AWSConfig: {
+    Auth: {
+      Cognito: {
+        region: string;
+        userPoolId: string;
+        userPoolClientId: string;
+        mandatorySignIn: boolean;
+      };
+    };
+  };
   issueCollectorUrl?: string;
   apiBaseUrl: string;
   amplifyEnabled: boolean;
@@ -34,7 +42,7 @@ interface TRIAppProps {
 const TRIApp = ({ config, PreloginPage }: TRIAppProps) => {
   return (
     <TRIAppContext.Provider value={{ ...config, PreloginPage }}>
-      <CognitoProvider>
+      <CognitoProvider config={config.AWSConfig}>
         <ScrollRestoration />
         <AppLayout />
       </CognitoProvider>
