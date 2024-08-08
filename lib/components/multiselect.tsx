@@ -9,7 +9,7 @@ interface MultiselectProps {
 }
 
 export const Multiselect = ({ label, options, selectedOptions, setSelectedOptions }: MultiselectProps) => {
-  const handleSelect = (option) => {
+  const handleSelect = (option: string) => {
     if (selectedOptions.includes(option)) {
       setSelectedOptions(selectedOptions.filter((item) => item !== option));
     } else {
