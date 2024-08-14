@@ -7,3 +7,4 @@ export { useUserAuth } from './amplify/use-user-auth';
 export { Highlight, Highlighter } from './components/highlighter';
 export { FeedbackButton } from './layout/FeedbackButton';
 export { Select } from './components/select';
+export { Multiselect } from './components/multiselect';
