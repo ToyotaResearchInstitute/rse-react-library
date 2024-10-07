@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
+import { peerDependencies } from './package.json';
+
 export default defineConfig({
   plugins: [
     react(),
@@ -19,7 +21,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // Exclude peer dependencies from the bundle to reduce bundle size
-      external: ['react/jsx-runtime'],
+      external: ['react/jsx-runtime', ...Object.keys(peerDependencies)],
     },
     sourcemap: true,
   },
