@@ -1,5 +1,8 @@
 import React from 'react';
-import { Menu, MenuHandler, MenuList, MenuItem, Button, Chip } from '@material-tailwind/react';
+import { Button } from "./ui/button";
+import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
+import { Checkbox } from "./ui/checkbox";
+import { Badge } from "./ui/badge";
 
 interface MultiselectProps {
   label: string;
@@ -8,7 +11,12 @@ interface MultiselectProps {
   setSelectedOptions: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const Multiselect = ({ label, options, selectedOptions, setSelectedOptions }: MultiselectProps) => {
+export const Multiselect = ({
+  label,
+  options,
+  selectedOptions,
+  setSelectedOptions,
+}: MultiselectProps) => {
   const handleSelect = (option: string) => {
     if (selectedOptions.includes(option)) {
       setSelectedOptions(selectedOptions.filter((item) => item !== option));
@@ -19,28 +27,46 @@ export const Multiselect = ({ label, options, selectedOptions, setSelectedOption
 
   return (
     <div className="w-full">
-      <Menu>
-        <MenuHandler>
-          <Button variant="outlined" color="blue" className="w-full">
-            {label}
-          </Button>
-        </MenuHandler>
-        <MenuList className="max-w-full">
-          {options.map((option, index) => (
-            <MenuItem key={index} onClick={() => handleSelect(option)}>
-              <div className="flex w-full items-center justify-between">
-                <span>{option}</span>
-                {selectedOptions.includes(option) && <Chip value="Selected" color="green" size="sm" className="ml-2" />}
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="outline" className="w-full justify-start">
+            {selectedOptions.length > 0 ? (
+              <div className="flex flex-wrap gap-1">
+                {selectedOptions.map((opt, i) => (
+                  <Badge
+                    key={i}
+                    variant="secondary"
+                    className="text-xs px-2 py-1"
+                  >
+                    {opt}
+                  </Badge>
+                ))}
               </div>
-            </MenuItem>
-          ))}
-        </MenuList>
-      </Menu>
-      <div className="mt-2 flex flex-wrap gap-2">
-        {selectedOptions.map((option, index) => (
-          <Chip key={index} value={option} color="blue" size="sm" />
-        ))}
-      </div>
+            ) : (
+              label
+            )}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent align="start" className="w-[--radix-popover-trigger-width] p-2">
+          <div className="flex flex-col gap-1">
+            {options.map((option, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => handleSelect(option)}
+                className="flex items-center justify-between px-2 py-1 w-full rounded hover:bg-muted text-left"
+              >
+                <span>{option}</span>
+                <Checkbox
+                  checked={selectedOptions.includes(option)}
+                  onCheckedChange={() => {}}
+                  className="pointer-events-none"
+                />
+              </button>
+            ))}
+          </div>
+        </PopoverContent>
+      </Popover>
     </div>
   );
 };

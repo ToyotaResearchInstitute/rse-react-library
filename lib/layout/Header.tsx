@@ -1,7 +1,7 @@
 import { useUserAuth } from '../amplify/use-user-auth';
 
 import { Link } from 'react-router-dom';
-import { Button } from '@material-tailwind/react/components/Button';
+import { Button } from "../components/ui/button";
 import { signInWithRedirect, signOut } from 'aws-amplify/auth';
 
 import logo from '../images/blackimage.png';
@@ -33,12 +33,10 @@ export default function Header() {
         {amplifyEnabled && (
           <>
             <Button
-              variant="filled"
-              placeholder="Sign Out"
-              className="bg-white text-black"
               onClick={handleClick}
+              className="bg-white text-black hover:bg-gray-100"
             >
-              {token ? 'Sign Out' : 'Sign In'}
+              {token ? "Sign Out" : "Sign In"}
             </Button>
           </>
         )}

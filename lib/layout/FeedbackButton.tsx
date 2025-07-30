@@ -1,19 +1,12 @@
-// FeedbackButton.tsx
-
-import { Button } from '@material-tailwind/react';
-// import { useFeedback } from '../feedback/use-feedback';
+import { Button } from "../components/ui/button";
 
 const FeedbackButton = () => {
-  // const { showDialog } = useFeedback();
-
   return (
     window.showCollectorDialog && (
       <div className="absolute right-0 top-[50%] origin-top-right rotate-90">
         <Button
-          variant="filled"
-          size="lg"
-          placeholder="Feedback"
-          className="!rounded-b-sm !rounded-t-none px-4 py-3 !font-medium text-base normal-case"
+          variant="default"
+          className="rounded-none rounded-b-sm px-4 py-3 text-base font-medium normal-case"
           onClick={window.showCollectorDialog}
         >
           Feedback

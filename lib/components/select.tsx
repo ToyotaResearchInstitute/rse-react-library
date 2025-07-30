@@ -1,4 +1,10 @@
-import { Option, Select as MTSelect } from '@material-tailwind/react';
+import {
+  Select as ShadSelect,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from './ui/selectShadcn';
 import styles from './select.module.css';
 
 export interface OptionType {
@@ -14,37 +20,29 @@ interface SelectProps {
 }
 
 export const Select = ({ options, id, value, onChange }: SelectProps) => {
-  const handleChange = (val: string | undefined) => {
-    if (val) {
-      onChange(val);
-    }
-  };
-
   return (
-    <MTSelect
-      id={id}
-      data-testid={`select-dropdown-${id}`}
+    <ShadSelect
       value={value}
-      onChange={handleChange}
-      className={`${styles['selectContainer']} text-gray-900 font-normal `}
-      labelProps={{
-        className: 'before:mr-0 after:ml-0',
-      }}
-      menuProps={{
-        className: 'font-medium text-gray-900 border-none shadow-md',
-      }}
+      onValueChange={onChange}
     >
-      {options.map((option, index) => {
-        return (
-          <Option
+      <SelectTrigger
+        id={id}
+        data-testid={`select-dropdown-${id}`}
+        className={`${styles['selectContainer']} text-gray-900 font-normal`}
+      >
+        <SelectValue placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent className="font-medium text-gray-900 border-none shadow-md">
+        {options.map((option, index) => (
+          <SelectItem
             key={`${id}-dropdown-${index}`}
             value={option.value}
           >
             {option.label}
-          </Option>
-        );
-      })}
-    </MTSelect>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </ShadSelect>
   );
 };
 
