@@ -1,23 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-
-import withMT from '@material-tailwind/react/utils/withMT';
-
-export default withMT({
+export default {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    // TODO: Update this to reflect the actual
-    // location of the library package
     './lib/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     fontFamily: {
       sans: ['Gellix-Regular'],
+      medium: ['Gellix-Medium'],
     },
-    extend: {
-      fontFamily: {
-        medium: ['Gellix-Medium'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
-});
+};

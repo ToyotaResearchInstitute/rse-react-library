@@ -1,6 +1,10 @@
 {
   "extends": [],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     // This is a component library, so "ESNext" is a good choice. Also it requires very little down-leveling during transpilation.
     "target": "ESNext",
 
