@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Separator } from "./ui/separator";
+import { Separator, LabeledSeparator } from "./ui/separator";
 
 const meta: Meta<typeof Separator> = {
   title: "Components/Separator",
@@ -44,6 +44,18 @@ export const InCard: Story = {
       <p className="text-[13px] text-muted-foreground">
         Content below the divider.
       </p>
+    </div>
+  ),
+};
+
+export const Variants: Story = {
+  render: () => (
+    <div className="flex w-[320px] flex-col gap-4 p-6">
+      <Separator />
+      <Separator variant="strong" />
+      <Separator variant="dashed" />
+      <Separator variant="gradient" />
+      <LabeledSeparator>or continue with</LabeledSeparator>
     </div>
   ),
 };

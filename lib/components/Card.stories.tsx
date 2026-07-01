@@ -6,6 +6,9 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
+  CardMedia,
+  CardEyebrow,
+  StatCard,
 } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -17,6 +20,61 @@ const meta: Meta<typeof Card> = {
 };
 
 export default meta;
+
+type CardStory = StoryObj<typeof Card>;
+
+export const Variants: CardStory = {
+  render: () => (
+    <div className="flex gap-4">
+      {(["outlined", "elevated", "flat"] as const).map((v) => (
+        <Card key={v} variant={v} className="w-52">
+          <CardHeader>
+            <CardTitle className="capitalize">{v}</CardTitle>
+            <CardDescription>Surface treatment</CardDescription>
+          </CardHeader>
+        </Card>
+      ))}
+    </div>
+  ),
+};
+
+export const Clickable: CardStory = {
+  render: () => (
+    <Card clickable className="w-64">
+      <CardHeader>
+        <CardEyebrow>Dataset</CardEyebrow>
+        <CardTitle>atlas-drives-q2</CardTitle>
+        <CardDescription>Hover to see the lift.</CardDescription>
+      </CardHeader>
+    </Card>
+  ),
+};
+
+export const ArticleMedia: CardStory = {
+  render: () => (
+    <Card variant="elevated" className="w-72 overflow-hidden">
+      <CardMedia>Latent video models</CardMedia>
+      <CardHeader>
+        <CardEyebrow>Research · 8 min read</CardEyebrow>
+        <CardTitle>Human-scale data</CardTitle>
+        <CardDescription>Scaling latent video models for robotics.</CardDescription>
+      </CardHeader>
+    </Card>
+  ),
+};
+
+export const StatTiles: CardStory = {
+  render: () => (
+    <div className="flex gap-4">
+      <Card className="w-44">
+        <StatCard label="Datasets" value="1,284" delta="+12%" deltaDirection="up" />
+      </Card>
+      <Card className="w-44">
+        <StatCard label="Errors" value="37" delta="-8%" deltaDirection="down" />
+      </Card>
+    </div>
+  ),
+};
 
 type Story = StoryObj<typeof Card>;
 

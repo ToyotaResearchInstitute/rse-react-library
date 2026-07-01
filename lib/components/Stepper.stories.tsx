@@ -73,3 +73,42 @@ const InteractiveTemplate = () => {
 export const Interactive: Story = {
   render: InteractiveTemplate,
 };
+
+export const Vertical: Story = {
+  render: () => (
+    <div className="p-6">
+      <Stepper
+        orientation="vertical"
+        currentStep={1}
+        steps={[
+          { label: "Account", description: "Completed" },
+          { label: "Profile", description: "In progress" },
+          { label: "Review", description: "Upcoming" },
+        ]}
+      />
+    </div>
+  ),
+};
+
+export const Dots: Story = {
+  render: () => (
+    <div className="p-6">
+      <Stepper variant="dot" currentStep={2} steps={["One", "Two", "Three", "Four"]} />
+    </div>
+  ),
+};
+
+export const WithError: Story = {
+  render: () => (
+    <div className="p-6">
+      <Stepper
+        currentStep={2}
+        steps={[
+          { label: "Upload" },
+          { label: "Validate", status: "error", description: "Failed" },
+          { label: "Publish" },
+        ]}
+      />
+    </div>
+  ),
+};

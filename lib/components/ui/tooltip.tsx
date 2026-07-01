@@ -36,29 +36,94 @@ const tooltipVariants = cva(
   }
 )
 
+/** Arrow fill matched to each tooltip variant's surface. */
+const arrowFill = {
+  dark: "fill-[#0B0B0D]",
+  light: "fill-background",
+  blue: "fill-[#1D73BF]",
+  annotation: "fill-[#A9D6FF]",
+} as const
+
 interface TooltipContentProps
   extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>,
-    VariantProps<typeof tooltipVariants> {}
+    VariantProps<typeof tooltipVariants> {
+  /** Render the pointer tail. Defaults to true. */
+  showArrow?: boolean
+}
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   TooltipContentProps
->(({ className, variant, sideOffset = 6, ...props }, ref) => (
+>(({ className, variant, sideOffset = 6, showArrow = true, ...props }, ref) => (
   <TooltipPrimitive.Portal>
     <TooltipPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
       className={cn(tooltipVariants({ variant }), className)}
       {...props}
-    />
+    >
+      {props.children}
+      {showArrow && (
+        <TooltipPrimitive.Arrow
+          className={cn("size-2.5", arrowFill[variant ?? "dark"])}
+        />
+      )}
+    </TooltipPrimitive.Content>
   </TooltipPrimitive.Portal>
 ))
 TooltipContent.displayName = TooltipPrimitive.Content.displayName
+
+/**
+ * TRI Annotation tooltip — the always-visible sky-blue pill used for figures,
+ * onboarding walkthroughs, and product tours (NOT hover-gated). Anchor it near
+ * a target inside a `relative` container and choose the tail direction. Per the
+ * DS `.anno` spec: #A9D6FF pill, 99px radius, with a 6px CSS-triangle tail.
+ */
+export interface AnnotationTooltipProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  /** Which edge the pointer tail sits on. */
+  tail?: "below" | "above" | "left" | "right"
+}
+
+const tailClasses = {
+  // pointer below the bubble (bubble sits above the target)
+  below:
+    "after:left-1/2 after:top-full after:-translate-x-1/2 after:border-t-[#A9D6FF] after:border-b-0",
+  // pointer above the bubble (bubble sits below the target)
+  above:
+    "after:bottom-full after:left-1/2 after:-translate-x-1/2 after:border-b-[#A9D6FF] after:border-t-0",
+  // pointer on the left (bubble sits to the right of the target)
+  left: "after:right-full after:top-1/2 after:-translate-y-1/2 after:border-r-[#A9D6FF] after:border-l-0",
+  // pointer on the right (bubble sits to the left of the target)
+  right:
+    "after:left-full after:top-1/2 after:-translate-y-1/2 after:border-l-[#A9D6FF] after:border-r-0",
+} as const
+
+const AnnotationTooltip = React.forwardRef<
+  HTMLDivElement,
+  AnnotationTooltipProps
+>(({ className, tail = "below", children, ...props }, ref) => (
+  <div
+    ref={ref}
+    role="note"
+    className={cn(
+      "relative inline-block whitespace-nowrap rounded-full bg-[#A9D6FF] px-[11px] py-[5px] text-[13px] font-medium text-[#0B0B0D] shadow-sm",
+      "after:absolute after:h-0 after:w-0 after:border-[6px] after:border-transparent after:content-['']",
+      tailClasses[tail],
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+))
+AnnotationTooltip.displayName = "AnnotationTooltip"
 
 export {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
+  AnnotationTooltip,
   tooltipVariants,
 }

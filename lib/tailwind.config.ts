@@ -93,10 +93,20 @@ const config: Omit<Config, 'content'> = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'progress-indeterminate': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(340%)' },
+        },
+        'dot-bounce': {
+          '0%,80%,100%': { opacity: '0.3', transform: 'translateY(0)' },
+          '40%': { opacity: '1', transform: 'translateY(-4px)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s var(--ease-out)',
         'accordion-up': 'accordion-up 0.2s var(--ease-out)',
+        'progress-indeterminate': 'progress-indeterminate 1.6s linear infinite',
+        'dot-bounce': 'dot-bounce 1.2s ease-in-out infinite',
       },
     },
   },

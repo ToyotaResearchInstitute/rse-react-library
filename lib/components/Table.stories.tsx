@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   Table,
@@ -8,7 +9,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  TableToolbar,
+  TableSortButton,
 } from "./ui/table";
+import { Checkbox } from "./ui/checkbox";
+import { StatusPill } from "./ui/status-pill";
 
 const meta: Meta<typeof Table> = {
   title: "Components/Table",
@@ -111,6 +116,124 @@ export const WithFooterAndCaption: Story = {
             <TableCell className="text-right font-mono">3,506.4</TableCell>
           </TableRow>
         </TableFooter>
+      </Table>
+    </div>
+  ),
+};
+
+const ROWS = [
+  { id: "run-01", owner: "Ana Silva", status: "success" as const, size: "2.4 GB" },
+  { id: "run-02", owner: "Ravi Patel", status: "warning" as const, size: "812 MB" },
+  { id: "run-03", owner: "Mei Chen", status: "error" as const, size: "5.1 GB" },
+  { id: "run-04", owner: "Tom Reed", status: "info" as const, size: "1.2 GB" },
+];
+
+const DataTableDemo = () => {
+  const [selected, setSelected] = useState<string[]>([]);
+  const allSelected = selected.length === ROWS.length;
+  const toggle = (id: string) =>
+    setSelected((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));
+
+  return (
+    <div className="w-[720px] p-6">
+      <div className="overflow-hidden rounded-md border border-border">
+        <TableToolbar selected={selected.length > 0}>
+          <span className="text-sm font-semibold">
+            {selected.length > 0 ? `${selected.length} selected` : `Datasets · ${ROWS.length}`}
+          </span>
+        </TableToolbar>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-8">
+                <Checkbox
+                  checked={allSelected ? true : selected.length ? "indeterminate" : false}
+                  onCheckedChange={(c) => setSelected(c ? ROWS.map((r) => r.id) : [])}
+                  aria-label="Select all"
+                />
+              </TableHead>
+              <TableHead><TableSortButton direction="asc">Dataset</TableSortButton></TableHead>
+              <TableHead>Owner</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="text-right">
+                <TableSortButton>Size</TableSortButton>
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {ROWS.map((r) => (
+              <TableRow key={r.id} data-state={selected.includes(r.id) ? "selected" : undefined}>
+                <TableCell>
+                  <Checkbox
+                    checked={selected.includes(r.id)}
+                    onCheckedChange={() => toggle(r.id)}
+                    aria-label={`Select ${r.id}`}
+                  />
+                </TableCell>
+                <TableCell mono>{r.id}</TableCell>
+                <TableCell>{r.owner}</TableCell>
+                <TableCell>
+                  <StatusPill tone={r.status}>{r.status}</StatusPill>
+                </TableCell>
+                <TableCell align="right" mono>{r.size}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  );
+};
+
+export const DataTable: Story = {
+  render: () => <DataTableDemo />,
+};
+
+export const Striped: Story = {
+  render: () => (
+    <div className="w-[520px] p-6">
+      <Table striped>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Dataset</TableHead>
+            <TableHead>Owner</TableHead>
+            <TableHead className="text-right">Size</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {ROWS.map((r) => (
+            <TableRow key={r.id}>
+              <TableCell mono>{r.id}</TableCell>
+              <TableCell>{r.owner}</TableCell>
+              <TableCell align="right" mono>{r.size}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  ),
+};
+
+export const Dense: Story = {
+  render: () => (
+    <div className="w-[520px] p-6">
+      <Table dense bordered>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Dataset</TableHead>
+            <TableHead>Owner</TableHead>
+            <TableHead className="text-right">Size</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {ROWS.map((r) => (
+            <TableRow key={r.id}>
+              <TableCell mono>{r.id}</TableCell>
+              <TableCell>{r.owner}</TableCell>
+              <TableCell align="right" mono>{r.size}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     </div>
   ),

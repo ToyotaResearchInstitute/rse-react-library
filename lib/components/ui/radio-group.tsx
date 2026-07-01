@@ -21,14 +21,24 @@ const RadioGroup = React.forwardRef<
 ))
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
+const radioColors = {
+  ink: "text-primary data-[state=checked]:border-primary",
+  brand: "text-brand data-[state=checked]:border-brand",
+  blue: "text-info data-[state=checked]:border-info",
+} as const
+
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
+    /** Selected accent color. Ink (default), brand red, or blue. */
+    color?: "ink" | "brand" | "blue"
+  }
+>(({ className, color = "ink", ...props }, ref) => (
   <RadioGroupPrimitive.Item
     ref={ref}
     className={cn(
-      "aspect-square h-[18px] w-[18px] shrink-0 rounded-pill border-[1.5px] border-[var(--border-strong)] bg-background text-primary ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-input disabled:bg-[#fafafa] disabled:opacity-50 data-[state=checked]:border-primary",
+      "aspect-square h-[18px] w-[18px] shrink-0 rounded-pill border-[1.5px] border-[var(--border-strong)] bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-input disabled:bg-[#fafafa] disabled:opacity-50",
+      radioColors[color],
       className
     )}
     {...props}

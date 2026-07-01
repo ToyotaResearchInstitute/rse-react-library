@@ -48,17 +48,31 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  /** Show an inline spinner and disable the button (DS button loading state). */
+  loading?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, loading = false, disabled, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    // With asChild the child must be a single element, so we don't inject a
+    // spinner (the caller composes it); otherwise render the loading spinner.
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }), loading && "cursor-wait")}
         ref={ref}
+        disabled={disabled || loading}
+        aria-busy={loading || undefined}
         {...props}
-      />
+      >
+        {!asChild && loading && (
+          <span
+            aria-hidden
+            className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent opacity-70"
+          />
+        )}
+        {children}
+      </Comp>
     )
   }
 )

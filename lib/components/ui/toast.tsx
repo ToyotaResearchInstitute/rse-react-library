@@ -38,6 +38,7 @@ const toastVariants = cva(
         default: "border bg-background text-foreground",
         success: "border bg-background text-foreground",
         error: "border bg-background text-foreground",
+        warning: "border bg-background text-foreground",
         info: "border-[#cfe2f3] bg-info-bg text-foreground",
       },
     },
@@ -62,12 +63,18 @@ Toast.displayName = ToastPrimitives.Root.displayName
 
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action> & {
+    /** `danger` = destructive (#c93030); `muted` = low-emphasis secondary action. */
+    variant?: "default" | "danger" | "muted"
+  }
+>(({ className, variant = "default", ...props }, ref) => (
   <ToastPrimitives.Action
     ref={ref}
     className={cn(
-      "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-sm border-none bg-transparent p-0 text-xs font-semibold uppercase tracking-[0.04em] text-info ring-offset-background transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+      "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-sm border-none bg-transparent p-0 text-xs font-semibold uppercase tracking-[0.04em] ring-offset-background transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+      variant === "default" && "text-info",
+      variant === "danger" && "text-[#c93030]",
+      variant === "muted" && "text-muted-foreground",
       className
     )}
     {...props}
@@ -129,6 +136,7 @@ const toastIconVariants = cva(
         default: "bg-muted text-muted-foreground",
         success: "bg-success-bg text-[#256628]",
         error: "bg-error-bg text-[#c93030]",
+        warning: "bg-[#FDF0E2] text-[#c45800]",
         info: "bg-[#ECF6FF] text-[#155a96]",
       },
     },
@@ -139,6 +147,7 @@ const toastIconVariants = cva(
 const toastIcons = {
   success: Check,
   error: AlertTriangle,
+  warning: AlertTriangle,
   info: Info,
 } as const
 

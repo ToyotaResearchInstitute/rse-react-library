@@ -141,10 +141,31 @@ const ListItemText = React.forwardRef<HTMLDivElement, ListItemTextProps>(
 )
 ListItemText.displayName = "ListItemText"
 
+/**
+ * Trailing count pill for list / sidebar-nav rows. Neutral by default; pass
+ * `active` on the selected nav row to invert to the white-on-tint treatment.
+ */
+const ListItemCount = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement> & { active?: boolean }
+>(({ className, active = false, ...props }, ref) => (
+  <span
+    ref={ref}
+    className={cn(
+      "ml-auto inline-flex min-w-5 items-center justify-center rounded-pill px-1.5 py-0.5 text-[11px] font-semibold leading-none",
+      active ? "bg-background text-info" : "bg-neutral-200 text-[var(--fg-muted)]",
+      className
+    )}
+    {...props}
+  />
+))
+ListItemCount.displayName = "ListItemCount"
+
 export {
   List,
   ListSubheader,
   ListItem,
   ListItemIcon,
   ListItemText,
+  ListItemCount,
 }

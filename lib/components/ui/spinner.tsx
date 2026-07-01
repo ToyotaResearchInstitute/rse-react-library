@@ -53,4 +53,30 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
 )
 Spinner.displayName = "Spinner"
 
-export { Spinner, spinnerVariants }
+/**
+ * Full-page / container loader. Per the DS "Full-page loader": a centered
+ * large spinner with a muted message on a subtle surface. Add `fixed inset-0`
+ * via className to cover the viewport, or drop it into any container.
+ */
+const FullPageLoader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { message?: React.ReactNode }
+>(({ className, message = "Loading…", ...props }, ref) => (
+  <div
+    ref={ref}
+    role="status"
+    className={cn(
+      "flex flex-col items-center justify-center gap-3 rounded-lg bg-[var(--bg-subtle)] p-10",
+      className
+    )}
+    {...props}
+  >
+    <Spinner size="lg" />
+    {message && (
+      <span className="text-[13px] text-[var(--fg-subtle)]">{message}</span>
+    )}
+  </div>
+))
+FullPageLoader.displayName = "FullPageLoader"
+
+export { Spinner, FullPageLoader, spinnerVariants }

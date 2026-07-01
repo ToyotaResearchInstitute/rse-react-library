@@ -19,6 +19,9 @@ const chipVariants = cva(
         filled: "bg-[#eeeeee] text-[#0b0b0d] hover:bg-[#e4e4e4]",
         outlined:
           "bg-transparent text-[#0b0b0d] border-[#d4d4d4] hover:bg-[#f5f5f5]",
+        // Dashed "+ Add" affordance
+        dashed:
+          "bg-transparent text-[#737373] border-dashed border-[#d4d4d4] hover:bg-[#f5f5f5]",
       },
       color: {
         brand: "",

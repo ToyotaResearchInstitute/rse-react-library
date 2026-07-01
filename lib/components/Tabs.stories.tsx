@@ -45,3 +45,37 @@ export const Default: Story = {
     </div>
   ),
 };
+
+export const Pills: Story = {
+  render: () => (
+    <Tabs defaultValue="all" className="w-[420px]">
+      <TabsList variant="pills">
+        <TabsTrigger value="all">All</TabsTrigger>
+        <TabsTrigger value="open">Open</TabsTrigger>
+        <TabsTrigger value="closed">Closed</TabsTrigger>
+        <TabsTrigger value="archived">Archived</TabsTrigger>
+      </TabsList>
+      <TabsContent value="all">All items.</TabsContent>
+      <TabsContent value="open">Open items.</TabsContent>
+      <TabsContent value="closed">Closed items.</TabsContent>
+      <TabsContent value="archived">Archived items.</TabsContent>
+    </Tabs>
+  ),
+};
+
+export const Segmented: Story = {
+  render: () => (
+    <Tabs defaultValue="day" className="w-[420px]">
+      <TabsList variant="segmented">
+        <TabsTrigger value="day">Day</TabsTrigger>
+        <TabsTrigger value="week">Week</TabsTrigger>
+        <TabsTrigger value="month">Month</TabsTrigger>
+        <TabsTrigger value="year">Year</TabsTrigger>
+      </TabsList>
+      <TabsContent value="day">Day view.</TabsContent>
+      <TabsContent value="week">Week view.</TabsContent>
+      <TabsContent value="month">Month view.</TabsContent>
+      <TabsContent value="year">Year view.</TabsContent>
+    </Tabs>
+  ),
+};
