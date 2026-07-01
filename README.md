@@ -1,44 +1,89 @@
 # RSE React Library
 
-This is a collection of react components that RSE uses in majority of React Web projects.
+A TRI-branded React component library used across RSE web projects. It provides
+both a ready-made application shell (`TRIApp` with Cognito auth, layout, and
+feedback) and a full set of composable UI components built on
+[Radix UI](https://www.radix-ui.com/) + [Tailwind CSS](https://tailwindcss.com/),
+styled with the TRI design-system tokens.
 
 ## Features
 
-- React: A JavaScript library for web and native user interfaces.
-- TypeScript: A strongly typed superset of JavaScript.
-- Tailwind: A utility-first CSS framework.
-- Storybook: A frontend workshop for building UI components and pages in isolation.
-- Vite: A next generation frontend tooling that runs and builds your library incredibly fast.
-- Vitest: A next generation testing framework.
-- ESLint: A tool that finds and fixes problems in your code.
-- Prettier: A code formatter.
-- Husky: A pre-commit hook.
-- Github Action: A tool that deploys your Storybook to GitHub page automatically.
+- **React + TypeScript** — strongly typed components.
+- **Radix UI primitives** — accessible, unstyled building blocks.
+- **Tailwind CSS** — utility-first styling, driven by TRI design tokens (`lib/tokens.css`).
+- **Storybook** — browse and develop every component in isolation.
+- **Vite** — fast library builds (`dist/`), with fonts inlined into the shipped CSS.
+- **Vitest, ESLint, Prettier, Husky** — testing, linting, formatting, and pre-commit hooks.
+- **GitHub Actions** — automated publish on release.
 
-
-
-## Usage
+## Installation
 
 RSE React Library is available as an [npm package](https://www.npmjs.com/package/@toyota-research-institute/rse-react-library).
 
 ```sh
-// with npm
+# with npm
 npm install @toyota-research-institute/rse-react-library
 
-// with yarn
+# with yarn
 yarn add @toyota-research-institute/rse-react-library
 ```
 
-Material Tailwind's `ThemeProvider` must wrap your application for the components to style correctly.
-```
-import { ThemeProvider } from '@material-tailwind/react';
+### Peer dependencies
 
-<ThemeProvider>
-    ...
-</ThemeProvider>
+Your app must provide these (they are not bundled):
+
+```sh
+npm install react react-dom react-router-dom
 ```
 
-Here is a quick example to get you started:
+### Import the styles once
+
+The components ship their styles (and the Gellix brand fonts, inlined as base64)
+in a single stylesheet. Import it once at your app entry point:
+
+```ts
+import '@toyota-research-institute/rse-react-library/style.css';
+```
+
+> No `ThemeProvider` is required. (Earlier versions referenced Material Tailwind —
+> that is no longer used.)
+
+## Usage
+
+### Option A — individual components
+
+```tsx
+import {
+  Button,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+} from '@toyota-research-institute/rse-react-library';
+import '@toyota-research-institute/rse-react-library/style.css';
+
+function Example() {
+  return (
+    <div>
+      <Button variant="default">Save</Button>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="a">
+          <AccordionTrigger>Details</AccordionTrigger>
+          <AccordionContent>Some content.</AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+### Option B — the full application shell
+
+`TRIApp` renders a complete TRI-branded app (header, footer, layout, Cognito auth
+gating, feedback button) from a config object:
 
 ```jsx
 import { createRoot } from 'react-dom/client';
@@ -47,42 +92,68 @@ import '@toyota-research-institute/rse-react-library/style.css';
 import config from './tri.app.config';
 
 function App() {
-    return <TRIApp config={config} />;
+  return <TRIApp config={config} />;
 }
 
-createRoot.render(<App />, document.querySelector('#app'));
+createRoot(document.querySelector('#app')).render(<App />);
 ```
 
-## Component List
-| Component | Source Code |
-| -------- | ------- |
-| Highlighter | [lib/components/highlighter.tsx](lib/components/highlighter.tsx) |
-| Select | [lib/components/select.tsx](lib/components/select.tsx) |
-| CognitoProvider | [lib/amplify/cognito-provider.tsx](lib/amplify/cognito-provider.tsx) |
+### Optional — extend the Tailwind theme
 
+If your project uses Tailwind and you want to reuse the TRI tokens (colors,
+fonts, radii, shadows) in your own utility classes, add the exported preset.
+The preset does **not** include `tailwindcss-animate`, so add it yourself for the
+components' enter/exit and accordion animations:
 
-## How to use
+```js
+// tailwind.config.js
+import { tailwindConfig } from '@toyota-research-institute/rse-react-library';
 
-1. Clone this repository
-2. Install dependencies using `npm i` (or `pnpm i` if you like)
+export default {
+  presets: [tailwindConfig],
+  content: ['./src/**/*.{ts,tsx}'],
+  plugins: [require('tailwindcss-animate')],
+};
+```
 
+## Components
 
-## Get Started
+| Category | Components |
+| -------- | --------- |
+| **App / infrastructure** | `TRIApp`, `CognitoProvider`, `useUserAuth`, `FeedbackButton`, `Highlight` / `Highlighter`, `tailwindConfig` |
+| **Form / input** | `Button`, `Input`, `Textarea`, `Label`, `Search`, `Select`, `Multiselect`, `Checkbox`, `Switch`, `RadioGroup`, `Slider`, `Calendar` |
+| **Overlays / feedback** | `Dialog`, `Drawer`, `Tooltip`, `Alert`, `Toast` / `Toaster` / `useToast` / `toast` |
+| **Display** | `Card`, `Avatar`, `Separator`, `Chip`, `NotificationDot` / `CountBadge`, `List`, `Skeleton`, `Spinner` |
+| **Navigation / structure** | `Tabs`, `Accordion`, `Pagination`, `Stepper`, `Table` |
 
-1. Clone this repository
-2. Install dependencies using `npm i` (or `pnpm i` if you like)
+Browse every component, its variants, and props in Storybook (`pnpm dev`).
+Source lives under [`lib/components`](lib/components).
+
+## Local development
+
+1. Clone this repository.
+2. Install dependencies: `pnpm i` (or `npm i`).
+3. Start Storybook: `pnpm dev` → http://localhost:6006.
 
 ## Scripts
 
-- `dev`: Starts the local Storybook server, use this to develop and preview your components.
-- `test`: Runs all your tests with vitest.
+- `dev`: Starts the local Storybook server — use this to develop and preview components.
+- `test`: Runs all tests with Vitest.
 - `test:watch`: Runs tests in watch mode.
 - `test:ui`: Runs tests with a UI.
 - `test:coverage`: Runs tests and generates a coverage report.
-- `build`: Builds your Storybook as a static web application.
-- `build:lib`: Builds your component library with Vite.
+- `build`: Builds Storybook as a static web app.
+- `build:lib`: Builds the component library with Vite (outputs `dist/`).
 - `lint`: Runs ESLint.
-- `format`: Formats your code with Prettier.
+- `format`: Formats code with Prettier.
+- `typecheck`: Type-checks the project with `tsc`.
+
+## Publishing
+
+Publishing is automated by the `release-package.yml` GitHub Action, which runs
+on a new **GitHub Release**: it builds the library (`build:lib`) and runs
+`npm publish`. To ship changes: merge to `main`, bump the `version` in
+`package.json`, then create a GitHub Release.
 
 ## License
 

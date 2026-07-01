@@ -1,0 +1,254 @@
+/* ──────────────────────────────────────────────────────────────────
+   TRI Merged Design System — tokens
+   Ported verbatim from the design-system folder (colors_and_type.css).
+   Source of truth for color, typography, spacing, radii, shadow, motion.
+   Font paths adjusted to ./fonts/ for this library.
+   ────────────────────────────────────────────────────────────────── */
+
+/* ─── Gellix — the TRI brand typeface ───────────────────────────── */
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-Thin.woff2") format("woff2");          font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-ThinItalic.woff2") format("woff2");    font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-Light.woff2") format("woff2");         font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-LightItalic.woff2") format("woff2");   font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-Regular.woff2") format("woff2");       font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-RegularItalic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-Medium.woff2") format("woff2");        font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-MediumItalic.woff2") format("woff2");  font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-SemiBold.woff2") format("woff2");      font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-SemiBoldItalic.woff2") format("woff2"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-Bold.woff2") format("woff2");          font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-BoldItalic.woff2") format("woff2");    font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-ExtraBold.woff2") format("woff2");      font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-ExtraBoldItalic.woff2") format("woff2"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-Black.woff2") format("woff2");         font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Gellix"; src: url("./fonts/Gellix-BlackItalic.woff2") format("woff2");   font-weight: 900; font-style: italic; font-display: swap; }
+
+:root {
+  /* ─── Neutrals (zinc-ish, shadcn default) ─────────────────────── */
+  --neutral-0:   #ffffff;
+  --neutral-50:  #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-150: #f0f0f0;   /* intermediate, used in cards */
+  --neutral-200: #e5e5e5;   /* default border */
+  --neutral-250: #d4d4d4;   /* hover border */
+  --neutral-300: #a1a1aa;   /* focus ring */
+  --neutral-400: #737373;   /* muted text */
+  --neutral-500: #60646c;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262627;
+  --neutral-900: #171717;   /* canonical text */
+  --neutral-950: #09090b;   /* display / dark surface */
+  --neutral-black: #000000;
+
+  /* Zinc (shadcn alt neutral, used in Obra_Shadcn) */
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-900: #18181b;
+
+  /* ─── Brand (Toyota Research Institute) ───────────────────────── */
+  --brand-red:         #cc2231;   /* Toyota Red — primary brand (from logo) */
+  --brand-red-hover:   #a81b28;
+  --brand-red-deep:    #7a0e14;   /* deep / dark red */
+  --brand-red-ink:     #8a1621;
+  --brand-steel:       #7f8183;   /* Steel Gray — secondary brand (from logo) */
+  --brand-steel-hover: #686a6c;
+  --brand-gray:        #eeeeee;   /* pale brand surface — quiet backgrounds */
+  --brand-gray-hover:  #e0e0e0;
+  --brand-pale-gray:   #e5e5e5;
+  --brand-charcoal:    #1f1f1f;
+  --brand-blush:       #fce6e8;   /* pale pink tint */
+  --brand-sky:         #ecf6ff;   /* tertiary brand tint — informational / calm surfaces */
+  --brand-sky-blue:    #5ba3d6;   /* mid-blue accent */
+
+  /* ─── Status palette — single source for system feedback ──────── */
+  /* Info — calm corporate blue */
+  --blue-500: #1d73bf;
+  --blue-600: #1d73bf;       /* primary link / info */
+  --blue-700: #155a96;
+
+  /* Success — material green */
+  --green-500: #2e7d32;
+  --green-600: #256628;
+
+  /* Warning — material orange */
+  --amber-500: #D14900;
+  --amber-600: #c45800;
+
+  /* Error — coral red */
+  --red-500:  #EB0000;
+  --red-600:  #e63a3a;
+
+  /* Status aliases (preferred names) — single source of truth is the semantic
+     --info / --success / --warning / --error tokens defined below. */
+  --status-info:    var(--info);
+  --status-warning: var(--warning);
+  --status-error:   var(--error);
+  --status-success: var(--success);
+  --status-info-bg:    var(--info-bg);
+  --status-warning-bg: var(--warning-bg);
+  --status-error-bg:   var(--error-bg);
+  --status-success-bg: var(--success-bg);
+
+  /* ─── Foreground / Background semantic ────────────────────────── */
+  --fg:           var(--neutral-900);
+  --fg-strong:    var(--neutral-950);
+  --fg-muted:     var(--neutral-400);
+  --fg-subtle:    var(--neutral-500);
+  --fg-on-brand:  var(--neutral-0);
+  --fg-on-dark:   var(--neutral-0);
+
+  --bg:           var(--neutral-0);
+  --bg-subtle:    var(--neutral-50);
+  --bg-muted:     var(--neutral-100);
+  --bg-elevated:  var(--neutral-0);
+  --bg-inverse:   var(--neutral-950);
+
+  /* ─── Borders ─────────────────────────────────────────────────── */
+  --border:        var(--neutral-200);
+  --border-hover:  var(--neutral-250);
+  --border-strong: var(--neutral-300);
+  --border-focus:  var(--neutral-300);
+
+  /* ─── Semantic aliases (links/status) ─────────────────────────── */
+  --link:           var(--blue-600);
+  --link-hover:     var(--blue-700);
+  --info:           var(--blue-500);
+  --info-bg:        #e8f2fb;
+  --success:        var(--green-500);
+  --success-bg:     #eaf4ea;
+  --warning:        var(--amber-500);
+  --warning-bg:     #fdf0e2;
+  --error:          var(--red-500);
+  --error-bg:       #ffecec;
+  /* legacy alias — prefer --error / --error-bg */
+  --danger:         var(--error);
+  --danger-bg:      var(--error-bg);
+
+  /* ─── Scrim / overlay ─────────────────────────────────────────── */
+  --scrim:          rgba(0, 0, 0, 0.5);
+  --scrim-light:    rgba(0, 0, 0, 0.25);
+  --overlay:        rgba(9, 9, 11, 0.6);
+  --blanket:        rgba(255, 255, 255, 0.8);
+
+  /* ─── Shadows ─────────────────────────────────────────────────── */
+  --shadow-xs:   0 1px 2px 0 rgba(12, 12, 13, 0.05);
+  --shadow-sm:   0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.10);
+  --shadow-md:   0 4px 4px -1px rgba(12, 12, 13, 0.05), 0 4px 4px -1px rgba(12, 12, 13, 0.10);
+  --shadow-lg:   0 10px 24px -4px rgba(12, 12, 13, 0.10), 0 4px 8px -2px rgba(12, 12, 13, 0.05);
+  --shadow-focus: 0 0 0 3px rgba(161, 161, 170, 0.35);
+
+  /* ─── Radii ───────────────────────────────────────────────────── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 9999px;
+
+  /* ─── Spacing (4px base) ──────────────────────────────────────── */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ─── Typography ──────────────────────────────────────────────── */
+  /* Gellix — primary brand typeface. Roboto is the web-font substitute. */
+  --font-sans: "Gellix", "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Gellix", "Roboto", system-ui, sans-serif;
+  /* Mono — secondary, for code/tabular. Gellix has no mono cut, so we use a web-safe stack. */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+
+  /* Weights — Gellix ships Thin/Light/Regular/Medium/SemiBold/Bold/ExtraBold/Black */
+  --fw-thin:    100;
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+  --fw-extrabold: 800;
+  --fw-black:   900;
+
+  /* Sizes */
+  --fs-10: 10px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;   /* body */
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-30: 30px;
+  --fs-36: 36px;
+  --fs-48: 48px;
+  --fs-64: 64px;
+
+  /* Line heights */
+  --lh-tight: 1;
+  --lh-snug:  1.2;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.5;
+
+  /* Letter spacing — Gellix is a geometric grotesque; tighten display generously */
+  --ls-tightest: -0.025em;
+  --ls-tight:  -0.015em;
+  --ls-normal: 0;
+  --ls-wide:   0.005em;
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-std: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:  150ms;
+  --dur-base:  200ms;
+  --dur-slow:  300ms;
+}
+
+/* ─── Dark mode ─────────────────────────────────────────────────── */
+[data-theme="dark"],
+.dark {
+  --fg:           var(--neutral-50);
+  --fg-strong:    var(--neutral-0);
+  --fg-muted:     var(--neutral-400);
+  --fg-subtle:    var(--neutral-500);
+
+  --bg:           var(--neutral-950);
+  --bg-subtle:    var(--zinc-900);
+  --bg-muted:     #1f1f22;
+  --bg-elevated:  var(--zinc-900);
+
+  --border:        #27272a;
+  --border-hover:  #3f3f46;
+  --border-strong: var(--neutral-400);
+}
+
+/* ─── Base / semantic type selectors ────────────────────────────── */
+html { font-family: var(--font-sans); color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+h1, .h1 { font-family: var(--font-display); font-size: var(--fs-48); font-weight: var(--fw-bold); line-height: var(--lh-tight); letter-spacing: var(--ls-tightest); color: var(--fg-strong); }
+h2, .h2 { font-family: var(--font-display); font-size: var(--fs-36); font-weight: var(--fw-bold); line-height: var(--lh-snug);  letter-spacing: var(--ls-tight); color: var(--fg-strong); }
+h3, .h3 { font-family: var(--font-display); font-size: var(--fs-30); font-weight: var(--fw-semibold); line-height: var(--lh-snug);  letter-spacing: var(--ls-tight); color: var(--fg-strong); }
+h4, .h4 { font-family: var(--font-display); font-size: var(--fs-24); font-weight: var(--fw-semibold); line-height: var(--lh-snug);  letter-spacing: var(--ls-tight); color: var(--fg-strong); }
+h5, .h5 { font-family: var(--font-display); font-size: var(--fs-20); font-weight: var(--fw-semibold); line-height: var(--lh-snug);  color: var(--fg-strong); }
+h6, .h6 { font-family: var(--font-display); font-size: var(--fs-16); font-weight: var(--fw-semibold); line-height: var(--lh-snug);  color: var(--fg-strong); }
+
+p, .body  { font-size: var(--fs-14); line-height: var(--lh-relaxed); color: var(--fg); letter-spacing: 0; }
+.body-lg  { font-size: var(--fs-16); line-height: var(--lh-relaxed); }
+.body-sm  { font-size: var(--fs-13); line-height: var(--lh-relaxed); }
+.caption  { font-size: var(--fs-12); line-height: var(--lh-normal); color: var(--fg-muted); }
+.overline { font-size: var(--fs-12); font-weight: var(--fw-medium); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+.label    { font-size: var(--fs-14); font-weight: var(--fw-medium); line-height: var(--lh-snug); color: var(--fg); }
+
+code, kbd, pre, .mono { font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: 0; }
+code { background: var(--bg-muted); padding: 2px 6px; border-radius: var(--radius-xs); }
+
+a, .link { color: var(--link); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+a:hover, .link:hover { color: var(--link-hover); text-decoration: underline; }

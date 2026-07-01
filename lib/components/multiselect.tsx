@@ -1,8 +1,8 @@
 import React from 'react';
+import { X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 import { Checkbox } from "./ui/checkbox";
-import { Badge } from "./ui/badge";
 
 interface MultiselectProps {
   label: string;
@@ -29,17 +29,46 @@ export const Multiselect = ({
     <div className="w-full">
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline" className="w-full justify-start">
+          <Button
+            variant="outline"
+            className="h-auto min-h-9 w-full flex-wrap justify-start py-1.5"
+          >
             {selectedOptions.length > 0 ? (
-              <div className="flex flex-wrap gap-1">
+              <div className="flex w-full flex-wrap gap-1">
                 {selectedOptions.map((opt, i) => (
-                  <Badge
+                  <span
                     key={i}
-                    variant="secondary"
-                    className="text-xs px-2 py-1"
+                    className="inline-flex items-center gap-1 rounded-xs bg-brand-gray px-2 py-0.5 text-xs font-normal text-foreground"
                   >
                     {opt}
-                  </Badge>
+                    <span
+                      role="button"
+                      aria-label={`Remove ${opt}`}
+                      tabIndex={0}
+                      className="inline-flex cursor-pointer items-center text-muted-foreground hover:text-foreground"
+                      // Stop the event on pointerDown so Radix's trigger (which opens
+                      // on pointerDown) never fires — otherwise the popover opens
+                      // instead of removing the tag.
+                      onPointerDown={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleSelect(opt);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleSelect(opt);
+                        }
+                      }}
+                    >
+                      <X className="h-3 w-3" />
+                    </span>
+                  </span>
                 ))}
               </div>
             ) : (
