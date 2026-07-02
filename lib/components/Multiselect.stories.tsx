@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import { Multiselect } from "./multiselect";
@@ -12,19 +12,45 @@ export default meta;
 
 type Story = StoryObj<typeof Multiselect>;
 
-export const Default: Story = {
-  render: () => {
-    const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+const DefaultDemo = () => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
-    return (
-      <div className="w-[300px]">
-        <Multiselect
-          label="Select options"
-          options={["Apple", "Banana", "Cherry", "Date"]}
-          selectedOptions={selectedOptions}
-          setSelectedOptions={setSelectedOptions}
-        />
-      </div>
-    );
-  },
+  return (
+    <div className="w-[300px]">
+      <Multiselect
+        label="Select options"
+        options={["Apple", "Banana", "Cherry", "Date"]}
+        selectedOptions={selectedOptions}
+        setSelectedOptions={setSelectedOptions}
+      />
+    </div>
+  );
+};
+
+export const Default: Story = {
+  render: () => <DefaultDemo />,
+};
+
+const PreselectedDemo = () => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([
+    "Apple",
+    "Banana",
+    "Cherry",
+    "Date",
+  ]);
+
+  return (
+    <div className="w-[280px]">
+      <Multiselect
+        label="Select options"
+        options={["Apple", "Banana", "Cherry", "Date"]}
+        selectedOptions={selectedOptions}
+        setSelectedOptions={setSelectedOptions}
+      />
+    </div>
+  );
+};
+
+export const Preselected: Story = {
+  render: () => <PreselectedDemo />,
 };

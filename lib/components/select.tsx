@@ -10,6 +10,10 @@ import styles from './select.module.css';
 export interface OptionType {
   label: string;
   value: string;
+  /** Right-aligned monospace meta tag (e.g. an environment label). */
+  meta?: React.ReactNode;
+  /** Disable selection of this option. */
+  disabled?: boolean;
 }
 
 interface SelectProps {
@@ -37,6 +41,8 @@ export const Select = ({ options, id, value, onChange }: SelectProps) => {
           <SelectItem
             key={`${id}-dropdown-${index}`}
             value={option.value}
+            meta={option.meta}
+            disabled={option.disabled}
           >
             {option.label}
           </SelectItem>
