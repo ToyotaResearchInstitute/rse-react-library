@@ -1,0 +1,46 @@
+.count,.dot{
+   border-radius: 6px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    left: 40%;
+}
+.dot{
+    width: 8px;
+    height: 8px;
+    padding: 0px;
+    border-radius: 50%;
+    right: 0px;
+    left: unset;
+}
+
+.red{
+    background-color: #CC2231;
+    color: white;
+}
+
+.info{
+    background-color: #1D73BF;
+    color: white;
+}
+
+.success{
+    background-color: #2E7D32;
+    color: white;
+}
+
+.warning{
+    background-color: #D14900;
+    color: white;
+}
+
+.activity{
+    background-color: #0B0B0D;
+    color: white;
+}
