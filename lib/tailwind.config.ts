@@ -101,12 +101,16 @@ const config: Omit<Config, 'content'> = {
           '0%,80%,100%': { opacity: '0.3', transform: 'translateY(0)' },
           '40%': { opacity: '1', transform: 'translateY(-4px)' },
         },
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s var(--ease-out)',
         'accordion-up': 'accordion-up 0.2s var(--ease-out)',
         'progress-indeterminate': 'progress-indeterminate 1.6s linear infinite',
         'dot-bounce': 'dot-bounce 1.2s ease-in-out infinite',
+        shimmer: 'shimmer 1.5s linear infinite',
       },
     },
   },
