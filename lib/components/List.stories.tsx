@@ -19,6 +19,8 @@ import {
   ListSubheader,
 } from "./ui/list";
 
+import { Checkbox } from "./ui/checkbox";
+
 const meta: Meta<typeof List> = {
   title: "Components/List",
   component: List,
@@ -157,52 +159,48 @@ export const SidebarNav: Story = {
 
 export const Checklist: Story = {
   render: () => {
-    const Check = ({ on }: { on?: boolean }) => (
-      <ListItemIcon unstyled>
-        <span
-          className={`flex size-4 items-center justify-center rounded-[3px] border-[1.5px] ${
-            on ? "border-primary bg-primary" : "border-neutral-400 bg-white"
-          }`}
-        >
-          {on && (
-            <span className="mt-[-2px] h-2 w-1 rotate-45 border-b-[1.5px] border-r-[1.5px] border-white" />
-          )}
-        </span>
-      </ListItemIcon>
-    );
+    const [tasks, setTasks] = React.useState([
+      { id: "workspace", label: "Set up workspace", done: true },
+      { id: "invite", label: "Invite first teammate", done: true },
+      {
+        id: "atlas",
+        label: "Connect Atlas SDK",
+        secondary: "Stream your first dataset",
+        done: false,
+      },
+      {
+        id: "benchmark",
+        label: "Run benchmark suite",
+        secondary: "Recommended for first-time users",
+        done: false,
+      },
+      { id: "publish", label: "Publish your first model", done: false },
+    ]);
+
+    const toggle = (id: string) => (checked: boolean | "indeterminate") =>
+      setTasks((prev) =>
+        prev.map((t) => (t.id === id ? { ...t, done: checked === true } : t))
+      );
+
     return (
       <List className="w-full max-w-96">
-        <ListItem>
-          <Check on />
-          <ListItemText
-            primary={
-              <span className="text-muted-foreground line-through">Set up workspace</span>
-            }
-          />
-        </ListItem>
-        <ListItem>
-          <Check on />
-          <ListItemText
-            primary={
-              <span className="text-muted-foreground line-through">Invite first teammate</span>
-            }
-          />
-        </ListItem>
-        <ListItem>
-          <Check />
-          <ListItemText primary="Connect Atlas SDK" secondary="Stream your first dataset" />
-        </ListItem>
-        <ListItem>
-          <Check />
-          <ListItemText
-            primary="Run benchmark suite"
-            secondary="Recommended for first-time users"
-          />
-        </ListItem>
-        <ListItem>
-          <Check />
-          <ListItemText primary="Publish your first model" />
-        </ListItem>
+        {tasks.map((task) => (
+          <ListItem key={task.id}>
+            <Checkbox checked={task.done} onCheckedChange={toggle(task.id)} />
+            <ListItemText
+              primary={
+                task.done ? (
+                  <span className="text-muted-foreground line-through">
+                    {task.label}
+                  </span>
+                ) : (
+                  task.label
+                )
+              }
+              secondary={task.secondary}
+            />
+          </ListItem>
+        ))}
       </List>
     );
   },

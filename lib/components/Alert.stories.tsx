@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Info, CheckCircle2, AlertTriangle, AlertCircle, X } from "lucide-react";
+import { Info, CircleCheckBig, AlertTriangle, AlertCircle, X } from "lucide-react";
 import { Alert, AlertTitle, AlertDescription } from "./ui/alert";
 
 const meta: Meta<typeof Alert> = {
@@ -41,7 +41,7 @@ export const Info_: Story = {
 export const Success: Story = {
   render: () => (
     <Alert variant="success" className="max-w-2xl">
-      <CheckCircle2 />
+      <CircleCheckBig />
       <AlertDescription>
         <AlertTitle>Payment received</AlertTitle>
         Invoice INV-2086 has been marked as paid. Receipt sent to
@@ -105,6 +105,94 @@ export const Default: Story = {
   ),
 };
 
+export const Info_Filled: Story = {
+  render: () => (
+    <Alert variant="info-filled" className="max-w-2xl">
+      <Info />
+      <AlertDescription>
+        New Version available -- refresh to update.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Success_Filled: Story = {
+  render: () => (
+    <Alert variant="success-filled" className="max-w-2xl">
+      <CircleCheckBig />
+      <AlertDescription>
+        Profile updated successfully.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Warning_Filled: Story = {
+  render: () => (
+    <Alert variant="warning-filled" className="max-w-2xl">
+      <AlertTriangle />
+      <AlertDescription>
+        Session expires in 5 minutes.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Error_Filled: Story = {
+  render: () => (
+    <Alert variant="error-filled" className="max-w-2xl">
+      <AlertCircle />
+      <AlertDescription>
+        Unable to connect -- check your network.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Info_Outlined: Story = {
+  render: () => (
+    <Alert variant="info-outline" className="max-w-2xl">
+      <Info />
+      <AlertDescription>
+        2 invitations pending approval.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Success_Outlined: Story = {
+  render: () => (
+    <Alert variant="success-outline" className="max-w-2xl">
+      <CircleCheckBig />
+      <AlertDescription>
+        Backup completed at 03:00 UTC.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Warning_Outlined: Story = {
+  render: () => (
+    <Alert variant="warning-outline" className="max-w-2xl">
+      <AlertTriangle />
+      <AlertDescription>
+        Your trial expires in 3 days.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const Error_Outlined: Story = {
+  render: () => (
+    <Alert variant="error-outline" className="max-w-2xl">
+      <AlertCircle />
+      <AlertDescription>
+        3 Fields need attention before you can publish.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
 export const AllSeverities: Story = {
   render: () => (
     <div className="flex max-w-2xl flex-col gap-3.5">
@@ -115,7 +203,7 @@ export const AllSeverities: Story = {
         </AlertDescription>
       </Alert>
       <Alert variant="success">
-        <CheckCircle2 />
+        <CircleCheckBig />
         <AlertDescription>
           <AlertTitle>Success</AlertTitle>Backup completed at 03:00 UTC.
         </AlertDescription>
