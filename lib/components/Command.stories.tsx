@@ -16,6 +16,7 @@ import {
 const meta: Meta<typeof CommandDialog> = {
   title: "Components/Command",
   component: CommandDialog,
+  tags: ["autodocs"],
 };
 
 export default meta;

@@ -48,6 +48,33 @@ export const Default: Story = {
   ),
 };
 
+export const Variants: Story = {
+  render: () => (
+    <div className="w-full max-w-[560px]">
+      <Accordion type="single" collapsible defaultValue="blue">
+        <AccordionItem value="default">
+          <AccordionTrigger>Getting started</AccordionTrigger>
+          <AccordionContent>
+            Generate a key from <b>Settings → API</b>. Pass it in the <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">Authorization: Bearer &hellip;</code> header.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="red" variant="error">
+          <AccordionTrigger>Api authentication</AccordionTrigger>
+          <AccordionContent>
+            Generate a key from <b>Settings → API</b>. Pass it in the <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">Authorization: Bearer &hellip;</code> header.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="blue" variant="info">
+          <AccordionTrigger>Rate limits</AccordionTrigger>
+          <AccordionContent>
+            Generate a key from <b>Settings → API</b>. Pass it in the <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">Authorization: Bearer &hellip;</code> header.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  ),
+};
+
 export const Multiple: Story = {
   render: () => (
     <div className="w-full max-w-[560px]">

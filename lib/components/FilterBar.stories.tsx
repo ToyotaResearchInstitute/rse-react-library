@@ -7,6 +7,7 @@ import { Search } from "./ui/search";
 const meta: Meta<typeof FilterBar> = {
   title: "Components/FilterBar",
   component: FilterBar,
+  tags: ["autodocs"],
 };
 
 export default meta;
