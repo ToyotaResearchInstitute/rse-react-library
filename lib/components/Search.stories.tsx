@@ -6,6 +6,7 @@ import { Search } from "./ui/search";
 const meta: Meta<typeof Search> = {
   title: "Components/Search",
   component: Search,
+  tags: ["autodocs"],
 };
 
 export default meta;

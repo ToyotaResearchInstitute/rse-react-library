@@ -6,6 +6,7 @@ import { DotsLoader } from "./ui/dots-loader";
 const meta: Meta<typeof Progress> = {
   title: "Components/Progress",
   component: Progress,
+  tags: ["autodocs"],
 };
 
 export default meta;

@@ -5,6 +5,7 @@ import { Snackbar } from "./ui/snackbar";
 const meta: Meta<typeof Snackbar> = {
   title: "Components/Snackbar",
   component: Snackbar,
+  tags: ["autodocs"],
 };
 
 export default meta;
