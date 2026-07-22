@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
-import { Multiselect } from "./multiselect";
+import { Multiselect } from "./ui/multiselect";
 
 const meta: Meta<typeof Multiselect> = {
   title: "Components/Multiselect",

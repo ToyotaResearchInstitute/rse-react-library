@@ -4,7 +4,7 @@ export { default as tailwindConfig } from './tailwind.config';
 export { default as TRIApp, type TRIAppConfig, useTRIAppContext } from './tri-app';
 export { default as CognitoProvider } from './amplify/cognito-provider';
 export { useUserAuth } from './amplify/use-user-auth';
-export { Highlight, Highlighter } from './components/highlighter';
+export { Highlight, Highlighter } from './components/ui/highlighter';
 export { FeedbackButton } from './layout/FeedbackButton';
 
 /* ─── Form / input ─────────────────────────────────────────────── */
@@ -25,8 +25,8 @@ export {
   FilterCount,
   type FilterChipProps,
 } from './components/ui/filter-bar';
-export { Select, type OptionType } from './components/select';
-export { Multiselect } from './components/multiselect';
+export { Select, type OptionType } from './components/ui/select';
+export { Multiselect } from './components/ui/multiselect';
 export { Checkbox } from './components/ui/checkbox';
 export { Switch } from './components/ui/switch';
 export { RadioGroup, RadioGroupItem } from './components/ui/radio-group';
