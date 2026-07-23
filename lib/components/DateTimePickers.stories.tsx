@@ -8,6 +8,7 @@ import { DateTimePicker, type DateTimeValue } from "./ui/date-time-picker";
 
 const meta: Meta = {
   title: "Components/DateTimePickers",
+  tags: ["autodocs"],
 };
 
 export default meta;

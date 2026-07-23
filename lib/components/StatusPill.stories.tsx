@@ -5,6 +5,7 @@ import { StatusPill } from "./ui/status-pill";
 const meta: Meta<typeof StatusPill> = {
   title: "Components/StatusPill",
   component: StatusPill,
+  tags: ["autodocs"],
 };
 
 export default meta;

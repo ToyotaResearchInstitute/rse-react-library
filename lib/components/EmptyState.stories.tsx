@@ -7,6 +7,7 @@ import { EmptyState } from "./ui/empty-state";
 const meta: Meta<typeof EmptyState> = {
   title: "Components/EmptyState",
   component: EmptyState,
+  tags: ["autodocs"],
 };
 
 export default meta;

@@ -5,6 +5,7 @@ import { Alert, AlertTitle, AlertDescription } from "./ui/alert";
 const meta: Meta<typeof Alert> = {
   title: "Components/Alert",
   component: Alert,
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       options: [

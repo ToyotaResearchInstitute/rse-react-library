@@ -6,6 +6,7 @@ import { Autocomplete, type AutocompleteOption } from "./ui/autocomplete";
 const meta: Meta<typeof Autocomplete> = {
   title: "Components/Autocomplete",
   component: Autocomplete,
+  tags: ["autodocs"],
 };
 
 export default meta;
