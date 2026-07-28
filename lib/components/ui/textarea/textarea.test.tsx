@@ -26,7 +26,7 @@ describe("Textarea", () => {
       render(<Textarea aria-label="bio" error />)
       const textarea = screen.getByRole("textbox")
       expect(textarea).toHaveAttribute("data-error", "")
-      expect(textarea).toHaveClass("border-error")
+      expect(textarea).toHaveClass("tri-border-error")
     })
 
     it("omits data-error when not error", () => {

@@ -13,45 +13,45 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Shapes: Story = {
   render: () => (
-    <div className="flex w-[320px] flex-col gap-3">
-      <div className="flex items-end gap-4">
-        <Skeleton className="h-10 w-10 rounded-full" />
-        <Skeleton className="h-[60px] w-[60px] rounded-lg" />
-        <Skeleton className="h-6 w-[120px]" />
+    <div className="tri-flex tri-w-[320px] tri-flex-col tri-gap-3">
+      <div className="tri-flex tri-items-end tri-gap-4">
+        <Skeleton className="tri-h-10 tri-w-10 tri-rounded-full" />
+        <Skeleton className="tri-h-[60px] tri-w-[60px] tri-rounded-lg" />
+        <Skeleton className="tri-h-6 tri-w-[120px]" />
       </div>
-      <Skeleton className="h-2.5 w-full rounded-full" />
-      <Skeleton className="h-2.5 w-[88%] rounded-full" />
-      <Skeleton className="h-2.5 w-3/5 rounded-full" />
+      <Skeleton className="tri-h-2.5 tri-w-full tri-rounded-full" />
+      <Skeleton className="tri-h-2.5 tri-w-[88%] tri-rounded-full" />
+      <Skeleton className="tri-h-2.5 tri-w-3/5 tri-rounded-full" />
     </div>
   ),
 };
 
 export const ContentCard: Story = {
   render: () => (
-    <div className="w-[300px] rounded-lg border p-4">
-      <div className="mb-3.5 flex items-center gap-3">
-        <Skeleton className="h-10 w-10 rounded-full" />
-        <div className="flex flex-1 flex-col gap-1.5">
-          <Skeleton className="h-2.5 w-[55%] rounded-full" />
-          <Skeleton className="h-2 w-[30%] rounded-full" />
+    <div className="tri-w-[300px] tri-rounded-lg tri-border tri-p-4">
+      <div className="tri-mb-3.5 tri-flex tri-items-center tri-gap-3">
+        <Skeleton className="tri-h-10 tri-w-10 tri-rounded-full" />
+        <div className="tri-flex tri-flex-1 tri-flex-col tri-gap-1.5">
+          <Skeleton className="tri-h-2.5 tri-w-[55%] tri-rounded-full" />
+          <Skeleton className="tri-h-2 tri-w-[30%] tri-rounded-full" />
         </div>
       </div>
-      <Skeleton className="mb-2 h-2.5 w-full rounded-full" />
-      <Skeleton className="mb-2 h-2.5 w-[88%] rounded-full" />
-      <Skeleton className="h-2.5 w-3/5 rounded-full" />
+      <Skeleton className="tri-mb-2 tri-h-2.5 tri-w-full tri-rounded-full" />
+      <Skeleton className="tri-mb-2 tri-h-2.5 tri-w-[88%] tri-rounded-full" />
+      <Skeleton className="tri-h-2.5 tri-w-3/5 tri-rounded-full" />
     </div>
   ),
 };
 
 export const MediaCard: Story = {
   render: () => (
-    <div className="w-[300px] overflow-hidden rounded-lg border">
-      <Skeleton className="h-[140px] w-full rounded-none" />
-      <div className="p-4">
-        <Skeleton className="mb-2.5 h-3.5 w-[70%]" />
-        <Skeleton className="mb-1.5 h-2.5 w-full rounded-full" />
-        <Skeleton className="mb-1.5 h-2.5 w-[88%] rounded-full" />
-        <Skeleton className="h-2.5 w-1/2 rounded-full" />
+    <div className="tri-w-[300px] tri-overflow-hidden tri-rounded-lg tri-border">
+      <Skeleton className="tri-h-[140px] tri-w-full tri-rounded-none" />
+      <div className="tri-p-4">
+        <Skeleton className="tri-mb-2.5 tri-h-3.5 tri-w-[70%]" />
+        <Skeleton className="tri-mb-1.5 tri-h-2.5 tri-w-full tri-rounded-full" />
+        <Skeleton className="tri-mb-1.5 tri-h-2.5 tri-w-[88%] tri-rounded-full" />
+        <Skeleton className="tri-h-2.5 tri-w-1/2 tri-rounded-full" />
       </div>
     </div>
   ),

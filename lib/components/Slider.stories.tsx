@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Slider>;
 
 export const Single: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="tri-w-80">
       <Slider defaultValue={[42]} max={100} step={1} />
     </div>
   ),
@@ -21,7 +21,7 @@ export const Single: Story = {
 
 export const Range: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="tri-w-80">
       <Slider defaultValue={[24, 66]} max={100} step={1} />
     </div>
   ),
@@ -29,7 +29,7 @@ export const Range: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="tri-w-80">
       <Slider defaultValue={[42]} max={100} step={1} disabled />
     </div>
   ),
@@ -37,7 +37,7 @@ export const Disabled: Story = {
 
 export const Steps: Story = {
   render: () => (
-    <div className="w-80">
+    <div className="tri-w-80">
       <Slider defaultValue={[60]} max={100} step={10} />
     </div>
   ),

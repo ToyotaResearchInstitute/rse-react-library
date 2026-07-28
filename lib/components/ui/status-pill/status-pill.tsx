@@ -9,15 +9,15 @@ import { cn } from "../utils"
  * neutral). Used for row status, KPI states, and inline badges.
  */
 const statusPillVariants = cva(
-  "inline-flex items-center gap-1 rounded-pill px-2 py-0.5 text-[11px] font-semibold leading-none",
+  "tri-inline-flex tri-items-center tri-gap-1 tri-rounded-pill tri-px-2 tri-py-0.5 tri-text-[11px] tri-font-semibold tri-leading-none",
   {
     variants: {
       tone: {
-        success: "bg-[#EAF4EA] text-[#256628]",
-        warning: "bg-[#FDF0E2] text-[#c45800]",
-        error: "bg-[#FFECEC] text-[#c93030]",
-        info: "bg-[#ECF6FF] text-[#155a96]",
-        neutral: "bg-[#eeeeee] text-[#404040]",
+        success: "tri-bg-[#EAF4EA] tri-text-[#256628]",
+        warning: "tri-bg-[#FDF0E2] tri-text-[#c45800]",
+        error: "tri-bg-[#FFECEC] tri-text-[#c93030]",
+        info: "tri-bg-[#ECF6FF] tri-text-[#155a96]",
+        neutral: "tri-bg-[#eeeeee] tri-text-[#404040]",
       },
     },
     defaultVariants: { tone: "neutral" },

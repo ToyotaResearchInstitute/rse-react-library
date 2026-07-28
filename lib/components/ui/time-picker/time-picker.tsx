@@ -50,7 +50,7 @@ const Column = ({
   <div
     role="listbox"
     aria-label={label}
-    className="flex max-h-[168px] flex-col overflow-y-auto rounded-md  bg-secondary "
+    className="tri-flex tri-max-h-[168px] tri-flex-col tri-overflow-y-auto tri-rounded-md  tri-bg-secondary "
   >
     {items.map((n) => {
       const active = n === selected
@@ -62,10 +62,10 @@ const Column = ({
           aria-selected={active}
           onClick={() => onSelect(n)}
           className={cn(
-            "px-4 py-1.5 text-center font-mono text-[13px] tabular-nums transition-[colors,box-shadow]",
+            "tri-px-4 tri-py-1.5 tri-text-center tri-font-mono tri-text-[13px] tri-tabular-nums tri-transition-[colors,box-shadow]",
             active
-              ? "bg-white font-bold text-foreground shadow-[0_-3px_4px_-2px_rgba(0,0,0,0.25),0_3px_4px_-2px_rgba(0,0,0,0.25)]"
-              : "text-muted-foreground hover:text-foreground hover:shadow-[0_-3px_4px_-2px_rgba(0,0,0,0.25),0_3px_4px_-2px_rgba(0,0,0,0.25)]"
+              ? "tri-bg-white tri-font-bold tri-text-foreground tri-shadow-[0_-3px_4px_-2px_rgba(0,0,0,0.25),0_3px_4px_-2px_rgba(0,0,0,0.25)]"
+              : "tri-text-muted-foreground hover:tri-text-foreground hover:tri-shadow-[0_-3px_4px_-2px_rgba(0,0,0,0.25),0_3px_4px_-2px_rgba(0,0,0,0.25)]"
           )}
         >
           {format(n)}
@@ -90,19 +90,19 @@ const TimePicker = React.forwardRef<HTMLButtonElement, TimePickerProps>(
             ref={ref}
             type="button"
             className={cn(
-              "flex h-9 w-[220px] items-center gap-2 rounded-sm border border-input bg-background px-3 text-left text-sm transition-colors hover:border-[var(--border-hover)] focus-visible:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=open]:border-foreground",
+              "tri-flex tri-h-9 tri-w-[220px] tri-items-center tri-gap-2 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-3 tri-text-left tri-text-sm tri-transition-colors hover:tri-border-[var(--tri-border-hover)] focus-visible:tri-border-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 data-[state=open]:tri-border-foreground",
               className
             )}
           >
-            <Clock className="size-4 shrink-0 text-muted-foreground" />
-            <span className={cn("flex-1", !value && "text-muted-foreground")}>
+            <Clock className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
+            <span className={cn("tri-flex-1", !value && "tri-text-muted-foreground")}>
               {value ? formatTime(value) : placeholder}
             </span>
-            <ChevronDown className="size-4 shrink-0 text-muted-foreground" />
+            <ChevronDown className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
           </button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="w-auto p-0">
-          <div className="flex items-center justify-center gap-2 p-2">
+        <PopoverContent align="start" className="tri-w-auto tri-p-0">
+          <div className="tri-flex tri-items-center tri-justify-center tri-gap-2 tri-p-2">
             <Column
               label="Hour"
               items={hours}
@@ -110,7 +110,7 @@ const TimePicker = React.forwardRef<HTMLButtonElement, TimePickerProps>(
               format={(n) => String(n)}
               onSelect={(hour) => onValueChange?.({ ...current, hour })}
             />
-            <span className=" text-gray font-bold">:</span>
+            <span className=" tri-text-gray tri-font-bold">:</span>
             <Column
               label="Minute"
               items={minutes}
@@ -118,7 +118,7 @@ const TimePicker = React.forwardRef<HTMLButtonElement, TimePickerProps>(
               format={(n) => n.toString().padStart(2, "0")}
               onSelect={(minute) => onValueChange?.({ ...current, minute })}
             />
-            <div className="flex flex-col gap-0.5 rounded-lg p-1 bg-secondary">
+            <div className="tri-flex tri-flex-col tri-gap-0.5 tri-rounded-lg tri-p-1 tri-bg-secondary">
               {(["AM", "PM"] as const).map((m) => {
                 const active = current.meridiem === m
                 return (
@@ -127,10 +127,10 @@ const TimePicker = React.forwardRef<HTMLButtonElement, TimePickerProps>(
                     type="button"
                     onClick={() => onValueChange?.({ ...current, meridiem: m })}
                     className={cn(
-                      "rounded-md px-3 py-1.5 font-mono text-[13px] transition-[colors,box-shadow]",
+                      "tri-rounded-md tri-px-3 tri-py-1.5 tri-font-mono tri-text-[13px] tri-transition-[colors,box-shadow]",
                       active
-                        ? "bg-white font-bold  text-foreground "
-                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                        ? "tri-bg-white tri-font-bold  tri-text-foreground "
+                        : "tri-bg-secondary tri-text-muted-foreground hover:tri-text-foreground"
                     )}
                   >
                     {m}

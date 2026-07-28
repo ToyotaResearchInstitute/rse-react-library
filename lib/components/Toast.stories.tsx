@@ -15,7 +15,7 @@ type Story = StoryObj;
 function Demo() {
   const { toast } = useToast();
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="tri-flex tri-flex-wrap tri-gap-3">
       <Button
         variant="ink"
         onClick={() =>

@@ -77,7 +77,7 @@ describe("Table", () => {
 
   it("applies the bordered wrapper", () => {
     const { container } = renderTable({ bordered: true })
-    expect(container.firstChild).toHaveClass("rounded-md", "border")
+    expect(container.firstChild).toHaveClass("tri-rounded-md", "tri-border")
   })
 
   it("applies striped data attribute", () => {
@@ -134,12 +134,12 @@ describe("TableCell", () => {
 
   it("right-aligns when align=right", () => {
     wrap(<TableCell align="right">9</TableCell>)
-    expect(screen.getByRole("cell")).toHaveClass("text-right")
+    expect(screen.getByRole("cell")).toHaveClass("tri-text-right")
   })
 
   it("applies mono treatment when mono is set", () => {
     wrap(<TableCell mono>ID-1</TableCell>)
-    expect(screen.getByRole("cell")).toHaveClass("font-mono")
+    expect(screen.getByRole("cell")).toHaveClass("tri-font-mono")
   })
 
   it("merges custom className", () => {
@@ -157,13 +157,13 @@ describe("TableToolbar", () => {
   it("renders the bulk-action (selected) surface", () => {
     render(<TableToolbar selected>Selected</TableToolbar>)
     expect(screen.getByText("Selected").closest("div")).toHaveClass(
-      "bg-[#fbe5e8]"
+      "tri-bg-[#fbe5e8]"
     )
   })
 
   it("renders the default surface when not selected", () => {
     render(<TableToolbar>Default</TableToolbar>)
-    expect(screen.getByText("Default").closest("div")).toHaveClass("bg-background")
+    expect(screen.getByText("Default").closest("div")).toHaveClass("tri-bg-background")
   })
 })
 
@@ -181,7 +181,7 @@ describe("TableSortButton", () => {
   it("shows the neutral (unsorted) icon by default", () => {
     const { container } = render(<TableSortButton>Name</TableSortButton>)
     // ChevronsUpDown carries the muted neutral color when unsorted.
-    expect(container.querySelector(".text-\\[var\\(--neutral-300\\)\\]")).toBeInTheDocument()
+    expect(container.querySelector(".tri-text-\\[var\\(--tri-neutral-300\\)\\]")).toBeInTheDocument()
   })
 
   it("renders an up arrow when sorted ascending", () => {
@@ -190,7 +190,7 @@ describe("TableSortButton", () => {
     )
     expect(container.querySelector("svg")).toBeInTheDocument()
     expect(
-      container.querySelector(".text-\\[var\\(--neutral-300\\)\\]")
+      container.querySelector(".tri-text-\\[var\\(--tri-neutral-300\\)\\]")
     ).not.toBeInTheDocument()
   })
 
@@ -199,7 +199,7 @@ describe("TableSortButton", () => {
       <TableSortButton direction="desc">Name</TableSortButton>
     )
     expect(
-      container.querySelector(".text-\\[var\\(--neutral-300\\)\\]")
+      container.querySelector(".tri-text-\\[var\\(--tri-neutral-300\\)\\]")
     ).not.toBeInTheDocument()
   })
 

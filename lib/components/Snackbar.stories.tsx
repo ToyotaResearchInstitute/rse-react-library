@@ -31,8 +31,8 @@ export const WithDismiss: Story = {
 
 export const BottomAnchored: Story = {
   render: () => (
-    <div className="relative flex h-64 items-end justify-center rounded-lg border border-border bg-muted p-4">
-      <Snackbar actionLabel="View" onAction={() => {}} className="min-w-[340px]">
+    <div className="tri-relative tri-flex tri-h-64 tri-items-end tri-justify-center tri-rounded-lg tri-border tri-border-border tri-bg-muted tri-p-4">
+      <Snackbar actionLabel="View" onAction={() => {}} className="tri-min-w-[340px]">
         Export ready.
       </Snackbar>
     </div>

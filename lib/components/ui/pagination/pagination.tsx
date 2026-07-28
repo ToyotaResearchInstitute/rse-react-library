@@ -13,7 +13,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-center", className)}
+    className={cn("tri-mx-auto tri-flex tri-w-full tri-justify-center", className)}
     {...props}
   />
 )
@@ -25,7 +25,7 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex flex-row items-center gap-1", className)}
+    className={cn("tri-flex tri-flex-row tri-items-center tri-gap-1", className)}
     {...props}
   />
 ))
@@ -40,7 +40,7 @@ const PaginationItem = React.forwardRef<
 PaginationItem.displayName = "PaginationItem"
 
 const paginationLinkBase =
-  "inline-flex h-8 min-w-8 select-none items-center justify-center rounded-md border border-border bg-background px-2 text-[13px] text-[#404040] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:size-3.5 [&_svg]:shrink-0"
+  "tri-inline-flex tri-h-8 tri-min-w-8 tri-select-none tri-items-center tri-justify-center tri-rounded-md tri-border tri-border-border tri-bg-background tri-px-2 tri-text-[13px] tri-text-[#404040] tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 [&_svg]:tri-size-3.5 [&_svg]:tri-shrink-0"
 
 type PaginationLinkProps = {
   isActive?: boolean
@@ -55,9 +55,9 @@ const PaginationLink = ({
 }: PaginationLinkProps) => {
   const classes = cn(
     paginationLinkBase,
-    "cursor-pointer hover:bg-muted",
+    "tri-cursor-pointer hover:tri-bg-muted",
     isActive &&
-      "border-primary bg-primary text-primary-foreground hover:bg-primary",
+      "tri-border-primary tri-bg-primary tri-text-primary-foreground hover:tri-bg-primary",
     className
   )
   const ariaCurrent = isActive ? "page" : undefined
@@ -90,7 +90,7 @@ const PaginationPrevious = ({
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
-    className={cn("px-2", className)}
+    className={cn("tri-px-2", className)}
     {...props}
   >
     <ChevronLeft />
@@ -104,7 +104,7 @@ const PaginationNext = ({
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to next page"
-    className={cn("px-2", className)}
+    className={cn("tri-px-2", className)}
     {...props}
   >
     <ChevronRight />
@@ -119,13 +119,13 @@ const PaginationEllipsis = ({
   <span
     aria-hidden
     className={cn(
-      "flex h-8 w-8 items-center justify-center px-1 text-[#a1a1aa]",
+      "tri-flex tri-h-8 tri-w-8 tri-items-center tri-justify-center tri-px-1 tri-text-[#a1a1aa]",
       className
     )}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4" />
-    <span className="sr-only">More pages</span>
+    <MoreHorizontal className="tri-h-4 tri-w-4" />
+    <span className="tri-sr-only">More pages</span>
   </span>
 )
 PaginationEllipsis.displayName = "PaginationEllipsis"

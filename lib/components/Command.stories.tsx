@@ -25,7 +25,7 @@ type Story = StoryObj<typeof CommandDialog>;
 const Palette = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex justify-center p-10">
+    <div className="tri-flex tri-justify-center tri-p-10">
       <Button variant="outline" onClick={() => setOpen(true)}>
         Open command palette (⌘K)
       </Button>

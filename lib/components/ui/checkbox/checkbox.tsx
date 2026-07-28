@@ -11,10 +11,10 @@ import { cn } from "../utils"
  * horizontal dash (not a check), per the DS.
  */
 const checkboxColors = {
-  ink: "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary",
+  ink: "data-[state=checked]:tri-border-primary data-[state=checked]:tri-bg-primary data-[state=indeterminate]:tri-border-primary data-[state=indeterminate]:tri-bg-primary",
   brand:
-    "data-[state=checked]:border-brand data-[state=checked]:bg-brand data-[state=indeterminate]:border-brand data-[state=indeterminate]:bg-brand",
-  blue: "data-[state=checked]:border-info data-[state=checked]:bg-info data-[state=indeterminate]:border-info data-[state=indeterminate]:bg-info",
+    "data-[state=checked]:tri-border-brand data-[state=checked]:tri-bg-brand data-[state=indeterminate]:tri-border-brand data-[state=indeterminate]:tri-bg-brand",
+  blue: "data-[state=checked]:tri-border-info data-[state=checked]:tri-bg-info data-[state=indeterminate]:tri-border-info data-[state=indeterminate]:tri-bg-info",
 } as const
 
 const Checkbox = React.forwardRef<
@@ -28,19 +28,19 @@ const Checkbox = React.forwardRef<
     ref={ref}
     checked={checked}
     className={cn(
-      "peer h-[18px] w-[18px] shrink-0 rounded-xs border-[1.5px] border-[var(--border-strong)] bg-background text-primary-foreground ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-input disabled:bg-[var(--bg-subtle)] disabled:opacity-60",
+      "tri-peer tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-rounded-xs tri-border-[1.5px] tri-border-[var(--tri-border-strong)] tri-bg-background tri-text-primary-foreground tri-ring-offset-background tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-cursor-not-allowed disabled:tri-border-input disabled:tri-bg-[var(--tri-bg-subtle)] disabled:tri-opacity-60",
       checkboxColors[color],
       className
     )}
     {...props}
   >
     <CheckboxPrimitive.Indicator
-      className={cn("flex items-center justify-center text-current")}
+      className={cn("tri-flex tri-items-center tri-justify-center tri-text-current")}
     >
       {checked === "indeterminate" ? (
-        <Minus className="h-4 w-4" strokeWidth={3} />
+        <Minus className="tri-h-4 tri-w-4" strokeWidth={3} />
       ) : (
-        <Check className="h-4 w-4" />
+        <Check className="tri-h-4 tri-w-4" />
       )}
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>

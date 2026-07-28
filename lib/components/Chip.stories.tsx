@@ -47,8 +47,8 @@ export const Removable: Story = {
 
 export const Recommended: Story = {
   render: () => (
-    <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap gap-2">
+    <div className="tri-flex tri-flex-col tri-gap-3">
+      <div className="tri-flex tri-flex-wrap tri-gap-2">
         <Chip color="brand">All</Chip>
         <Chip color="brand">Active</Chip>
         <Chip color="brand" selected>
@@ -56,7 +56,7 @@ export const Recommended: Story = {
         </Chip>
         <Chip color="brand">Archived</Chip>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="tri-flex tri-flex-wrap tri-gap-2">
         <Chip variant="outlined" color="brand">
           All
         </Chip>
@@ -76,9 +76,9 @@ export const Recommended: Story = {
 
 export const Colors: Story = {
   render: () => (
-    <div className="flex flex-col gap-3">
+    <div className="tri-flex tri-flex-col tri-gap-3">
       {(["brand", "ink", "info"] as const).map((color) => (
-        <div key={color} className="flex flex-wrap items-center gap-2">
+        <div key={color} className="tri-flex tri-flex-wrap tri-items-center tri-gap-2">
           <Chip color={color}>Default</Chip>
           <Chip color={color} selected>
             Filled selected
@@ -97,7 +97,7 @@ export const Colors: Story = {
 
 export const RemovableSet: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-2">
+    <div className="tri-flex tri-flex-wrap tri-gap-2">
       <Chip color="brand" selected onRemove={() => {}}>
         Active
       </Chip>

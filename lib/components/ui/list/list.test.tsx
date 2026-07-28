@@ -17,7 +17,7 @@ describe("List", () => {
     render(<List data-testid="list" />)
     const list = screen.getByTestId("list")
     expect(list.tagName).toBe("UL")
-    expect(list).toHaveClass("rounded-md", "border", "bg-background")
+    expect(list).toHaveClass("tri-rounded-md", "tri-border", "tri-bg-background")
   })
 
   it("renders children", () => {
@@ -47,7 +47,7 @@ describe("ListSubheader", () => {
     const sub = screen.getByRole("listitem")
     expect(sub.tagName).toBe("LI")
     expect(sub).toHaveTextContent("General")
-    expect(sub).toHaveClass("uppercase")
+    expect(sub).toHaveClass("tri-uppercase")
   })
 
   it("forwards ref", () => {
@@ -65,7 +65,7 @@ describe("ListItem", () => {
   it("renders interactive by default (cursor-pointer, divider)", () => {
     render(<ListItem data-testid="item">Row</ListItem>)
     const item = screen.getByTestId("item")
-    expect(item).toHaveClass("cursor-pointer", "border-b")
+    expect(item).toHaveClass("tri-cursor-pointer", "tri-border-b")
     expect(item).not.toHaveAttribute("data-active")
   })
 
@@ -77,7 +77,7 @@ describe("ListItem", () => {
     )
     const item = screen.getByTestId("item")
     expect(item).toHaveAttribute("data-active")
-    expect(item).toHaveClass("bg-brand-sky")
+    expect(item).toHaveClass("tri-bg-brand-sky")
   })
 
   it("omits interactive classes when interactive is false", () => {
@@ -86,7 +86,7 @@ describe("ListItem", () => {
         Row
       </ListItem>
     )
-    expect(screen.getByTestId("item")).not.toHaveClass("cursor-pointer")
+    expect(screen.getByTestId("item")).not.toHaveClass("tri-cursor-pointer")
   })
 
   it("hides divider when disableDivider is true", () => {
@@ -95,7 +95,7 @@ describe("ListItem", () => {
         Row
       </ListItem>
     )
-    expect(screen.getByTestId("item")).not.toHaveClass("border-b")
+    expect(screen.getByTestId("item")).not.toHaveClass("tri-border-b")
   })
 
   it("fires onClick", async () => {
@@ -130,21 +130,21 @@ describe("ListItemIcon", () => {
       </ListItemIcon>
     )
     const icon = screen.getByTestId("icon")
-    expect(icon).toHaveClass("size-8", "rounded-md", "bg-muted")
+    expect(icon).toHaveClass("tri-size-8", "tri-rounded-md", "tri-bg-muted")
   })
 
   it("renders plain style (bare icon)", () => {
     render(<ListItemIcon data-testid="icon" plain />)
     const icon = screen.getByTestId("icon")
-    expect(icon).toHaveClass("size-4", "text-current")
-    expect(icon).not.toHaveClass("bg-muted")
+    expect(icon).toHaveClass("tri-size-4", "tri-text-current")
+    expect(icon).not.toHaveClass("tri-bg-muted")
   })
 
   it("renders no chip/plain styling when unstyled", () => {
     render(<ListItemIcon data-testid="icon" unstyled />)
     const icon = screen.getByTestId("icon")
-    expect(icon).not.toHaveClass("bg-muted")
-    expect(icon).not.toHaveClass("size-8")
+    expect(icon).not.toHaveClass("tri-bg-muted")
+    expect(icon).not.toHaveClass("tri-size-8")
   })
 
   it("forwards ref", () => {
@@ -194,7 +194,7 @@ describe("ListItemCount", () => {
     render(<ListItemCount data-testid="count">5</ListItemCount>)
     const count = screen.getByTestId("count")
     expect(count).toHaveTextContent("5")
-    expect(count).toHaveClass("bg-neutral-200")
+    expect(count).toHaveClass("tri-bg-neutral-200")
   })
 
   it("renders active (inverted) treatment", () => {
@@ -204,8 +204,8 @@ describe("ListItemCount", () => {
       </ListItemCount>
     )
     const count = screen.getByTestId("count")
-    expect(count).toHaveClass("bg-background", "text-info")
-    expect(count).not.toHaveClass("bg-neutral-200")
+    expect(count).toHaveClass("tri-bg-background", "tri-text-info")
+    expect(count).not.toHaveClass("tri-bg-neutral-200")
   })
 
   it("forwards ref and merges className", () => {

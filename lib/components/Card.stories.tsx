@@ -25,11 +25,11 @@ type CardStory = StoryObj<typeof Card>;
 
 export const Variants: CardStory = {
   render: () => (
-    <div className="flex gap-4">
+    <div className="tri-flex tri-gap-4">
       {(["outlined", "elevated", "flat"] as const).map((v) => (
-        <Card key={v} variant={v} className="w-52">
+        <Card key={v} variant={v} className="tri-w-52">
           <CardHeader>
-            <CardTitle className="capitalize">{v}</CardTitle>
+            <CardTitle className="tri-capitalize">{v}</CardTitle>
             <CardDescription>Surface treatment</CardDescription>
           </CardHeader>
         </Card>
@@ -40,7 +40,7 @@ export const Variants: CardStory = {
 
 export const Clickable: CardStory = {
   render: () => (
-    <Card clickable className="w-64">
+    <Card clickable className="tri-w-64">
       <CardHeader>
         <CardEyebrow>Dataset</CardEyebrow>
         <CardTitle>atlas-drives-q2</CardTitle>
@@ -52,7 +52,7 @@ export const Clickable: CardStory = {
 
 export const ArticleMedia: CardStory = {
   render: () => (
-    <Card variant="elevated" className="w-72 overflow-hidden">
+    <Card variant="elevated" className="tri-w-72 tri-overflow-hidden">
       <CardMedia>Latent video models</CardMedia>
       <CardHeader>
         <CardEyebrow>Research · 8 min read</CardEyebrow>
@@ -65,11 +65,11 @@ export const ArticleMedia: CardStory = {
 
 export const StatTiles: CardStory = {
   render: () => (
-    <div className="flex gap-4">
-      <Card className="w-44">
+    <div className="tri-flex tri-gap-4">
+      <Card className="tri-w-44">
         <StatCard label="Datasets" value="1,284" delta="+12%" deltaDirection="up" />
       </Card>
-      <Card className="w-44">
+      <Card className="tri-w-44">
         <StatCard label="Errors" value="37" delta="-8%" deltaDirection="down" />
       </Card>
     </div>
@@ -80,7 +80,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Outlined: Story = {
   render: () => (
-    <Card className="w-80">
+    <Card className="tri-w-80">
       <CardHeader>
         <CardTitle>Outlined card</CardTitle>
         <CardDescription>
@@ -93,7 +93,7 @@ export const Outlined: Story = {
 
 export const WithFooter: Story = {
   render: () => (
-    <Card className="w-80">
+    <Card className="tri-w-80">
       <CardHeader>
         <CardTitle>Atlas SDK 2.0</CardTitle>
         <CardDescription>
@@ -111,13 +111,13 @@ export const WithFooter: Story = {
 
 export const WithContent: Story = {
   render: () => (
-    <Card className="w-80">
+    <Card className="tri-w-80">
       <CardHeader>
         <CardTitle>atlas-drives-q2</CardTitle>
         <CardDescription>Dataset</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-[13px] text-muted-foreground">
+        <p className="tri-text-[13px] tri-text-muted-foreground">
           1.28M labeled drives · 24 cities · updated 2h ago.
         </p>
       </CardContent>
@@ -127,13 +127,13 @@ export const WithContent: Story = {
 
 export const KpiTile: Story = {
   render: () => (
-    <Card className="w-64">
-      <CardContent className="flex flex-col gap-1 p-5">
-        <span className="text-xs text-muted-foreground">Active drives</span>
-        <span className="text-[32px] font-semibold tracking-tight text-foreground">
+    <Card className="tri-w-64">
+      <CardContent className="tri-flex tri-flex-col tri-gap-1 tri-p-5">
+        <span className="tri-text-xs tri-text-muted-foreground">Active drives</span>
+        <span className="tri-text-[32px] tri-font-semibold tri-tracking-tight tri-text-foreground">
           2,884
         </span>
-        <span className="text-xs font-medium text-success">↑ 24.8% vs Q1</span>
+        <span className="tri-text-xs tri-font-medium tri-text-success">↑ 24.8% vs Q1</span>
       </CardContent>
     </Card>
   ),
@@ -141,20 +141,20 @@ export const KpiTile: Story = {
 
 export const Gallery: Story = {
   render: () => (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="tri-grid tri-grid-cols-3 tri-gap-5">
       <Card>
         <CardHeader>
           <CardTitle>Outlined</CardTitle>
           <CardDescription>Hairline border on white.</CardDescription>
         </CardHeader>
       </Card>
-      <Card className="border-transparent shadow-md">
+      <Card className="tri-border-transparent tri-shadow-md">
         <CardHeader>
           <CardTitle>Elevated</CardTitle>
           <CardDescription>Soft shadow, no border.</CardDescription>
         </CardHeader>
       </Card>
-      <Card className="border-transparent bg-muted shadow-none">
+      <Card className="tri-border-transparent tri-bg-muted tri-shadow-none">
         <CardHeader>
           <CardTitle>Flat</CardTitle>
           <CardDescription>Tinted background, no border.</CardDescription>

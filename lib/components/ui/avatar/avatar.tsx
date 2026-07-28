@@ -12,20 +12,20 @@ import { cn } from "../utils"
  * `AvatarPresence`, and overlapping stacks via `AvatarGroup`.
  */
 const avatarVariants = cva(
-  "relative flex shrink-0 overflow-hidden",
+  "tri-relative tri-flex tri-shrink-0 tri-overflow-hidden",
   {
     variants: {
       size: {
-        xs: "h-6 w-6 text-[10px]",
-        s: "h-8 w-8 text-xs",
-        m: "h-10 w-10 text-sm",
-        l: "h-14 w-14 text-lg",
-        xl: "h-20 w-20 text-2xl",
+        xs: "tri-h-6 tri-w-6 tri-text-[10px]",
+        s: "tri-h-8 tri-w-8 tri-text-xs",
+        m: "tri-h-10 tri-w-10 tri-text-sm",
+        l: "tri-h-14 tri-w-14 tri-text-lg",
+        xl: "tri-h-20 tri-w-20 tri-text-2xl",
       },
       shape: {
-        circle: "rounded-pill",
-        rounded: "rounded-lg",
-        square: "rounded-sm",
+        circle: "tri-rounded-pill",
+        rounded: "tri-rounded-lg",
+        square: "tri-rounded-sm",
       },
     },
     defaultVariants: { size: "m", shape: "circle" },
@@ -51,7 +51,7 @@ const AvatarImage = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
     ref={ref}
-    className={cn("aspect-square h-full w-full object-cover", className)}
+    className={cn("tri-aspect-square tri-h-full tri-w-full tri-object-cover", className)}
     {...props}
   />
 ))
@@ -59,14 +59,14 @@ AvatarImage.displayName = AvatarPrimitive.Image.displayName
 
 /** Named tint tokens for initials / icon fallbacks (DS `.c-*`). */
 const avatarFallbackColors = {
-  neutral: "bg-[#eeeeee] text-[#404040]",
-  red: "bg-[#fbe5e8] text-[#a81b28]",
-  blue: "bg-[#ECF6FF] text-[#155a96]",
-  green: "bg-[#EAF4EA] text-[#256628]",
-  amber: "bg-[#FDF0E2] text-[#c45800]",
-  purple: "bg-[#efe6f8] text-[#5e3792]",
-  steel: "bg-[#e6e7e8] text-[#525252]",
-  dark: "bg-[#0b0b0d] text-white",
+  neutral: "tri-bg-[#eeeeee] tri-text-[#404040]",
+  red: "tri-bg-[#fbe5e8] tri-text-[#a81b28]",
+  blue: "tri-bg-[#ECF6FF] tri-text-[#155a96]",
+  green: "tri-bg-[#EAF4EA] tri-text-[#256628]",
+  amber: "tri-bg-[#FDF0E2] tri-text-[#c45800]",
+  purple: "tri-bg-[#efe6f8] tri-text-[#5e3792]",
+  steel: "tri-bg-[#e6e7e8] tri-text-[#525252]",
+  dark: "tri-bg-[#0b0b0d] tri-text-white",
 } as const
 
 const AvatarFallback = React.forwardRef<
@@ -79,7 +79,7 @@ const AvatarFallback = React.forwardRef<
   <AvatarPrimitive.Fallback
     ref={ref}
     className={cn(
-      "flex h-full w-full items-center justify-center font-semibold [&_svg]:size-[45%]",
+      "tri-flex tri-h-full tri-w-full tri-items-center tri-justify-center tri-font-semibold [&_svg]:tri-size-[45%]",
       avatarFallbackColors[color],
       className
     )}
@@ -95,16 +95,16 @@ const AvatarWrap = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <span
     ref={ref}
-    className={cn("relative inline-flex", className)}
+    className={cn("tri-relative tri-inline-flex", className)}
     {...props}
   />
 ))
 AvatarWrap.displayName = "AvatarWrap"
 
 const presenceColors = {
-  online: "bg-[#2E7D32]",
-  away: "bg-[#D14900]",
-  offline: "bg-[#a1a1aa]",
+  online: "tri-bg-[#2E7D32]",
+  away: "tri-bg-[#D14900]",
+  offline: "tri-bg-[#a1a1aa]",
 } as const
 
 /** Presence status dot — place inside an `AvatarWrap` next to the avatar. */
@@ -118,7 +118,7 @@ const AvatarPresence = React.forwardRef<
     ref={ref}
     aria-label={status}
     className={cn(
-      "absolute -bottom-0.5 -right-0.5 z-[1] size-3.5 rounded-pill border-2 border-white shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+      "tri-absolute -tri-bottom-0.5 -tri-right-0.5 tri-z-[1] tri-size-3.5 tri-rounded-pill tri-border-2 tri-border-white tri-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
       presenceColors[status],
       className
     )}
@@ -136,7 +136,7 @@ const AvatarGroup = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "inline-flex [&>*]:border-2 [&>*]:border-white [&>*:not(:first-child)]:-ml-2.5",
+      "tri-inline-flex [&>*]:tri-border-2 [&>*]:tri-border-white [&>*:not(:first-child)]:-tri-ml-2.5",
       className
     )}
     {...props}

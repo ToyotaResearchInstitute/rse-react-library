@@ -132,7 +132,7 @@ describe("Dialog subcomponents", () => {
       </Dialog>
     )
     await screen.findByRole("dialog")
-    expect(screen.getByText("T")).toHaveClass("title-x", "font-semibold")
+    expect(screen.getByText("T")).toHaveClass("title-x", "tri-font-semibold")
     expect(ref.current).not.toBeNull()
   })
 
@@ -148,8 +148,8 @@ describe("Dialog subcomponents", () => {
       </Dialog>
     )
     await screen.findByRole("dialog")
-    expect(screen.getByTestId("hdr")).toHaveClass("flex", "flex-col")
-    expect(screen.getByTestId("ftr")).toHaveClass("justify-end", "border-t")
+    expect(screen.getByTestId("hdr")).toHaveClass("tri-flex", "tri-flex-col")
+    expect(screen.getByTestId("ftr")).toHaveClass("tri-justify-end", "tri-border-t")
   })
 
   it("DialogContent merges custom className", async () => {
@@ -162,6 +162,6 @@ describe("Dialog subcomponents", () => {
       </Dialog>
     )
     const dialog = await screen.findByRole("dialog")
-    expect(dialog).toHaveClass("content-x", "fixed")
+    expect(dialog).toHaveClass("content-x", "tri-fixed")
   })
 })

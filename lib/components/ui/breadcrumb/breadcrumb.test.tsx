@@ -92,7 +92,7 @@ describe("BreadcrumbLink", () => {
     render(<BreadcrumbLink href="/x">Link</BreadcrumbLink>)
     const link = screen.getByRole("link", { name: "Link" })
     expect(link).toHaveAttribute("href", "/x")
-    expect(link).toHaveClass("text-info", "underline")
+    expect(link).toHaveClass("tri-text-info", "tri-underline")
   })
 
   it("fires onClick", async () => {
@@ -121,7 +121,7 @@ describe("BreadcrumbPage", () => {
     expect(page).toHaveAttribute("role", "link")
     expect(page).toHaveAttribute("aria-current", "page")
     expect(page).toHaveAttribute("aria-disabled", "true")
-    expect(page).toHaveClass("font-medium", "text-foreground")
+    expect(page).toHaveClass("tri-font-medium", "tri-text-foreground")
   })
 
   it("forwards ref", () => {

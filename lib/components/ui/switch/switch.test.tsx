@@ -72,9 +72,9 @@ describe("Switch", () => {
   })
 
   it.each([
-    ["ink", "data-[state=checked]:bg-primary"],
-    ["brand", "data-[state=checked]:bg-brand"],
-    ["blue", "data-[state=checked]:bg-info"],
+    ["ink", "data-[state=checked]:tri-bg-primary"],
+    ["brand", "data-[state=checked]:tri-bg-brand"],
+    ["blue", "data-[state=checked]:tri-bg-info"],
   ] as const)("applies color=%s classes", (color, expectedClass) => {
     render(<Switch aria-label="s" color={color} />)
     expect(screen.getByRole("switch")).toHaveClass(expectedClass)
@@ -83,7 +83,7 @@ describe("Switch", () => {
   it("defaults to ink color when unspecified", () => {
     render(<Switch aria-label="s" />)
     expect(screen.getByRole("switch")).toHaveClass(
-      "data-[state=checked]:bg-primary"
+      "data-[state=checked]:tri-bg-primary"
     )
   })
 

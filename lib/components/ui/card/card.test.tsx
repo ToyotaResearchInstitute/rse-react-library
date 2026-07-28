@@ -21,13 +21,13 @@ describe("Card", () => {
     render(<Card data-testid="card">content</Card>)
     const card = screen.getByTestId("card")
     expect(card).toBeInTheDocument()
-    expect(card).toHaveClass("border", "bg-card", "shadow-none")
+    expect(card).toHaveClass("tri-border", "tri-bg-card", "tri-shadow-none")
   })
 
   it.each([
-    ["outlined", "bg-card"],
-    ["elevated", "border-transparent"],
-    ["flat", "bg-muted"],
+    ["outlined", "tri-bg-card"],
+    ["elevated", "tri-border-transparent"],
+    ["flat", "tri-bg-muted"],
   ] as const)("applies variant=%s", (variant, expected) => {
     render(
       <Card data-testid="card" variant={variant}>
@@ -43,12 +43,12 @@ describe("Card", () => {
         x
       </Card>
     )
-    expect(screen.getByTestId("card")).toHaveClass("cursor-pointer")
+    expect(screen.getByTestId("card")).toHaveClass("tri-cursor-pointer")
   })
 
   it("does not add cursor-pointer when clickable is false (default)", () => {
     render(<Card data-testid="card">x</Card>)
-    expect(screen.getByTestId("card")).not.toHaveClass("cursor-pointer")
+    expect(screen.getByTestId("card")).not.toHaveClass("tri-cursor-pointer")
   })
 
   it("fires onClick when clicked", async () => {
@@ -80,7 +80,7 @@ describe("Card", () => {
 
   it("cardVariants helper reflects variant and clickable", () => {
     const result = cardVariants({ variant: "elevated", clickable: true })
-    expect(result).toContain("cursor-pointer")
+    expect(result).toContain("tri-cursor-pointer")
   })
 })
 
@@ -108,7 +108,7 @@ describe("Card subcomponents", () => {
     render(<CardMedia data-testid="media">IMAGE</CardMedia>)
     const media = screen.getByTestId("media")
     expect(media).toHaveTextContent("IMAGE")
-    expect(media).toHaveClass("h-[140px]")
+    expect(media).toHaveClass("tri-h-[140px]")
   })
 
   it.each([
@@ -158,7 +158,7 @@ describe("StatCard", () => {
     render(<StatCard label="Users" value="42" delta="+12%" />)
     const delta = screen.getByText("+12%")
     expect(delta).toBeInTheDocument()
-    expect(delta).toHaveClass("text-[#256628]")
+    expect(delta).toHaveClass("tri-text-[#256628]")
   })
 
   it("renders delta with down direction (red)", () => {
@@ -166,7 +166,7 @@ describe("StatCard", () => {
       <StatCard label="Users" value="42" delta="-5%" deltaDirection="down" />
     )
     const delta = screen.getByText("-5%")
-    expect(delta).toHaveClass("text-[#c93030]")
+    expect(delta).toHaveClass("tri-text-[#c93030]")
   })
 
   it("forwards ref and merges className", () => {

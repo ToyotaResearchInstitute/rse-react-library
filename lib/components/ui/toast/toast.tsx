@@ -22,7 +22,7 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed bottom-0 right-0 z-[100] flex max-h-screen w-full flex-col-reverse gap-2 p-4 sm:bottom-4 sm:right-4 sm:top-auto sm:flex-col sm:gap-3 md:max-w-[400px]",
+      "tri-fixed tri-bottom-0 tri-right-0 tri-z-[100] tri-flex tri-max-h-screen tri-w-full tri-flex-col-reverse tri-gap-2 tri-p-4 sm:tri-bottom-4 sm:tri-right-4 sm:tri-top-auto sm:tri-flex-col sm:tri-gap-3 md:tri-max-w-[400px]",
       className
     )}
     {...props}
@@ -31,15 +31,15 @@ const ToastViewport = React.forwardRef<
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName
 
 const toastVariants = cva(
-  "group pointer-events-auto relative flex w-full items-start gap-3 overflow-hidden rounded-lg border p-3.5 pr-9 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-bottom-full sm:data-[state=open]:slide-in-from-right-full",
+  "tri-group tri-pointer-events-auto tri-relative tri-flex tri-w-full tri-items-start tri-gap-3 tri-overflow-hidden tri-rounded-lg tri-border tri-p-3.5 tri-pr-9 tri-shadow-lg tri-transition-all data-[swipe=cancel]:tri-translate-x-0 data-[swipe=end]:tri-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:tri-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:tri-transition-none data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[swipe=end]:tri-animate-out data-[state=closed]:tri-fade-out-80 data-[state=closed]:tri-slide-out-to-right-full data-[state=open]:tri-slide-in-from-bottom-full sm:data-[state=open]:tri-slide-in-from-right-full",
   {
     variants: {
       variant: {
-        default: "border bg-background text-foreground",
-        success: "border bg-background text-foreground",
-        error: "border bg-background text-foreground",
-        warning: "border bg-background text-foreground",
-        info: "border-[#cfe2f3] bg-info-bg text-foreground",
+        default: "tri-border tri-bg-background tri-text-foreground",
+        success: "tri-border tri-bg-background tri-text-foreground",
+        error: "tri-border tri-bg-background tri-text-foreground",
+        warning: "tri-border tri-bg-background tri-text-foreground",
+        info: "tri-border-[#cfe2f3] tri-bg-info-bg tri-text-foreground",
       },
     },
     defaultVariants: {
@@ -71,10 +71,10 @@ const ToastAction = React.forwardRef<
   <ToastPrimitives.Action
     ref={ref}
     className={cn(
-      "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-sm border-none bg-transparent p-0 text-xs font-semibold uppercase tracking-[0.04em] ring-offset-background transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
-      variant === "default" && "text-info",
-      variant === "danger" && "text-[#c93030]",
-      variant === "muted" && "text-muted-foreground",
+      "tri-inline-flex tri-shrink-0 tri-cursor-pointer tri-items-center tri-justify-center tri-rounded-sm tri-border-none tri-bg-transparent tri-p-0 tri-text-xs tri-font-semibold tri-uppercase tri-tracking-[0.04em] tri-ring-offset-background tri-transition-colors hover:tri-underline focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring disabled:tri-pointer-events-none disabled:tri-opacity-50",
+      variant === "default" && "tri-text-info",
+      variant === "danger" && "tri-text-[#c93030]",
+      variant === "muted" && "tri-text-muted-foreground",
       className
     )}
     {...props}
@@ -89,13 +89,13 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      "absolute right-2.5 top-2.5 rounded-sm p-0.5 text-muted-foreground opacity-70 transition-opacity hover:text-foreground hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring",
+      "tri-absolute tri-right-2.5 tri-top-2.5 tri-rounded-sm tri-p-0.5 tri-text-muted-foreground tri-opacity-70 tri-transition-opacity hover:tri-text-foreground hover:tri-opacity-100 focus:tri-opacity-100 focus:tri-outline-none focus:tri-ring-2 focus:tri-ring-ring",
       className
     )}
     toast-close=""
     {...props}
   >
-    <X className="h-3.5 w-3.5" />
+    <X className="tri-h-3.5 tri-w-3.5" />
   </ToastPrimitives.Close>
 ))
 ToastClose.displayName = ToastPrimitives.Close.displayName
@@ -106,7 +106,7 @@ const ToastTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}
-    className={cn("text-sm font-semibold text-foreground", className)}
+    className={cn("tri-text-sm tri-font-semibold tri-text-foreground", className)}
     {...props}
   />
 ))
@@ -118,7 +118,7 @@ const ToastDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("text-[13px] leading-snug text-muted-foreground", className)}
+    className={cn("tri-text-[13px] tri-leading-snug tri-text-muted-foreground", className)}
     {...props}
   />
 ))
@@ -129,15 +129,15 @@ ToastDescription.displayName = ToastPrimitives.Description.displayName
  * tinted icon badges in the Snackbar & toast preview.
  */
 const toastIconVariants = cva(
-  "flex h-8 w-8 shrink-0 items-center justify-center rounded-full [&_svg]:h-4 [&_svg]:w-4",
+  "tri-flex tri-h-8 tri-w-8 tri-shrink-0 tri-items-center tri-justify-center tri-rounded-full [&_svg]:tri-h-4 [&_svg]:tri-w-4",
   {
     variants: {
       variant: {
-        default: "bg-muted text-muted-foreground",
-        success: "bg-success-bg text-[#256628]",
-        error: "bg-error-bg text-[#c93030]",
-        warning: "bg-[#FDF0E2] text-[#c45800]",
-        info: "bg-[#ECF6FF] text-[#155a96]",
+        default: "tri-bg-muted tri-text-muted-foreground",
+        success: "tri-bg-success-bg tri-text-[#256628]",
+        error: "tri-bg-error-bg tri-text-[#c93030]",
+        warning: "tri-bg-[#FDF0E2] tri-text-[#c45800]",
+        info: "tri-bg-[#ECF6FF] tri-text-[#155a96]",
       },
     },
     defaultVariants: { variant: "default" },
@@ -186,7 +186,7 @@ function Toaster() {
         return (
           <Toast key={id} variant={variant} {...props}>
             <ToastIcon variant={variant} />
-            <div className="grid flex-1 gap-1">
+            <div className="tri-grid tri-flex-1 tri-gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
                 <ToastDescription>{description}</ToastDescription>

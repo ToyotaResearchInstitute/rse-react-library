@@ -13,7 +13,7 @@ type Story = StoryObj<typeof StatusPill>;
 
 export const AllTones: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-2 p-6">
+    <div className="tri-flex tri-flex-wrap tri-gap-2 tri-p-6">
       <StatusPill tone="success">Active</StatusPill>
       <StatusPill tone="warning">Pending</StatusPill>
       <StatusPill tone="error">Failed</StatusPill>

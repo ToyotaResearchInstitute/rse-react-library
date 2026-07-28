@@ -13,28 +13,28 @@ import { cn } from "../utils"
  * svg as the first child, e.g. a lucide-react icon at h-5 w-5).
  */
 const alertVariants = cva(
-  "relative flex w-full items-start gap-3 rounded-md border px-4 py-3.5 text-sm leading-snug [&>svg]:mt-px [&>svg]:h-5 [&>svg]:w-5 [&>svg]:shrink-0 [&>svg]:text-current",
+  "tri-relative tri-flex tri-w-full tri-items-start tri-gap-3 tri-rounded-md tri-border tri-px-4 tri-py-3.5 tri-text-sm tri-leading-snug [&>svg]:tri-mt-px [&>svg]:tri-h-5 [&>svg]:tri-w-5 [&>svg]:tri-shrink-0 [&>svg]:tri-text-current",
   {
     variants: {
       variant: {
-        default: "border-[var(--border)] bg-background text-foreground",
+        default: "tri-border-[var(--tri-border)] tri-bg-background tri-text-foreground",
         // Tinted (recommended) — soft background, status border, deepened text for AA contrast
-        info: "border-[#1D73BF] bg-[#ECF6FF] text-[#0F4F87]",
-        success: "border-[#2E7D32] bg-[#EAF4EA] text-[#1F5E22]",
-        warning: "border-[#D14900] bg-[#FDF0E2] text-[#D14900]",
-        error: "border-[#EB0000] bg-[#FFECEC] text-[#A1242C]",
+        info: "tri-border-[#1D73BF] tri-bg-[#ECF6FF] tri-text-[#0F4F87]",
+        success: "tri-border-[#2E7D32] tri-bg-[#EAF4EA] tri-text-[#1F5E22]",
+        warning: "tri-border-[#D14900] tri-bg-[#FDF0E2] tri-text-[#D14900]",
+        error: "tri-border-[#EB0000] tri-bg-[#FFECEC] tri-text-[#A1242C]",
         // Alias of error
-        destructive: "border-[#EB0000] bg-[#FFECEC] text-[#A1242C]",
+        destructive: "tri-border-[#EB0000] tri-bg-[#FFECEC] tri-text-[#A1242C]",
         // Filled — solid status surface, white text (high-priority system banners)
-        "info-filled": "border-[#1D73BF] bg-[#1D73BF] text-white",
-        "success-filled": "border-[#2E7D32] bg-[#2E7D32] text-white",
-        "warning-filled": "border-[#D14900] bg-[#D14900] text-white",
-        "error-filled": "border-[#EB0000] bg-[#EB0000] text-white",
+        "info-filled": "tri-border-[#1D73BF] tri-bg-[#1D73BF] tri-text-white",
+        "success-filled": "tri-border-[#2E7D32] tri-bg-[#2E7D32] tri-text-white",
+        "warning-filled": "tri-border-[#D14900] tri-bg-[#D14900] tri-text-white",
+        "error-filled": "tri-border-[#EB0000] tri-bg-[#EB0000] tri-text-white",
         // Outlined — transparent surface, status border + deepened text (quiet inline notes)
-        "info-outline": "border-[#1D73BF] bg-transparent text-[#0F4F87]",
-        "success-outline": "border-[#2E7D32] bg-transparent text-[#1F5E22]",
-        "warning-outline": "border-[#D14900] bg-transparent text-[#D14900]",
-        "error-outline": "border-[#EB0000] bg-transparent text-[#A1242C]",
+        "info-outline": "tri-border-[#1D73BF] tri-bg-transparent tri-text-[#0F4F87]",
+        "success-outline": "tri-border-[#2E7D32] tri-bg-transparent tri-text-[#1F5E22]",
+        "warning-outline": "tri-border-[#D14900] tri-bg-transparent tri-text-[#D14900]",
+        "error-outline": "tri-border-[#EB0000] tri-bg-transparent tri-text-[#A1242C]",
       },
     },
     defaultVariants: {
@@ -62,7 +62,7 @@ const AlertTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h5
     ref={ref}
-    className={cn("mb-0.5 font-semibold leading-snug", className)}
+    className={cn("tri-mb-0.5 tri-font-semibold tri-leading-snug", className)}
     {...props}
   />
 ))
@@ -74,7 +74,7 @@ const AlertDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("min-w-0 flex-1 text-sm leading-snug [&_p]:leading-snug", className)}
+    className={cn("tri-min-w-0 tri-flex-1 tri-text-sm tri-leading-snug [&_p]:tri-leading-snug", className)}
     {...props}
   />
 ))
@@ -93,8 +93,8 @@ const AlertAction = React.forwardRef<
     ref={ref}
     type={type}
     className={cn(
-      "cursor-pointer rounded-sm border bg-transparent px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.04em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      onFilled ? "border-white/70 text-current" : "border-current text-current",
+      "tri-cursor-pointer tri-rounded-sm tri-border tri-bg-transparent tri-px-2.5 tri-py-1 tri-text-xs tri-font-semibold tri-uppercase tri-tracking-[0.04em] tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2",
+      onFilled ? "tri-border-white/70 tri-text-current" : "tri-border-current tri-text-current",
       className
     )}
     {...props}

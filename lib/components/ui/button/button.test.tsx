@@ -17,28 +17,28 @@ describe("Button", () => {
     render(<Button>Default</Button>)
 
     const button = screen.getByRole("button")
-    expect(button).toHaveClass("bg-brand", "text-brand-foreground", "h-9")
+    expect(button).toHaveClass("tri-bg-brand", "tri-text-brand-foreground", "tri-h-9")
   })
 
   it.each([
-    ["default", "bg-brand"],
-    ["secondary", "bg-background"],
-    ["ghost", "bg-transparent"],
-    ["outline", "border-input"],
-    ["destructive", "bg-destructive"],
-    ["link", "text-link"],
-    ["ink", "bg-primary"],
-    ["blue", "bg-info"],
+    ["default", "tri-bg-brand"],
+    ["secondary", "tri-bg-background"],
+    ["ghost", "tri-bg-transparent"],
+    ["outline", "tri-border-input"],
+    ["destructive", "tri-bg-destructive"],
+    ["link", "tri-text-link"],
+    ["ink", "tri-bg-primary"],
+    ["blue", "tri-bg-info"],
   ] as const)("renders variant=%s", (variant, expectedClass) => {
     render(<Button variant={variant}>Btn</Button>)
     expect(screen.getByRole("button")).toHaveClass(expectedClass)
   })
 
   it.each([
-    ["default", "h-9"],
-    ["sm", "h-8"],
-    ["lg", "h-10"],
-    ["icon", "w-9"],
+    ["default", "tri-h-9"],
+    ["sm", "tri-h-8"],
+    ["lg", "tri-h-10"],
+    ["icon", "tri-w-9"],
   ] as const)("renders size=%s", (size, expectedClass) => {
     render(<Button size={size}>Btn</Button>)
     expect(screen.getByRole("button")).toHaveClass(expectedClass)
@@ -77,13 +77,13 @@ describe("Button", () => {
       const button = screen.getByRole("button")
       expect(button).toBeDisabled()
       expect(button).toHaveAttribute("aria-busy", "true")
-      expect(button).toHaveClass("cursor-wait")
+      expect(button).toHaveClass("tri-cursor-wait")
     })
 
     it("renders an aria-hidden spinner", () => {
       const { container } = render(<Button loading>Save</Button>)
 
-      const spinner = container.querySelector(".animate-spin")
+      const spinner = container.querySelector(".tri-animate-spin")
       expect(spinner).toBeInTheDocument()
       expect(spinner).toHaveAttribute("aria-hidden")
     })
@@ -155,7 +155,7 @@ describe("Button", () => {
 
   it("exports buttonVariants that generate class strings", () => {
     expect(buttonVariants({ variant: "ghost", size: "sm" })).toContain(
-      "bg-transparent"
+      "tri-bg-transparent"
     )
   })
 })

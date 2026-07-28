@@ -23,15 +23,15 @@ describe("Avatar", () => {
     const root = screen.getByTestId("avatar")
     expect(root).toBeInTheDocument()
     // default size m -> h-10 w-10, default shape circle -> rounded-pill
-    expect(root).toHaveClass("h-10", "w-10", "rounded-pill")
+    expect(root).toHaveClass("tri-h-10", "tri-w-10", "tri-rounded-pill")
   })
 
   it.each([
-    ["xs", "h-6"],
-    ["s", "h-8"],
-    ["m", "h-10"],
-    ["l", "h-14"],
-    ["xl", "h-20"],
+    ["xs", "tri-h-6"],
+    ["s", "tri-h-8"],
+    ["m", "tri-h-10"],
+    ["l", "tri-h-14"],
+    ["xl", "tri-h-20"],
   ] as const)("applies size=%s class", (size, expected) => {
     render(
       <Avatar data-testid="avatar" size={size}>
@@ -42,9 +42,9 @@ describe("Avatar", () => {
   })
 
   it.each([
-    ["circle", "rounded-pill"],
-    ["rounded", "rounded-lg"],
-    ["square", "rounded-sm"],
+    ["circle", "tri-rounded-pill"],
+    ["rounded", "tri-rounded-lg"],
+    ["square", "tri-rounded-sm"],
   ] as const)("applies shape=%s class", (shape, expected) => {
     render(
       <Avatar data-testid="avatar" shape={shape}>
@@ -75,8 +75,8 @@ describe("Avatar", () => {
 
   it("avatarVariants helper returns classes for given variants", () => {
     const result = avatarVariants({ size: "xl", shape: "square" })
-    expect(result).toContain("h-20")
-    expect(result).toContain("rounded-sm")
+    expect(result).toContain("tri-h-20")
+    expect(result).toContain("tri-rounded-sm")
   })
 })
 
@@ -98,17 +98,17 @@ describe("AvatarFallback", () => {
       </Avatar>
     )
     const fb = await screen.findByText("JD")
-    expect(fb).toHaveClass("bg-[#eeeeee]", "text-[#404040]")
+    expect(fb).toHaveClass("tri-bg-[#eeeeee]", "tri-text-[#404040]")
   })
 
   it.each([
-    ["red", "bg-[#fbe5e8]"],
-    ["blue", "bg-[#ECF6FF]"],
-    ["green", "bg-[#EAF4EA]"],
-    ["amber", "bg-[#FDF0E2]"],
-    ["purple", "bg-[#efe6f8]"],
-    ["steel", "bg-[#e6e7e8]"],
-    ["dark", "bg-[#0b0b0d]"],
+    ["red", "tri-bg-[#fbe5e8]"],
+    ["blue", "tri-bg-[#ECF6FF]"],
+    ["green", "tri-bg-[#EAF4EA]"],
+    ["amber", "tri-bg-[#FDF0E2]"],
+    ["purple", "tri-bg-[#efe6f8]"],
+    ["steel", "tri-bg-[#e6e7e8]"],
+    ["dark", "tri-bg-[#0b0b0d]"],
   ] as const)("applies color=%s tint", async (color, expected) => {
     render(
       <Avatar>
@@ -139,7 +139,7 @@ describe("AvatarWrap", () => {
       </AvatarWrap>
     )
     const wrap = screen.getByTestId("wrap")
-    expect(wrap).toHaveClass("relative", "inline-flex", "extra")
+    expect(wrap).toHaveClass("tri-relative", "tri-inline-flex", "extra")
     expect(screen.getByText("child")).toBeInTheDocument()
   })
 
@@ -155,13 +155,13 @@ describe("AvatarPresence", () => {
     render(<AvatarPresence data-testid="dot" />)
     const dot = screen.getByTestId("dot")
     expect(dot).toHaveAttribute("aria-label", "online")
-    expect(dot).toHaveClass("bg-[#2E7D32]")
+    expect(dot).toHaveClass("tri-bg-[#2E7D32]")
   })
 
   it.each([
-    ["online", "bg-[#2E7D32]"],
-    ["away", "bg-[#D14900]"],
-    ["offline", "bg-[#a1a1aa]"],
+    ["online", "tri-bg-[#2E7D32]"],
+    ["away", "tri-bg-[#D14900]"],
+    ["offline", "tri-bg-[#a1a1aa]"],
   ] as const)("renders status=%s", (status, expected) => {
     render(<AvatarPresence status={status} />)
     const dot = screen.getByLabelText(status)
@@ -188,7 +188,7 @@ describe("AvatarGroup", () => {
       </AvatarGroup>
     )
     const group = screen.getByTestId("group")
-    expect(group).toHaveClass("inline-flex", "extra")
+    expect(group).toHaveClass("tri-inline-flex", "extra")
   })
 
   it("forwards ref", () => {

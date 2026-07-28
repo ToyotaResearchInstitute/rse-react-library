@@ -21,7 +21,7 @@ const SingleDate = () => {
 
 export const SingleDatePicker: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <SingleDate />
     </div>
   ),
@@ -34,7 +34,7 @@ const Range = () => {
 
 export const RangePicker: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <Range />
     </div>
   ),
@@ -47,7 +47,7 @@ const Time = () => {
 
 export const TimeOfDay: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <Time />
     </div>
   ),
@@ -60,7 +60,7 @@ const DateTime = () => {
 
 export const DateAndTime: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <DateTime />
     </div>
   ),

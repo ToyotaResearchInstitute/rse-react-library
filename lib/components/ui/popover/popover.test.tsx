@@ -93,7 +93,7 @@ describe("Popover", () => {
       </Popover>
     )
     const content = screen.getByText("Body")
-    expect(content).toHaveClass("custom-pop", "rounded-md", "bg-popover")
+    expect(content).toHaveClass("custom-pop", "tri-rounded-md", "tri-bg-popover")
   })
 
   it("forwards ref to the content element", () => {

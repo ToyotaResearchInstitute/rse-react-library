@@ -15,9 +15,9 @@ type Story = StoryObj<typeof Calendar>;
 const ControlledCalendar = (props: React.ComponentProps<typeof Calendar>) => {
   const [date, setDate] = React.useState<Date | undefined>(props.value);
   return (
-    <div className="flex flex-col gap-3">
+    <div className="tri-flex tri-flex-col tri-gap-3">
       <Calendar {...props} value={date} onChange={setDate} />
-      <span className="font-mono text-xs text-muted-foreground">
+      <span className="tri-font-mono tri-text-xs tri-text-muted-foreground">
         Selected: {date ? date.toDateString() : "none"}
       </span>
     </div>

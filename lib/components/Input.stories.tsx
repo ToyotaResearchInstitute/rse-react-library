@@ -28,15 +28,15 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 const Field = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex w-full max-w-80 flex-col gap-1.5">{children}</div>
+  <div className="tri-flex tri-w-full tri-max-w-80 tri-flex-col tri-gap-1.5">{children}</div>
 );
 
 const Help = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-xs text-muted-foreground">{children}</span>
+  <span className="tri-text-xs tri-text-muted-foreground">{children}</span>
 );
 
 const ErrorText = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-xs text-error">{children}</span>
+  <span className="tri-text-xs tri-text-error">{children}</span>
 );
 
 export const Default: Story = {
@@ -98,7 +98,7 @@ export const Disabled: Story = {
 export const TextareaExample: Story = {
   name: "Textarea",
   render: () => (
-    <div className="flex w-full max-w-[28rem] flex-col gap-1.5">
+    <div className="tri-flex tri-w-full tri-max-w-[28rem] tri-flex-col tri-gap-1.5">
       <Label htmlFor="message">Message</Label>
       <Textarea id="message" placeholder="Tell us what you're thinking..." />
       <Help>Markdown is supported.</Help>
@@ -109,7 +109,7 @@ export const TextareaExample: Story = {
 export const SearchExample: Story = {
   name: "Search",
   render: () => (
-    <div className="flex w-full max-w-96 flex-col gap-4">
+    <div className="tri-flex tri-w-full tri-max-w-96 tri-flex-col tri-gap-4">
       <Field>
         <Label htmlFor="search-default">Search</Label>
         <Search id="search-default" placeholder="Search customers, invoices, docs…" />
@@ -125,7 +125,7 @@ export const SearchExample: Story = {
 /** All states side by side, mirroring the Inputs preview grid. */
 export const AllStates: Story = {
   render: () => (
-    <div className="grid w-full max-w-[40rem] grid-cols-2 gap-4">
+    <div className="tri-grid tri-w-full tri-max-w-[40rem] tri-grid-cols-2 tri-gap-4">
       <Field>
         <Label htmlFor="all-email">Email</Label>
         <Input id="all-email" icon={<Mail aria-hidden="true" />} placeholder="you@tri.global" />

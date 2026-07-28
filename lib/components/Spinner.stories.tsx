@@ -21,18 +21,18 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-end gap-8">
-      <div className="flex flex-col items-center gap-2">
+    <div className="tri-flex tri-items-end tri-gap-8">
+      <div className="tri-flex tri-flex-col tri-items-center tri-gap-2">
         <Spinner size="sm" />
-        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Small · 16</span>
+        <span className="tri-font-mono tri-text-[10px] tri-uppercase tri-tracking-wider tri-text-muted-foreground">Small · 16</span>
       </div>
-      <div className="flex flex-col items-center gap-2">
+      <div className="tri-flex tri-flex-col tri-items-center tri-gap-2">
         <Spinner size="md" />
-        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Medium · 24</span>
+        <span className="tri-font-mono tri-text-[10px] tri-uppercase tri-tracking-wider tri-text-muted-foreground">Medium · 24</span>
       </div>
-      <div className="flex flex-col items-center gap-2">
+      <div className="tri-flex tri-flex-col tri-items-center tri-gap-2">
         <Spinner size="lg" />
-        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Large · 40</span>
+        <span className="tri-font-mono tri-text-[10px] tri-uppercase tri-tracking-wider tri-text-muted-foreground">Large · 40</span>
       </div>
     </div>
   ),
@@ -40,7 +40,7 @@ export const Sizes: Story = {
 
 export const Accents: Story = {
   render: () => (
-    <div className="flex items-center gap-8">
+    <div className="tri-flex tri-items-center tri-gap-8">
       <Spinner variant="ink" />
       <Spinner variant="brand" />
       <Spinner variant="info" />
@@ -50,9 +50,9 @@ export const Accents: Story = {
 
 export const FullPageLoader: Story = {
   render: () => (
-    <div className="flex h-40 w-80 flex-col items-center justify-center gap-3 rounded-lg border bg-muted/30">
+    <div className="tri-flex tri-h-40 tri-w-80 tri-flex-col tri-items-center tri-justify-center tri-gap-3 tri-rounded-lg tri-border tri-bg-muted/30">
       <Spinner size="lg" />
-      <span className="text-[13px] text-muted-foreground">Loading dataset…</span>
+      <span className="tri-text-[13px] tri-text-muted-foreground">Loading dataset…</span>
     </div>
   ),
 };

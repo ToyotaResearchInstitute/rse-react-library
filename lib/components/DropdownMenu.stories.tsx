@@ -32,7 +32,7 @@ type Story = StoryObj<typeof DropdownMenu>;
  *  leading icons + keyboard shortcuts, a separator, and a danger item. */
 export const ActionMenu: Story = {
   render: () => (
-    <div className="flex justify-center p-10">
+    <div className="tri-flex tri-justify-center tri-p-10">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="icon" aria-label="Open actions">

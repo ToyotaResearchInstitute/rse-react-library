@@ -90,9 +90,9 @@ describe("Checkbox", () => {
   })
 
   it.each([
-    ["ink", "data-[state=checked]:bg-primary"],
-    ["brand", "data-[state=checked]:bg-brand"],
-    ["blue", "data-[state=checked]:bg-info"],
+    ["ink", "data-[state=checked]:tri-bg-primary"],
+    ["brand", "data-[state=checked]:tri-bg-brand"],
+    ["blue", "data-[state=checked]:tri-bg-info"],
   ] as const)("applies color=%s classes", (color, expectedClass) => {
     render(<Checkbox aria-label="cb" color={color} />)
     expect(screen.getByRole("checkbox")).toHaveClass(expectedClass)
@@ -101,7 +101,7 @@ describe("Checkbox", () => {
   it("defaults to ink color when unspecified", () => {
     render(<Checkbox aria-label="cb" />)
     expect(screen.getByRole("checkbox")).toHaveClass(
-      "data-[state=checked]:bg-primary"
+      "data-[state=checked]:tri-bg-primary"
     )
   })
 

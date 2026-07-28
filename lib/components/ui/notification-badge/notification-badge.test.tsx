@@ -15,15 +15,15 @@ describe("NotificationDot", () => {
     render(<NotificationDot data-testid="dot" />)
     const dot = screen.getByTestId("dot")
     expect(dot).toBeInTheDocument()
-    expect(dot).toHaveClass("bg-brand")
+    expect(dot).toHaveClass("tri-bg-brand")
   })
 
   it.each([
-    ["brand", "bg-brand"],
-    ["info", "bg-info"],
-    ["success", "bg-success"],
-    ["warning", "bg-warning"],
-    ["ink", "bg-primary"],
+    ["brand", "tri-bg-brand"],
+    ["info", "tri-bg-info"],
+    ["success", "tri-bg-success"],
+    ["warning", "tri-bg-warning"],
+    ["ink", "tri-bg-primary"],
   ] as const)("applies color=%s", (color, expected) => {
     render(<NotificationDot data-testid="dot" color={color} />)
     expect(screen.getByTestId("dot")).toHaveClass(expected)
@@ -37,7 +37,7 @@ describe("NotificationDot", () => {
   })
 
   it("dotVariants helper returns color class", () => {
-    expect(dotVariants({ color: "info" })).toContain("bg-info")
+    expect(dotVariants({ color: "info" })).toContain("tri-bg-info")
   })
 })
 
@@ -74,14 +74,14 @@ describe("CountBadge", () => {
 
   it("applies default brand color", () => {
     render(<CountBadge count={3} data-testid="badge" />)
-    expect(screen.getByTestId("badge")).toHaveClass("bg-brand")
+    expect(screen.getByTestId("badge")).toHaveClass("tri-bg-brand")
   })
 
   it.each([
-    ["info", "bg-info"],
-    ["success", "bg-success"],
-    ["warning", "bg-warning"],
-    ["ink", "bg-primary"],
+    ["info", "tri-bg-info"],
+    ["success", "tri-bg-success"],
+    ["warning", "tri-bg-warning"],
+    ["ink", "tri-bg-primary"],
   ] as const)("applies color=%s", (color, expected) => {
     render(<CountBadge count={3} color={color} data-testid="badge" />)
     expect(screen.getByTestId("badge")).toHaveClass(expected)
@@ -95,7 +95,7 @@ describe("CountBadge", () => {
   })
 
   it("countVariants helper returns color class", () => {
-    expect(countVariants({ color: "success" })).toContain("bg-success")
+    expect(countVariants({ color: "success" })).toContain("tri-bg-success")
   })
 })
 
@@ -107,7 +107,7 @@ describe("NotificationAnchor", () => {
       </NotificationAnchor>
     )
     const anchor = screen.getByTestId("anchor")
-    expect(anchor).toHaveClass("relative", "inline-flex")
+    expect(anchor).toHaveClass("tri-relative", "tri-inline-flex")
     expect(screen.getByText("child")).toBeInTheDocument()
   })
 

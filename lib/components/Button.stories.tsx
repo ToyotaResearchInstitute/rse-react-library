@@ -35,7 +35,7 @@ export const Ghost: Story = {
 
 export const Hierarchy: Story = {
   render: () => (
-    <div className="flex items-center gap-3">
+    <div className="tri-flex tri-items-center tri-gap-3">
       <Button variant="default">Create</Button>
       <Button variant="secondary">Cancel</Button>
       <Button variant="ghost">More</Button>
@@ -45,13 +45,13 @@ export const Hierarchy: Story = {
 
 export const Accents: Story = {
   render: () => (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-3">
+    <div className="tri-flex tri-flex-col tri-gap-3">
+      <div className="tri-flex tri-items-center tri-gap-3">
         <Button variant="default">Brand red</Button>
         <Button variant="ink">Black</Button>
         <Button variant="blue">Blue</Button>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="tri-flex tri-items-center tri-gap-3">
         <Button variant="destructive">Delete</Button>
         <Button variant="link">Learn more</Button>
         <Button variant="default" disabled>Disabled</Button>

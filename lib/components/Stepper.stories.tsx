@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Stepper>;
 
 export const Default: Story = {
   render: () => (
-    <div className="w-full max-w-[760px]">
+    <div className="tri-w-full tri-max-w-[760px]">
       <Stepper
         currentStep={2}
         steps={[
@@ -32,7 +32,7 @@ export const Default: Story = {
 
 export const LabelsOnly: Story = {
   render: () => (
-    <div className="w-full max-w-[640px]">
+    <div className="tri-w-full tri-max-w-[640px]">
       <Stepper
         currentStep={1}
         steps={['Account', 'Profile', 'Billing', 'Confirm']}
@@ -46,9 +46,9 @@ const InteractiveTemplate = () => {
   const [current, setCurrent] = useState(2);
 
   return (
-    <div className="flex w-full max-w-[760px] flex-col gap-6">
+    <div className="tri-flex tri-w-full tri-max-w-[760px] tri-flex-col tri-gap-6">
       <Stepper currentStep={current} steps={steps} />
-      <div className="flex gap-2">
+      <div className="tri-flex tri-gap-2">
         <Button
           variant="secondary"
           size="sm"
@@ -76,7 +76,7 @@ export const Interactive: Story = {
 
 export const Vertical: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <Stepper
         orientation="vertical"
         currentStep={1}
@@ -92,7 +92,7 @@ export const Vertical: Story = {
 
 export const Dots: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <Stepper variant="dot" currentStep={2} steps={["One", "Two", "Three", "Four"]} />
     </div>
   ),
@@ -100,7 +100,7 @@ export const Dots: Story = {
 
 export const WithError: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <Stepper
         currentStep={2}
         steps={[

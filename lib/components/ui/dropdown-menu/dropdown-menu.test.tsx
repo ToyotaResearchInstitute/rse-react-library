@@ -134,8 +134,8 @@ describe("DropdownMenuItem variants", () => {
       </DropdownMenu>
     )
     const item = await screen.findByRole("menuitem", { name: "Edit" })
-    expect(item).toHaveClass("text-foreground")
-    expect(item).not.toHaveClass("text-[#c93030]")
+    expect(item).toHaveClass("tri-text-foreground")
+    expect(item).not.toHaveClass("tri-text-[#c93030]")
   })
 
   it("applies danger variant classes", async () => {
@@ -148,7 +148,7 @@ describe("DropdownMenuItem variants", () => {
       </DropdownMenu>
     )
     const item = await screen.findByRole("menuitem", { name: "Delete" })
-    expect(item).toHaveClass("text-[#c93030]")
+    expect(item).toHaveClass("tri-text-[#c93030]")
   })
 
   it("applies inset padding", async () => {
@@ -161,7 +161,7 @@ describe("DropdownMenuItem variants", () => {
       </DropdownMenu>
     )
     const item = await screen.findByRole("menuitem", { name: "Indented" })
-    expect(item).toHaveClass("pl-8")
+    expect(item).toHaveClass("tri-pl-8")
   })
 })
 
@@ -287,8 +287,8 @@ describe("DropdownMenu structural subcomponents", () => {
     )
     await screen.findByRole("menu")
     expect(screen.getByText("Actions")).toBeInTheDocument()
-    expect(screen.getByTestId("sep")).toHaveClass("h-px")
-    expect(screen.getByText("⌘C")).toHaveClass("ml-auto")
+    expect(screen.getByTestId("sep")).toHaveClass("tri-h-px")
+    expect(screen.getByText("⌘C")).toHaveClass("tri-ml-auto")
   })
 
   it("applies inset padding on DropdownMenuLabel", async () => {
@@ -301,7 +301,7 @@ describe("DropdownMenu structural subcomponents", () => {
       </DropdownMenu>
     )
     await screen.findByRole("menu")
-    expect(screen.getByText("Actions")).toHaveClass("pl-8")
+    expect(screen.getByText("Actions")).toHaveClass("tri-pl-8")
   })
 
   it("DropdownMenuContent merges custom className", async () => {

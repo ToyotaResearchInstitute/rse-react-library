@@ -33,7 +33,7 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/index.css"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -87,6 +87,7 @@
     "typescript": "5.4.2",
     "vite": "^5.1.6",
     "vite-plugin-dts": "^3.7.3",
+    "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^1.4.0"
   },
   "peerDependencies": {

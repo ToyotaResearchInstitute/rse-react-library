@@ -4,39 +4,41 @@
 
 /* Gellix @font-face + heading scale now come from tokens.css (loaded via global.css). */
 
+/* All rules scoped under `.tri-root` so this stylesheet (shipped via AppLayout)
+   never restyles a consuming app's raw <body>/<article>/<a>. */
 @layer base {
-  body {
-    font-size: var(--fs-16);
+  .tri-root {
+    font-size: var(--tri-fs-16);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  article {
-    @apply px-48;
-    @apply py-14;
+  .tri-root article {
+    @apply tri-px-48;
+    @apply tri-py-14;
   }
-  article h1 {
-    @apply my-10;
+  .tri-root article h1 {
+    @apply tri-my-10;
   }
-  article h2 {
-    @apply my-8;
+  .tri-root article h2 {
+    @apply tri-my-8;
   }
-  article h3 {
-    @apply my-6;
+  .tri-root article h3 {
+    @apply tri-my-6;
   }
-  article h4 {
-    @apply mt-10;
-    @apply mb-4;
+  .tri-root article h4 {
+    @apply tri-mt-10;
+    @apply tri-mb-4;
   }
-  article p {
-    @apply my-4;
+  .tri-root article p {
+    @apply tri-my-4;
   }
 
-  a {
-    @apply underline;
+  .tri-root a {
+    @apply tri-underline;
   }
-  header a,
-  footer a {
-    @apply no-underline;
+  .tri-root header a,
+  .tri-root footer a {
+    @apply tri-no-underline;
   }
 }

@@ -43,27 +43,27 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             ref={ref}
             type="button"
             className={cn(
-              'flex h-9 w-[220px] items-center gap-2 rounded-sm border border-input bg-background px-3 text-left text-sm transition-colors hover:border-[var(--border-hover)] focus-visible:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=open]:border-foreground',
+              'tri-flex tri-h-9 tri-w-[220px] tri-items-center tri-gap-2 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-3 tri-text-left tri-text-sm tri-transition-colors hover:tri-border-[var(--tri-border-hover)] focus-visible:tri-border-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 data-[state=open]:tri-border-foreground',
               className,
             )}
           >
-            <CalendarIcon className="size-4 shrink-0 text-muted-foreground" />
-            <span className={cn('flex-1', !value && 'text-muted-foreground')}>
+            <CalendarIcon className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
+            <span className={cn('tri-flex-1', !value && 'tri-text-muted-foreground')}>
               {value ? formatDate(value) : placeholder}
             </span>
-            <ChevronDown className="size-4 shrink-0 text-muted-foreground" />
+            <ChevronDown className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
           </button>
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-auto p-0"
+          className="tri-w-auto tri-p-0"
         >
           <Calendar
             value={draft}
             onChange={setDraft}
-            className="border-0 shadow-none"
+            className="tri-border-0 tri-shadow-none"
           />
-          <div className="flex justify-between gap-2 border-t border-border px-3 py-2.5">
+          <div className="tri-flex tri-justify-between tri-gap-2 tri-border-t tri-border-border tri-px-3 tri-py-2.5">
             <Button
               variant="ghost"
               size="sm"

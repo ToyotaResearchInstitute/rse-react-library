@@ -21,13 +21,13 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         disabled={disabled}
         data-error={error ? "" : undefined}
         className={cn(
-          "flex min-h-[64px] w-full rounded-sm border border-input bg-background px-3 py-2.5 text-sm text-foreground transition-colors",
-          "placeholder:text-muted-foreground",
-          "hover:border-[var(--border-hover)]",
-          "focus-visible:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+          "tri-flex tri-min-h-[64px] tri-w-full tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-3 tri-py-2.5 tri-text-sm tri-text-foreground tri-transition-colors",
+          "placeholder:tri-text-muted-foreground",
+          "hover:tri-border-[var(--tri-border-hover)]",
+          "focus-visible:tri-border-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2",
           error &&
-            "border-error hover:border-error focus-visible:border-error focus-visible:ring-error/30",
-          "disabled:cursor-not-allowed disabled:bg-[#fafafa] disabled:opacity-70 disabled:hover:border-input",
+            "tri-border-error hover:tri-border-error focus-visible:tri-border-error focus-visible:tri-ring-error/30",
+          "disabled:tri-cursor-not-allowed disabled:tri-bg-[#fafafa] disabled:tri-opacity-70 disabled:hover:tri-border-input",
           className
         )}
         {...props}

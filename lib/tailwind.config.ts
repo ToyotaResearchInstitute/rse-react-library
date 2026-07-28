@@ -27,37 +27,46 @@ const alpha = (v: string) =>
   `color-mix(in srgb, var(${v}) calc(<alpha-value> * 100%), transparent)`;
 
 const config: Omit<Config, 'content'> = {
+  // All utilities are namespaced (`tri-flex`, `tri-bg-background`) so this
+  // library's compiled CSS can't collide with a consumer app that also runs
+  // Tailwind. Design tokens are likewise namespaced (`--tri-*`) in tokens.css.
+  prefix: 'tri-',
   darkMode: ['class'],
+  // Do NOT ship Tailwind's Preflight (global reset). A component library must not
+  // reset a consumer's elements — the consuming app already applies its own
+  // Preflight. Storybook loads Preflight separately for dev fidelity
+  // (see .storybook/preview.ts).
+  corePlugins: { preflight: false },
   theme: {
     extend: {
       colors: {
-        background: alpha('--bg'),
-        foreground: alpha('--fg'),
-        card: { DEFAULT: alpha('--bg-elevated'), foreground: alpha('--fg') },
-        popover: { DEFAULT: alpha('--bg-elevated'), foreground: alpha('--fg') },
-        primary: { DEFAULT: alpha('--neutral-950'), foreground: alpha('--neutral-0') },
-        secondary: { DEFAULT: alpha('--bg-muted'), foreground: alpha('--fg') },
-        muted: { DEFAULT: alpha('--bg-muted'), foreground: alpha('--fg-muted') },
-        accent: { DEFAULT: alpha('--bg-muted'), foreground: alpha('--fg') },
-        destructive: { DEFAULT: alpha('--error'), foreground: alpha('--neutral-0') },
-        border: alpha('--border'),
-        input: alpha('--border'),
-        ring: alpha('--border-focus'),
+        background: alpha('--tri-bg'),
+        foreground: alpha('--tri-fg'),
+        card: { DEFAULT: alpha('--tri-bg-elevated'), foreground: alpha('--tri-fg') },
+        popover: { DEFAULT: alpha('--tri-bg-elevated'), foreground: alpha('--tri-fg') },
+        primary: { DEFAULT: alpha('--tri-neutral-950'), foreground: alpha('--tri-neutral-0') },
+        secondary: { DEFAULT: alpha('--tri-bg-muted'), foreground: alpha('--tri-fg') },
+        muted: { DEFAULT: alpha('--tri-bg-muted'), foreground: alpha('--tri-fg-muted') },
+        accent: { DEFAULT: alpha('--tri-bg-muted'), foreground: alpha('--tri-fg') },
+        destructive: { DEFAULT: alpha('--tri-error'), foreground: alpha('--tri-neutral-0') },
+        border: alpha('--tri-border'),
+        input: alpha('--tri-border'),
+        ring: alpha('--tri-border-focus'),
         brand: {
-          DEFAULT: alpha('--brand-red'),
-          hover: alpha('--brand-red-hover'),
-          deep: alpha('--brand-red-deep'),
-          ink: alpha('--brand-red-ink'),
-          steel: alpha('--brand-steel'),
-          sky: alpha('--brand-sky'),
-          gray: alpha('--brand-gray'),
-          foreground: alpha('--fg-on-brand'),
+          DEFAULT: alpha('--tri-brand-red'),
+          hover: alpha('--tri-brand-red-hover'),
+          deep: alpha('--tri-brand-red-deep'),
+          ink: alpha('--tri-brand-red-ink'),
+          steel: alpha('--tri-brand-steel'),
+          sky: alpha('--tri-brand-sky'),
+          gray: alpha('--tri-brand-gray'),
+          foreground: alpha('--tri-fg-on-brand'),
         },
-        info: { DEFAULT: alpha('--info'), bg: alpha('--info-bg') },
-        success: { DEFAULT: alpha('--success'), bg: alpha('--success-bg') },
-        warning: { DEFAULT: alpha('--warning'), bg: alpha('--warning-bg') },
-        error: { DEFAULT: alpha('--error'), bg: alpha('--error-bg') },
-        link: { DEFAULT: alpha('--link'), hover: alpha('--link-hover') },
+        info: { DEFAULT: alpha('--tri-info'), bg: alpha('--tri-info-bg') },
+        success: { DEFAULT: alpha('--tri-success'), bg: alpha('--tri-success-bg') },
+        warning: { DEFAULT: alpha('--tri-warning'), bg: alpha('--tri-warning-bg') },
+        error: { DEFAULT: alpha('--tri-error'), bg: alpha('--tri-error-bg') },
+        link: { DEFAULT: alpha('--tri-link'), hover: alpha('--tri-link-hover') },
       },
       fontFamily: {
         sans: ['Gellix', 'Roboto', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -65,24 +74,24 @@ const config: Omit<Config, 'content'> = {
         mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'monospace'],
       },
       borderRadius: {
-        xs: 'var(--radius-xs)',
-        sm: 'var(--radius-sm)',
-        md: 'var(--radius-md)',
-        lg: 'var(--radius-lg)',
-        xl: 'var(--radius-xl)',
-        '2xl': 'var(--radius-2xl)',
-        pill: 'var(--radius-pill)',
+        xs: 'var(--tri-radius-xs)',
+        sm: 'var(--tri-radius-sm)',
+        md: 'var(--tri-radius-md)',
+        lg: 'var(--tri-radius-lg)',
+        xl: 'var(--tri-radius-xl)',
+        '2xl': 'var(--tri-radius-2xl)',
+        pill: 'var(--tri-radius-pill)',
       },
       boxShadow: {
-        xs: 'var(--shadow-xs)',
-        sm: 'var(--shadow-sm)',
-        md: 'var(--shadow-md)',
-        lg: 'var(--shadow-lg)',
-        focus: 'var(--shadow-focus)',
+        xs: 'var(--tri-shadow-xs)',
+        sm: 'var(--tri-shadow-sm)',
+        md: 'var(--tri-shadow-md)',
+        lg: 'var(--tri-shadow-lg)',
+        focus: 'var(--tri-shadow-focus)',
       },
       transitionTimingFunction: {
-        out: 'var(--ease-out)',
-        std: 'var(--ease-std)',
+        out: 'var(--tri-ease-out)',
+        std: 'var(--tri-ease-std)',
       },
       keyframes: {
         'accordion-down': {
@@ -106,8 +115,8 @@ const config: Omit<Config, 'content'> = {
         },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s var(--ease-out)',
-        'accordion-up': 'accordion-up 0.2s var(--ease-out)',
+        'accordion-down': 'accordion-down 0.2s var(--tri-ease-out)',
+        'accordion-up': 'accordion-up 0.2s var(--tri-ease-out)',
         'progress-indeterminate': 'progress-indeterminate 1.6s linear infinite',
         'dot-bounce': 'dot-bounce 1.2s ease-in-out infinite',
         shimmer: 'shimmer 1.5s linear infinite',

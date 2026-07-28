@@ -116,14 +116,14 @@ describe("Drawer", () => {
   it("defaults to the right side variant", async () => {
     render(<BasicDrawer defaultOpen hideClose />)
     const dialog = await screen.findByRole("dialog")
-    expect(dialog).toHaveClass("right-0", "border-l")
+    expect(dialog).toHaveClass("tri-right-0", "tri-border-l")
   })
 
   it.each([
-    ["left", "left-0", "border-r"],
-    ["top", "top-0", "border-b"],
-    ["bottom", "bottom-0", "border-t"],
-    ["right", "right-0", "border-l"],
+    ["left", "tri-left-0", "tri-border-r"],
+    ["top", "tri-top-0", "tri-border-b"],
+    ["bottom", "tri-bottom-0", "tri-border-t"],
+    ["right", "tri-right-0", "tri-border-l"],
   ] as const)("applies the %s side variant classes", async (side, pos, border) => {
     render(<BasicDrawer defaultOpen hideClose side={side} />)
     const dialog = await screen.findByRole("dialog")
@@ -134,19 +134,19 @@ describe("Drawer", () => {
 describe("drawerVariants", () => {
   it("defaults to the right side when called with no args", () => {
     const out = drawerVariants()
-    expect(out).toContain("right-0")
-    expect(out).toContain("border-l")
+    expect(out).toContain("tri-right-0")
+    expect(out).toContain("tri-border-l")
   })
 
   it("returns requested side classes", () => {
-    expect(drawerVariants({ side: "left" })).toContain("left-0")
-    expect(drawerVariants({ side: "top" })).toContain("rounded-b-[14px]")
-    expect(drawerVariants({ side: "bottom" })).toContain("rounded-t-[14px]")
+    expect(drawerVariants({ side: "left" })).toContain("tri-left-0")
+    expect(drawerVariants({ side: "top" })).toContain("tri-rounded-b-[14px]")
+    expect(drawerVariants({ side: "bottom" })).toContain("tri-rounded-t-[14px]")
   })
 
   it("always includes base classes", () => {
-    expect(drawerVariants({ side: "right" })).toContain("fixed")
-    expect(drawerVariants({ side: "right" })).toContain("z-50")
+    expect(drawerVariants({ side: "right" })).toContain("tri-fixed")
+    expect(drawerVariants({ side: "right" })).toContain("tri-z-50")
   })
 })
 
@@ -163,8 +163,8 @@ describe("Drawer subcomponents", () => {
       </Drawer>
     )
     await screen.findByRole("dialog")
-    expect(screen.getByTestId("hdr")).toHaveClass("border-b")
-    expect(screen.getByTestId("ftr")).toHaveClass("border-t", "justify-end")
+    expect(screen.getByTestId("hdr")).toHaveClass("tri-border-b")
+    expect(screen.getByTestId("ftr")).toHaveClass("tri-border-t", "tri-justify-end")
   })
 
   it("DrawerContent merges custom className", async () => {

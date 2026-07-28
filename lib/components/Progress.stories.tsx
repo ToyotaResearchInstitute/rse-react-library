@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Progress>;
 
 export const LinearDeterminate: Story = {
   render: () => (
-    <div className="flex w-[280px] flex-col gap-4 p-6">
+    <div className="tri-flex tri-w-[280px] tri-flex-col tri-gap-4 tri-p-6">
       <Progress value={72} />
       <Progress value={40} color="brand" />
       <Progress value={90} color="info" />
@@ -24,7 +24,7 @@ export const LinearDeterminate: Story = {
 
 export const LinearIndeterminate: Story = {
   render: () => (
-    <div className="w-[280px] p-6">
+    <div className="tri-w-[280px] tri-p-6">
       <Progress indeterminate />
     </div>
   ),
@@ -32,7 +32,7 @@ export const LinearIndeterminate: Story = {
 
 export const Circular: Story = {
   render: () => (
-    <div className="flex items-center gap-6 p-6">
+    <div className="tri-flex tri-items-center tri-gap-6 tri-p-6">
       <CircularProgress value={60} />
       <CircularProgress value={80} color="brand" />
       <CircularProgress value={35} color="info" />
@@ -42,10 +42,10 @@ export const Circular: Story = {
 
 export const ThreeDotBounce: Story = {
   render: () => (
-    <div className="flex items-center gap-6 p-6">
+    <div className="tri-flex tri-items-center tri-gap-6 tri-p-6">
       <DotsLoader />
       <DotsLoader color="brand" size={8} />
-      <div className="rounded-md bg-primary p-3">
+      <div className="tri-rounded-md tri-bg-primary tri-p-3">
         <DotsLoader color="white" />
       </div>
     </div>

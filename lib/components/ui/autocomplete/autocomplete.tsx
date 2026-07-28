@@ -74,7 +74,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, AutocompleteProps>(
           <div
             ref={ref}
             className={cn(
-              "flex min-h-9 w-full cursor-text flex-wrap items-center gap-1.5 rounded-sm border border-input bg-background px-2 py-1.5 text-sm transition-colors focus-within:border-foreground focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
+              "tri-flex tri-min-h-9 tri-w-full tri-cursor-text tri-flex-wrap tri-items-center tri-gap-1.5 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-2 tri-py-1.5 tri-text-sm tri-transition-colors focus-within:tri-border-foreground focus-within:tri-outline-none focus-within:tri-ring-2 focus-within:tri-ring-ring focus-within:tri-ring-offset-2",
               className
             )}
             onClick={() => {
@@ -85,7 +85,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, AutocompleteProps>(
             {selected.map((o) => (
               <span
                 key={o.value}
-                className="inline-flex items-center gap-1 rounded-xs bg-[var(--brand-gray)] px-1.5 py-0.5 text-xs text-foreground"
+                className="tri-inline-flex tri-items-center tri-gap-1 tri-rounded-xs tri-bg-[var(--tri-brand-gray)] tri-px-1.5 tri-py-0.5 tri-text-xs tri-text-foreground"
               >
                 {o.label}
                 <button
@@ -95,7 +95,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, AutocompleteProps>(
                     e.stopPropagation()
                     toggle(o.value)
                   }}
-                  className="text-[var(--fg-muted)] hover:text-foreground"
+                  className="tri-text-[var(--tri-fg-muted)] hover:tri-text-foreground"
                 >
                   ×
                 </button>
@@ -110,39 +110,39 @@ const Autocomplete = React.forwardRef<HTMLDivElement, AutocompleteProps>(
               }}
               onKeyDown={onKeyDown}
               placeholder={selected.length === 0 ? placeholder : ""}
-              className="h-6 min-w-[60px] flex-1 border-0 bg-transparent p-0 text-sm outline-none placeholder:text-muted-foreground"
+              className="tri-h-6 tri-min-w-[60px] tri-flex-1 tri-border-0 tri-bg-transparent tri-p-0 tri-text-sm tri-outline-none placeholder:tri-text-muted-foreground"
             />
           </div>
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-[--radix-popover-trigger-width] p-1"
+          className="tri-w-[--radix-popover-trigger-width] tri-p-1"
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
           {filtered.length === 0 ? (
-            <div className="px-2 py-3 text-center text-[13px] text-muted-foreground">
+            <div className="tri-px-2 tri-py-3 tri-text-center tri-text-[13px] tri-text-muted-foreground">
               {emptyText}
             </div>
           ) : (
-            <div role="listbox" className="max-h-64 overflow-y-auto">
+            <div role="listbox" className="tri-max-h-64 tri-overflow-y-auto">
               {filtered.map((o) => (
                 <div
                   key={o.value}
                   role="option"
                   aria-selected={false}
                   onClick={() => toggle(o.value)}
-                  className="flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 hover:bg-brand-sky"
+                  className="tri-flex tri-cursor-pointer tri-items-center tri-gap-2.5 tri-rounded-sm tri-px-2 tri-py-1.5 hover:tri-bg-brand-sky"
                 >
                   {o.leading}
-                  <span className="flex flex-col">
-                    <span className="text-sm text-foreground">{o.label}</span>
+                  <span className="tri-flex tri-flex-col">
+                    <span className="tri-text-sm tri-text-foreground">{o.label}</span>
                     {o.description && (
-                      <span className="text-[11px] text-muted-foreground">
+                      <span className="tri-text-[11px] tri-text-muted-foreground">
                         {o.description}
                       </span>
                     )}
                   </span>
-                  <Check className="ml-auto size-4 opacity-0" />
+                  <Check className="tri-ml-auto tri-size-4 tri-opacity-0" />
                 </div>
               ))}
             </div>

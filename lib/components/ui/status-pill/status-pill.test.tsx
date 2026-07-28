@@ -11,15 +11,15 @@ describe("StatusPill", () => {
 
   it("applies the default (neutral) tone classes", () => {
     render(<StatusPill>Active</StatusPill>)
-    expect(screen.getByText("Active")).toHaveClass("bg-[#eeeeee]")
+    expect(screen.getByText("Active")).toHaveClass("tri-bg-[#eeeeee]")
   })
 
   it.each([
-    ["success", "bg-[#EAF4EA]"],
-    ["warning", "bg-[#FDF0E2]"],
-    ["error", "bg-[#FFECEC]"],
-    ["info", "bg-[#ECF6FF]"],
-    ["neutral", "bg-[#eeeeee]"],
+    ["success", "tri-bg-[#EAF4EA]"],
+    ["warning", "tri-bg-[#FDF0E2]"],
+    ["error", "tri-bg-[#FFECEC]"],
+    ["info", "tri-bg-[#ECF6FF]"],
+    ["neutral", "tri-bg-[#eeeeee]"],
   ] as const)("renders tone=%s", (tone, expectedClass) => {
     render(<StatusPill tone={tone}>Status</StatusPill>)
     expect(screen.getByText("Status")).toHaveClass(expectedClass)
@@ -47,6 +47,6 @@ describe("StatusPill", () => {
   })
 
   it("exports statusPillVariants that generate class strings", () => {
-    expect(statusPillVariants({ tone: "success" })).toContain("bg-[#EAF4EA]")
+    expect(statusPillVariants({ tone: "success" })).toContain("tri-bg-[#EAF4EA]")
   })
 })

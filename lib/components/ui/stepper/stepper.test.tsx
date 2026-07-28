@@ -73,12 +73,12 @@ describe("Stepper", () => {
     const items = screen.getAllByRole("listitem")
     // index 1 is currentStep but has error status, so isCurrent is false
     expect(items[1]).not.toHaveAttribute("aria-current")
-    expect(screen.getByText("Bad")).toHaveClass("text-brand")
+    expect(screen.getByText("Bad")).toHaveClass("tri-text-brand")
   })
 
   it("renders horizontal orientation by default (items-center)", () => {
     render(<Stepper steps={steps} currentStep={0} data-testid="stepper" />)
-    expect(screen.getByTestId("stepper")).toHaveClass("items-center")
+    expect(screen.getByTestId("stepper")).toHaveClass("tri-items-center")
   })
 
   it("renders vertical orientation (flex-col)", () => {
@@ -90,7 +90,7 @@ describe("Stepper", () => {
         data-testid="stepper"
       />
     )
-    expect(screen.getByTestId("stepper")).toHaveClass("flex-col")
+    expect(screen.getByTestId("stepper")).toHaveClass("tri-flex-col")
   })
 
   it("vertical orientation still marks current step", () => {

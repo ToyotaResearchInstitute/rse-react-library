@@ -12,9 +12,9 @@ describe("Label", () => {
   it("applies base typography classes", () => {
     render(<Label>Email</Label>)
     expect(screen.getByText("Email")).toHaveClass(
-      "text-[13px]",
-      "font-medium",
-      "text-foreground"
+      "tri-text-[13px]",
+      "tri-font-medium",
+      "tri-text-foreground"
     )
   })
 

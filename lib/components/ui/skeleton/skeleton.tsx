@@ -13,10 +13,13 @@ const Skeleton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("relative overflow-hidden rounded-md bg-muted", className)}
+    className={cn(
+      "tri-relative tri-overflow-hidden tri-rounded-md tri-bg-muted",
+      className
+    )}
     {...props}
   >
-    <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+    <div className="tri-absolute tri-inset-0 -tri-translate-x-full tri-animate-shimmer tri-bg-gradient-to-r tri-from-transparent tri-via-foreground/10 tri-to-transparent" />
   </div>
 ))
 Skeleton.displayName = "Skeleton"
@@ -26,13 +29,16 @@ const SkeletonListItem = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex items-center gap-3 p-3", className)} {...props}>
-    <Skeleton className="size-9 rounded-full" />
-    <div className="flex flex-1 flex-col gap-1.5">
-      <Skeleton className="h-3 w-[55%]" />
-      <Skeleton className="h-3 w-[35%]" />
+  <div
+    className={cn("tri-flex tri-items-center tri-gap-3 tri-p-3", className)}
+    {...props}
+  >
+    <Skeleton className="tri-size-9 tri-rounded-full" />
+    <div className="tri-flex tri-flex-1 tri-flex-col tri-gap-1.5">
+      <Skeleton className="tri-h-3 tri-w-[55%]" />
+      <Skeleton className="tri-h-3 tri-w-[35%]" />
     </div>
-    <Skeleton className="h-2 w-10" />
+    <Skeleton className="tri-h-2 tri-w-10" />
   </div>
 )
 SkeletonListItem.displayName = "SkeletonListItem"
@@ -43,12 +49,15 @@ const SkeletonStatTiles = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { count?: number }) => (
-  <div className={cn("grid grid-cols-3 gap-4", className)} {...props}>
+  <div
+    className={cn("tri-grid tri-grid-cols-3 tri-gap-4", className)}
+    {...props}
+  >
     {Array.from({ length: count }).map((_, i) => (
-      <div key={i} className="flex flex-col gap-2">
-        <Skeleton className="h-2 w-3/5" />
-        <Skeleton className="h-6 w-4/5 rounded-xs" />
-        <Skeleton className="h-2 w-2/5" />
+      <div key={i} className="tri-flex tri-flex-col tri-gap-2">
+        <Skeleton className="tri-h-2 tri-w-3/5" />
+        <Skeleton className="tri-h-6 tri-w-4/5 tri-rounded-xs" />
+        <Skeleton className="tri-h-2 tri-w-2/5" />
       </div>
     ))}
   </div>
@@ -61,17 +70,17 @@ const SkeletonTableRows = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { rows?: number }) => (
-  <div className={cn("flex flex-col", className)} {...props}>
+  <div className={cn("tri-flex tri-flex-col", className)} {...props}>
     {Array.from({ length: rows }).map((_, i) => (
       <div
         key={i}
-        className="grid grid-cols-[16px_2fr_1fr_80px_24px] items-center gap-4 border-b border-border px-3 py-3 last:border-b-0"
+        className="tri-grid tri-grid-cols-[16px_2fr_1fr_80px_24px] tri-items-center tri-gap-4 tri-border-b tri-border-border tri-px-3 tri-py-3 last:tri-border-b-0"
       >
-        <Skeleton className="size-3.5 rounded-xs" />
-        <Skeleton className="h-3 w-3/4" />
-        <Skeleton className="h-3 w-1/2" />
-        <Skeleton className="h-[18px] w-14 rounded-pill" />
-        <Skeleton className="size-3.5 rounded-full" />
+        <Skeleton className="tri-size-3.5 tri-rounded-xs" />
+        <Skeleton className="tri-h-3 tri-w-3/4" />
+        <Skeleton className="tri-h-3 tri-w-1/2" />
+        <Skeleton className="tri-h-[18px] tri-w-14 tri-rounded-pill" />
+        <Skeleton className="tri-size-3.5 tri-rounded-full" />
       </div>
     ))}
   </div>

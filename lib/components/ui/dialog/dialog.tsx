@@ -24,7 +24,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-[var(--overlay)] backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "tri-fixed tri-inset-0 tri-z-50 tri-bg-[var(--tri-overlay)] tri-backdrop-blur-sm data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-fade-out-0 data-[state=open]:tri-fade-in-0",
       className
     )}
     {...props}
@@ -44,16 +44,16 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-1/2 top-1/2 z-50 grid w-full max-w-[420px] -translate-x-1/2 -translate-y-1/2 gap-4 overflow-hidden rounded-lg border bg-background shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+        "tri-fixed tri-left-1/2 tri-top-1/2 tri-z-50 tri-grid tri-w-full tri-max-w-[420px] -tri-translate-x-1/2 -tri-translate-y-1/2 tri-gap-4 tri-overflow-hidden tri-rounded-lg tri-border tri-bg-background tri-shadow-lg tri-duration-200 data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-fade-out-0 data-[state=open]:tri-fade-in-0 data-[state=closed]:tri-zoom-out-95 data-[state=open]:tri-zoom-in-95 data-[state=closed]:tri-slide-out-to-left-1/2 data-[state=closed]:tri-slide-out-to-top-[48%] data-[state=open]:tri-slide-in-from-left-1/2 data-[state=open]:tri-slide-in-from-top-[48%]",
         className
       )}
       {...props}
     >
       {children}
       {!hideClose && (
-        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm text-muted-foreground opacity-100 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none">
-          <X className="h-[18px] w-[18px]" />
-          <span className="sr-only">Close</span>
+        <DialogPrimitive.Close className="tri-absolute tri-right-4 tri-top-4 tri-rounded-sm tri-text-muted-foreground tri-opacity-100 tri-transition-colors hover:tri-text-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-pointer-events-none">
+          <X className="tri-h-[18px] tri-w-[18px]" />
+          <span className="tri-sr-only">Close</span>
         </DialogPrimitive.Close>
       )}
     </DialogPrimitive.Content>
@@ -67,7 +67,7 @@ const DialogHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-col space-y-1 px-5 pb-3 pt-[18px] text-left",
+      "tri-flex tri-flex-col tri-space-y-1 tri-px-5 tri-pb-3 tri-pt-[18px] tri-text-left",
       className
     )}
     {...props}
@@ -81,7 +81,7 @@ const DialogFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex justify-end gap-2 border-t border-[var(--border)] bg-[var(--bg-subtle,#fafafa)] px-5 py-3.5 sm:flex-row",
+      "tri-flex tri-justify-end tri-gap-2 tri-border-t tri-border-[var(--tri-border)] tri-bg-[var(--tri-bg-subtle,#fafafa)] tri-px-5 tri-py-3.5 sm:tri-flex-row",
       className
     )}
     {...props}
@@ -96,7 +96,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      "text-base font-semibold leading-tight text-foreground",
+      "tri-text-base tri-font-semibold tri-leading-tight tri-text-foreground",
       className
     )}
     {...props}
@@ -110,7 +110,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-[13px] leading-snug text-muted-foreground", className)}
+    className={cn("tri-text-[13px] tri-leading-snug tri-text-muted-foreground", className)}
     {...props}
   />
 ))

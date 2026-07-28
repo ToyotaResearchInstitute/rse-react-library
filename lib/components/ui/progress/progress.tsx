@@ -10,9 +10,9 @@ import { cn } from "../utils"
  * `CircularProgress` for the ring variant.
  */
 const accentBar = {
-  ink: "bg-primary",
-  brand: "bg-brand",
-  info: "bg-info",
+  ink: "tri-bg-primary",
+  brand: "tri-bg-brand",
+  info: "tri-bg-info",
 } as const
 
 export interface ProgressProps
@@ -32,7 +32,7 @@ const Progress = React.forwardRef<
     ref={ref}
     value={indeterminate ? null : value}
     className={cn(
-      "relative h-1.5 w-full overflow-hidden rounded-pill bg-[var(--brand-gray)]",
+      "tri-relative tri-h-1.5 tri-w-full tri-overflow-hidden tri-rounded-pill tri-bg-[var(--tri-brand-gray)]",
       className
     )}
     {...props}
@@ -40,13 +40,13 @@ const Progress = React.forwardRef<
     {indeterminate ? (
       <div
         className={cn(
-          "absolute inset-y-0 left-0 w-2/5 rounded-pill animate-progress-indeterminate",
+          "tri-absolute tri-inset-y-0 tri-left-0 tri-w-2/5 tri-rounded-pill tri-animate-progress-indeterminate",
           accentBar[color]
         )}
       />
     ) : (
       <ProgressPrimitive.Indicator
-        className={cn("h-full rounded-pill transition-transform", accentBar[color])}
+        className={cn("tri-h-full tri-rounded-pill tri-transition-transform", accentBar[color])}
         style={{ transform: `translateX(-${100 - Math.min(100, Math.max(0, value))}%)` }}
       />
     )}
@@ -55,9 +55,9 @@ const Progress = React.forwardRef<
 Progress.displayName = ProgressPrimitive.Root.displayName
 
 const accentStroke = {
-  ink: "stroke-primary",
-  brand: "stroke-brand",
-  info: "stroke-info",
+  ink: "tri-stroke-primary",
+  brand: "tri-stroke-brand",
+  info: "tri-stroke-info",
 } as const
 
 export interface CircularProgressProps
@@ -90,18 +90,18 @@ const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>
         aria-valuenow={clamped}
         aria-valuemin={0}
         aria-valuemax={100}
-        className={cn("relative inline-flex items-center justify-center", className)}
+        className={cn("tri-relative tri-inline-flex tri-items-center tri-justify-center", className)}
         style={{ width: size, height: size }}
         {...props}
       >
-        <svg viewBox="0 0 56 56" className="-rotate-90" width={size} height={size}>
+        <svg viewBox="0 0 56 56" className="-tri-rotate-90" width={size} height={size}>
           <circle
             cx="28"
             cy="28"
             r={radius}
             fill="none"
             strokeWidth={strokeWidth}
-            className="stroke-[var(--brand-gray)]"
+            className="tri-stroke-[var(--tri-brand-gray)]"
           />
           <circle
             cx="28"
@@ -112,11 +112,11 @@ const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={offset}
-            className={cn("transition-[stroke-dashoffset]", accentStroke[color])}
+            className={cn("tri-transition-[stroke-dashoffset]", accentStroke[color])}
           />
         </svg>
         {showValue && (
-          <span className="absolute text-xs font-semibold text-foreground [font-feature-settings:'tnum']">
+          <span className="tri-absolute tri-text-xs tri-font-semibold tri-text-foreground tri-[font-feature-settings:'tnum']">
             {Math.round(clamped)}%
           </span>
         )}

@@ -24,35 +24,35 @@ describe("Progress", () => {
 
   it("translates the indicator based on value", () => {
     const { container } = render(<Progress value={25} />)
-    const indicator = container.querySelector<HTMLElement>(".transition-transform")
+    const indicator = container.querySelector<HTMLElement>(".tri-transition-transform")
     // 100 - 25 = 75%
     expect(indicator?.style.transform).toBe("translateX(-75%)")
   })
 
   it("clamps the indicator transform at 100 (no over-max shift)", () => {
     const { container } = render(<Progress value={150} />)
-    const indicator = container.querySelector<HTMLElement>(".transition-transform")
+    const indicator = container.querySelector<HTMLElement>(".tri-transition-transform")
     expect(indicator?.style.transform).toBe("translateX(-0%)")
   })
 
   it("clamps the indicator transform for negative values", () => {
     const { container } = render(<Progress value={-20} />)
-    const indicator = container.querySelector<HTMLElement>(".transition-transform")
+    const indicator = container.querySelector<HTMLElement>(".tri-transition-transform")
     expect(indicator?.style.transform).toBe("translateX(-100%)")
   })
 
   it("renders indeterminate mode without a numeric indicator", () => {
     const { container } = render(<Progress indeterminate />)
-    const bar = container.querySelector(".animate-progress-indeterminate")
+    const bar = container.querySelector(".tri-animate-progress-indeterminate")
     expect(bar).toBeInTheDocument()
     // no fixed-value indicator in indeterminate mode
     expect(screen.getByRole("progressbar")).not.toHaveAttribute("aria-valuenow")
   })
 
   it.each([
-    ["ink", "bg-primary"],
-    ["brand", "bg-brand"],
-    ["info", "bg-info"],
+    ["ink", "tri-bg-primary"],
+    ["brand", "tri-bg-brand"],
+    ["info", "tri-bg-info"],
   ] as const)("applies color=%s accent", (color, expectedClass) => {
     const { container } = render(<Progress value={50} color={color} />)
     expect(container.querySelector(`.${CSS.escape(expectedClass)}`)).toBeInTheDocument()
@@ -114,9 +114,9 @@ describe("CircularProgress", () => {
   })
 
   it.each([
-    ["ink", "stroke-primary"],
-    ["brand", "stroke-brand"],
-    ["info", "stroke-info"],
+    ["ink", "tri-stroke-primary"],
+    ["brand", "tri-stroke-brand"],
+    ["info", "tri-stroke-info"],
   ] as const)("applies color=%s stroke", (color, expectedClass) => {
     const { container } = render(<CircularProgress value={50} color={color} />)
     expect(container.querySelector(`.${CSS.escape(expectedClass)}`)).toBeInTheDocument()

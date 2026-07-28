@@ -21,14 +21,14 @@ const Accordion = AccordionPrimitive.Root
 const accordionItemVariants = cva(
   // Closed items share the neutral treatment; the variant color only appears
   // once the item is open.
-  "mb-2 rounded-md border border-border bg-background last:mb-0 transition-colors",
+  "tri-mb-2 tri-rounded-md tri-border tri-border-border tri-bg-background last:tri-mb-0 tri-transition-colors",
   {
     variants: {
       variant: {
         default:
-          "data-[state=open]:border-primary data-[state=open]:bg-muted",
-        error: "data-[state=open]:border-brand-deep data-[state=open]:bg-error-bg",
-        info: "data-[state=open]:border-info data-[state=open]:bg-info-bg",
+          "data-[state=open]:tri-border-primary data-[state=open]:tri-bg-muted",
+        error: "data-[state=open]:tri-border-brand-deep data-[state=open]:tri-bg-error-bg",
+        info: "data-[state=open]:tri-border-info data-[state=open]:tri-bg-info-bg",
       },
     },
     defaultVariants: {
@@ -54,20 +54,20 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
+  <AccordionPrimitive.Header className="tri-flex">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "group flex flex-1 items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-foreground transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "tri-group tri-flex tri-flex-1 tri-items-center tri-justify-between tri-gap-3 tri-px-4 tri-py-3.5 tri-text-left tri-text-sm tri-font-medium tri-text-foreground tri-transition-colors",
+        "focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2",
         className
       )}
       {...props}
     >
       {children}
-      <span className="relative h-[18px] w-[18px] shrink-0 text-muted-foreground">
-        <Plus className="absolute inset-0 h-[18px] w-[18px] transition-all duration-200 group-data-[state=open]:rotate-90 group-data-[state=open]:opacity-0" />
-        <Minus className="absolute inset-0 h-[18px] w-[18px] -rotate-90 opacity-0 transition-all duration-200 group-data-[state=open]:rotate-0 group-data-[state=open]:opacity-100" />
+      <span className="tri-relative tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-text-muted-foreground">
+        <Plus className="tri-absolute tri-inset-0 tri-h-[18px] tri-w-[18px] tri-transition-all tri-duration-200 group-data-[state=open]:tri-rotate-90 group-data-[state=open]:tri-opacity-0" />
+        <Minus className="tri-absolute tri-inset-0 tri-h-[18px] tri-w-[18px] -tri-rotate-90 tri-opacity-0 tri-transition-all tri-duration-200 group-data-[state=open]:tri-rotate-0 group-data-[state=open]:tri-opacity-100" />
       </span>
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
@@ -81,13 +81,13 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className={cn(
-      "overflow-hidden text-[13px] leading-relaxed text-muted-foreground",
-      "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+      "tri-overflow-hidden tri-text-[13px] tri-leading-relaxed tri-text-muted-foreground",
+      "data-[state=closed]:tri-animate-accordion-up data-[state=open]:tri-animate-accordion-down",
       className
     )}
     {...props}
   >
-    <div className={cn("px-4 pb-4 pt-0")}>{children}</div>
+    <div className={cn("tri-px-4 tri-pb-4 tri-pt-0")}>{children}</div>
   </AccordionPrimitive.Content>
 ))
 AccordionContent.displayName = AccordionPrimitive.Content.displayName

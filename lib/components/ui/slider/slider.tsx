@@ -11,9 +11,9 @@ import { cn } from "../utils"
  * (multiple thumbs) values.
  */
 const sliderAccent = {
-  ink: { range: "bg-primary", thumb: "border-primary" },
-  brand: { range: "bg-brand", thumb: "border-brand" },
-  info: { range: "bg-info", thumb: "border-info" },
+  ink: { range: "tri-bg-primary", thumb: "tri-border-primary" },
+  brand: { range: "tri-bg-brand", thumb: "tri-border-brand" },
+  info: { range: "tri-bg-info", thumb: "tri-border-info" },
 } as const
 
 const Slider = React.forwardRef<
@@ -34,24 +34,24 @@ const Slider = React.forwardRef<
     <SliderPrimitive.Root
       ref={ref}
       className={cn(
-        "relative flex w-full touch-none select-none items-center data-[disabled]:opacity-50",
+        "tri-relative tri-flex tri-w-full tri-touch-none tri-select-none tri-items-center data-[disabled]:tri-opacity-50",
         className
       )}
       {...props}
     >
-      <SliderPrimitive.Track className="relative h-1 w-full grow overflow-hidden rounded-pill bg-muted">
-        <SliderPrimitive.Range className={cn("absolute h-full rounded-pill", accent.range)} />
+      <SliderPrimitive.Track className="tri-relative tri-h-1 tri-w-full tri-grow tri-overflow-hidden tri-rounded-pill tri-bg-muted">
+        <SliderPrimitive.Range className={cn("tri-absolute tri-h-full tri-rounded-pill", accent.range)} />
       </SliderPrimitive.Track>
       {Array.from({ length: thumbCount }).map((_, i) => (
         <SliderPrimitive.Thumb
           key={i}
           className={cn(
-            "relative block h-4 w-4 rounded-pill border-2 bg-background shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[disabled]:pointer-events-none",
+            "tri-relative tri-block tri-h-4 tri-w-4 tri-rounded-pill tri-border-2 tri-bg-background tri-shadow-sm tri-ring-offset-background tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 data-[disabled]:tri-pointer-events-none",
             accent.thumb
           )}
         >
           {showValue && (
-            <span className="absolute -top-7 left-1/2 -translate-x-1/2 rounded-sm bg-primary px-1.5 py-0.5 font-mono text-[11px] leading-none text-primary-foreground">
+            <span className="tri-absolute -tri-top-7 tri-left-1/2 -tri-translate-x-1/2 tri-rounded-sm tri-bg-primary tri-px-1.5 tri-py-0.5 tri-font-mono tri-text-[11px] tri-leading-none tri-text-primary-foreground">
               {values[i]}
             </span>
           )}

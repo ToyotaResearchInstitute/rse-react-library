@@ -32,11 +32,11 @@ export const Select = ({ options, id, value, onChange }: SelectProps) => {
       <SelectTrigger
         id={id}
         data-testid={`select-dropdown-${id}`}
-        className={`${styles['selectContainer']} text-gray-900 font-normal`}
+        className={`${styles['selectContainer']} tri-text-gray-900 tri-font-normal`}
       >
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
-      <SelectContent className="font-medium text-gray-900 border-none shadow-md">
+      <SelectContent className="tri-font-medium tri-text-gray-900 tri-border-none tri-shadow-md">
         {options.map((option, index) => (
           <SelectItem
             key={`${id}-dropdown-${index}`}

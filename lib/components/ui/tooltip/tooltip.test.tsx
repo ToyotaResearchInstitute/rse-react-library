@@ -85,13 +85,13 @@ describe("Tooltip", () => {
   it("applies the default (dark) variant classes", async () => {
     renderTooltip({ defaultOpen: true })
     const content = await screen.findByRole("tooltip")
-    expect(content).toHaveClass("bg-[#0B0B0D]", "text-white")
+    expect(content).toHaveClass("tri-bg-[#0B0B0D]", "tri-text-white")
   })
 
   it.each([
-    ["light", "bg-background"],
-    ["blue", "bg-[#1D73BF]"],
-    ["annotation", "bg-[#A9D6FF]"],
+    ["light", "tri-bg-background"],
+    ["blue", "tri-bg-[#1D73BF]"],
+    ["annotation", "tri-bg-[#A9D6FF]"],
   ] as const)("applies the %s variant classes", async (variant, cls) => {
     renderTooltip({ variant, defaultOpen: true })
     const content = await screen.findByRole("tooltip")
@@ -115,18 +115,18 @@ describe("Tooltip", () => {
 describe("tooltipVariants", () => {
   it("returns the default dark variant with no args", () => {
     const out = tooltipVariants()
-    expect(out).toContain("bg-[#0B0B0D]")
-    expect(out).toContain("text-white")
+    expect(out).toContain("tri-bg-[#0B0B0D]")
+    expect(out).toContain("tri-text-white")
   })
 
   it("returns requested variants", () => {
-    expect(tooltipVariants({ variant: "light" })).toContain("bg-background")
-    expect(tooltipVariants({ variant: "blue" })).toContain("bg-[#1D73BF]")
-    expect(tooltipVariants({ variant: "annotation" })).toContain("rounded-full")
+    expect(tooltipVariants({ variant: "light" })).toContain("tri-bg-background")
+    expect(tooltipVariants({ variant: "blue" })).toContain("tri-bg-[#1D73BF]")
+    expect(tooltipVariants({ variant: "annotation" })).toContain("tri-rounded-full")
   })
 
   it("always includes base classes", () => {
-    expect(tooltipVariants({ variant: "dark" })).toContain("z-50")
+    expect(tooltipVariants({ variant: "dark" })).toContain("tri-z-50")
   })
 })
 
@@ -140,14 +140,14 @@ describe("AnnotationTooltip", () => {
 
   it("defaults to the below tail", () => {
     render(<AnnotationTooltip>Note</AnnotationTooltip>)
-    expect(screen.getByRole("note")).toHaveClass("after:border-t-[#A9D6FF]")
+    expect(screen.getByRole("note")).toHaveClass("after:tri-border-t-[#A9D6FF]")
   })
 
   it.each([
-    ["above", "after:border-b-[#A9D6FF]"],
-    ["left", "after:border-r-[#A9D6FF]"],
-    ["right", "after:border-l-[#A9D6FF]"],
-    ["below", "after:border-t-[#A9D6FF]"],
+    ["above", "after:tri-border-b-[#A9D6FF]"],
+    ["left", "after:tri-border-r-[#A9D6FF]"],
+    ["right", "after:tri-border-l-[#A9D6FF]"],
+    ["below", "after:tri-border-t-[#A9D6FF]"],
   ] as const)("applies the %s tail classes", (tail, cls) => {
     render(<AnnotationTooltip tail={tail}>Note</AnnotationTooltip>)
     expect(screen.getByRole("note")).toHaveClass(cls)
@@ -155,7 +155,7 @@ describe("AnnotationTooltip", () => {
 
   it("merges custom className", () => {
     render(<AnnotationTooltip className="anno-x">Note</AnnotationTooltip>)
-    expect(screen.getByRole("note")).toHaveClass("anno-x", "rounded-full")
+    expect(screen.getByRole("note")).toHaveClass("anno-x", "tri-rounded-full")
   })
 
   it("forwards ref", () => {

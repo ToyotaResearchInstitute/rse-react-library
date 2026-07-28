@@ -3,10 +3,10 @@ import { Button } from "../components/ui/button";
 const FeedbackButton = () => {
   return (
     window.showCollectorDialog && (
-      <div className="absolute right-0 top-[50%] origin-top-right rotate-90">
+      <div className="tri-absolute tri-right-0 tri-top-[50%] tri-origin-top-right tri-rotate-90">
         <Button
           variant="default"
-          className="rounded-none rounded-b-sm px-4 py-3 text-base font-medium normal-case"
+          className="tri-rounded-none tri-rounded-b-sm tri-px-4 tri-py-3 tri-text-base tri-font-medium tri-normal-case"
           onClick={window.showCollectorDialog}
         >
           Feedback

@@ -7,10 +7,16 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border;
+  /* Default border color for the library's own components only. Scoped to
+     elements that carry a `tri-border*` utility (i.e. our components) instead of
+     a global `*`, so this never overrides a consuming app's default border
+     color. Explicit `tri-border-<color>` utilities win via cascade order. */
+  [class*="tri-border"] {
+    border-color: var(--tri-border);
   }
-  body {
-    @apply bg-background text-foreground;
+  /* Page paint is opt-in via `.tri-root` (see tokens.css) — not applied to the
+     consumer's <body> globally. */
+  .tri-root {
+    @apply tri-bg-background tri-text-foreground;
   }
 }

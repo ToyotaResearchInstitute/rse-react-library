@@ -16,7 +16,7 @@ const FilterBar = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex flex-wrap items-center gap-2 rounded-md border border-border bg-[var(--bg-subtle)] p-2",
+      "tri-flex tri-flex-wrap tri-items-center tri-gap-2 tri-rounded-md tri-border tri-border-border tri-bg-[var(--tri-bg-subtle)] tri-p-2",
       className
     )}
     {...props}
@@ -39,24 +39,24 @@ const FilterChip = React.forwardRef<HTMLDivElement, FilterChipProps>(
     <div
       ref={ref}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-pill border px-2.5 py-1 text-xs",
+        "tri-inline-flex tri-items-center tri-gap-1.5 tri-rounded-pill tri-border tri-px-2.5 tri-py-1 tri-text-xs",
         dashed
-          ? "cursor-pointer border-dashed border-[var(--border-hover)] bg-transparent text-muted-foreground"
-          : "border-[var(--border-hover)] bg-background text-foreground",
+          ? "tri-cursor-pointer tri-border-dashed tri-border-[var(--tri-border-hover)] tri-bg-transparent tri-text-muted-foreground"
+          : "tri-border-[var(--tri-border-hover)] tri-bg-background tri-text-foreground",
         className
       )}
       {...props}
     >
-      {dashed && <Plus className="size-3" />}
+      {dashed && <Plus className="tri-size-3" />}
       {children}
       {!dashed && onRemove && (
         <button
           type="button"
           aria-label="Remove filter"
           onClick={onRemove}
-          className="inline-flex size-3 shrink-0 cursor-pointer items-center justify-center border-none bg-transparent p-0 opacity-60 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="tri-inline-flex tri-size-3 tri-shrink-0 tri-cursor-pointer tri-items-center tri-justify-center tri-border-none tri-bg-transparent tri-p-0 tri-opacity-60 hover:tri-opacity-100 focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
         >
-          <X className="size-3" />
+          <X className="tri-size-3" />
         </button>
       )}
     </div>
@@ -71,7 +71,7 @@ const FilterCount = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <span
     ref={ref}
-    className={cn("ml-auto font-mono text-xs text-muted-foreground", className)}
+    className={cn("tri-ml-auto tri-font-mono tri-text-xs tri-text-muted-foreground", className)}
     {...props}
   />
 ))

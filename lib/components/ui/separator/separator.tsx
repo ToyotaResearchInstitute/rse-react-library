@@ -21,24 +21,24 @@ const Separator = React.forwardRef<
   ) => {
     const horizontal = orientation === "horizontal"
     const byVariant = {
-      default: cn("bg-border", horizontal ? "h-px w-full" : "h-full w-px"),
-      strong: cn("bg-primary", horizontal ? "h-0.5 w-full" : "h-full w-0.5"),
+      default: cn("tri-bg-border", horizontal ? "tri-h-px tri-w-full" : "tri-h-full tri-w-px"),
+      strong: cn("tri-bg-primary", horizontal ? "tri-h-0.5 tri-w-full" : "tri-h-full tri-w-0.5"),
       dashed: cn(
-        "bg-transparent",
+        "tri-bg-transparent",
         horizontal
-          ? "h-0 w-full border-t border-dashed border-[var(--border-hover)]"
-          : "h-full w-0 border-l border-dashed border-[var(--border-hover)]"
+          ? "tri-h-0 tri-w-full tri-border-t tri-border-dashed tri-border-[var(--tri-border-hover)]"
+          : "tri-h-full tri-w-0 tri-border-l tri-border-dashed tri-border-[var(--tri-border-hover)]"
       ),
       gradient: horizontal
-        ? "h-px w-full bg-gradient-to-r from-transparent via-[var(--border-hover)] to-transparent"
-        : "h-full w-px bg-gradient-to-b from-transparent via-[var(--border-hover)] to-transparent",
+        ? "tri-h-px tri-w-full tri-bg-gradient-to-r tri-from-transparent tri-via-[var(--tri-border-hover)] tri-to-transparent"
+        : "tri-h-full tri-w-px tri-bg-gradient-to-b tri-from-transparent tri-via-[var(--tri-border-hover)] tri-to-transparent",
     }
     return (
       <SeparatorPrimitive.Root
         ref={ref}
         decorative={decorative}
         orientation={orientation}
-        className={cn("shrink-0", byVariant[variant], className)}
+        className={cn("tri-shrink-0", byVariant[variant], className)}
         {...props}
       />
     )
@@ -55,9 +55,9 @@ const LabeledSeparator = React.forwardRef<
     ref={ref}
     role="separator"
     className={cn(
-      "flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground",
-      "before:h-px before:flex-1 before:bg-border before:content-['']",
-      "after:h-px after:flex-1 after:bg-border after:content-['']",
+      "tri-flex tri-items-center tri-gap-3 tri-font-mono tri-text-xs tri-font-medium tri-uppercase tri-tracking-[0.08em] tri-text-muted-foreground",
+      "before:tri-h-px before:tri-flex-1 before:tri-bg-border before:tri-content-['']",
+      "after:tri-h-px after:tri-flex-1 after:tri-bg-border after:tri-content-['']",
       className
     )}
     {...props}

@@ -25,7 +25,7 @@ describe("FilterBar", () => {
     render(<FilterBar className="my-custom" data-testid="bar" />)
     const bar = screen.getByTestId("bar")
     expect(bar).toHaveClass("my-custom")
-    expect(bar).toHaveClass("flex")
+    expect(bar).toHaveClass("tri-flex")
   })
 
   it("spreads arbitrary props", () => {
@@ -78,7 +78,7 @@ describe("FilterChip", () => {
       </FilterChip>
     )
     const chip = screen.getByTestId("chip")
-    expect(chip).toHaveClass("border-dashed")
+    expect(chip).toHaveClass("tri-border-dashed")
     expect(screen.getByText("Add filter")).toBeInTheDocument()
   })
 
@@ -116,7 +116,7 @@ describe("FilterCount", () => {
         1
       </FilterCount>
     )
-    expect(screen.getByTestId("count")).toHaveClass("extra", "ml-auto")
+    expect(screen.getByTestId("count")).toHaveClass("extra", "tri-ml-auto")
   })
 })
 

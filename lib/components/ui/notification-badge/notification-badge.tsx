@@ -14,17 +14,17 @@ import { cn } from "../utils"
  * helper, or any element with `relative`).
  */
 const dotColors = {
-  brand: "bg-brand",
-  info: "bg-info",
-  success: "bg-success",
-  warning: "bg-warning",
-  ink: "bg-primary",
+  brand: "tri-bg-brand",
+  info: "tri-bg-info",
+  success: "tri-bg-success",
+  warning: "tri-bg-warning",
+  ink: "tri-bg-primary",
 } as const
 
 type BadgeColor = keyof typeof dotColors
 
 const dotVariants = cva(
-  "absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-pill border-2 border-white",
+  "tri-absolute -tri-right-0.5 -tri-top-0.5 tri-h-2.5 tri-w-2.5 tri-rounded-pill tri-border-2 tri-border-white",
   {
     variants: {
       color: dotColors,
@@ -51,7 +51,7 @@ const NotificationDot = React.forwardRef<HTMLSpanElement, NotificationDotProps>(
 NotificationDot.displayName = "NotificationDot"
 
 const countVariants = cva(
-  "absolute -right-1.5 -top-1.5 inline-flex h-[18px] min-w-[18px] items-center justify-center rounded-[9px] border-2 border-white px-[5px] text-[11px] font-semibold leading-none text-white",
+  "tri-absolute -tri-right-1.5 -tri-top-1.5 tri-inline-flex tri-h-[18px] tri-min-w-[18px] tri-items-center tri-justify-center tri-rounded-[9px] tri-border-2 tri-border-white tri-px-[5px] tri-text-[11px] tri-font-semibold tri-leading-none tri-text-white",
   {
     variants: {
       color: dotColors,
@@ -98,7 +98,7 @@ const NotificationAnchor = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <span
     ref={ref}
-    className={cn("relative inline-flex", className)}
+    className={cn("tri-relative tri-inline-flex", className)}
     {...props}
   />
 ))

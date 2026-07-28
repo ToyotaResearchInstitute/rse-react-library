@@ -12,13 +12,13 @@ describe("Chip", () => {
 
   it("applies the default (filled) variant classes", () => {
     render(<Chip>Tag</Chip>)
-    expect(screen.getByText("Tag")).toHaveClass("bg-[#eeeeee]")
+    expect(screen.getByText("Tag")).toHaveClass("tri-bg-[#eeeeee]")
   })
 
   it.each([
-    ["filled", "bg-[#eeeeee]"],
-    ["outlined", "border-[#d4d4d4]"],
-    ["dashed", "border-dashed"],
+    ["filled", "tri-bg-[#eeeeee]"],
+    ["outlined", "tri-border-[#d4d4d4]"],
+    ["dashed", "tri-border-dashed"],
   ] as const)("renders variant=%s", (variant, expectedClass) => {
     render(<Chip variant={variant}>Tag</Chip>)
     expect(screen.getByText("Tag")).toHaveClass(expectedClass)
@@ -31,7 +31,7 @@ describe("Chip", () => {
           Tag
         </Chip>
       )
-      expect(screen.getByText("Tag")).toHaveClass("bg-brand", "text-white")
+      expect(screen.getByText("Tag")).toHaveClass("tri-bg-brand", "tri-text-white")
     })
 
     it("filled + ink + selected fills with primary", () => {
@@ -40,7 +40,7 @@ describe("Chip", () => {
           Tag
         </Chip>
       )
-      expect(screen.getByText("Tag")).toHaveClass("bg-primary")
+      expect(screen.getByText("Tag")).toHaveClass("tri-bg-primary")
     })
 
     it("filled + info + selected fills with info", () => {
@@ -49,7 +49,7 @@ describe("Chip", () => {
           Tag
         </Chip>
       )
-      expect(screen.getByText("Tag")).toHaveClass("bg-info")
+      expect(screen.getByText("Tag")).toHaveClass("tri-bg-info")
     })
 
     it("outlined + brand + selected uses soft tint + brand border", () => {
@@ -58,7 +58,7 @@ describe("Chip", () => {
           Tag
         </Chip>
       )
-      expect(screen.getByText("Tag")).toHaveClass("border-brand")
+      expect(screen.getByText("Tag")).toHaveClass("tri-border-brand")
     })
 
     it("outlined + info + selected uses info border", () => {
@@ -67,7 +67,7 @@ describe("Chip", () => {
           Tag
         </Chip>
       )
-      expect(screen.getByText("Tag")).toHaveClass("border-info")
+      expect(screen.getByText("Tag")).toHaveClass("tri-border-info")
     })
   })
 
@@ -107,7 +107,7 @@ describe("Chip", () => {
 
     it("adds pr-1 padding class when removable", () => {
       render(<Chip onRemove={() => {}}>Tag</Chip>)
-      expect(screen.getByText("Tag").closest("span")).toHaveClass("pr-1")
+      expect(screen.getByText("Tag").closest("span")).toHaveClass("tri-pr-1")
     })
 
     it("styles the remove button differently when selected", () => {
@@ -116,12 +116,12 @@ describe("Chip", () => {
           Tag
         </Chip>
       )
-      expect(screen.getByRole("button")).toHaveClass("bg-white/30")
+      expect(screen.getByRole("button")).toHaveClass("tri-bg-white/30")
     })
 
     it("styles the remove button for unselected chip", () => {
       render(<Chip onRemove={() => {}}>Tag</Chip>)
-      expect(screen.getByRole("button")).toHaveClass("bg-black/[0.18]")
+      expect(screen.getByRole("button")).toHaveClass("tri-bg-black/[0.18]")
     })
   })
 
@@ -142,6 +142,6 @@ describe("Chip", () => {
   })
 
   it("exports chipVariants that generate class strings", () => {
-    expect(chipVariants({ variant: "outlined" })).toContain("border-[#d4d4d4]")
+    expect(chipVariants({ variant: "outlined" })).toContain("tri-border-[#d4d4d4]")
   })
 })
