@@ -237,12 +237,24 @@
    @font-face above stay global (on :root) so component utilities work anywhere. */
 .tri-root { font-family: var(--tri-font-sans); color: var(--tri-fg); background: var(--tri-bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-.tri-root h1, .tri-root .h1 { font-family: var(--tri-font-display); font-size: var(--tri-fs-48); font-weight: var(--tri-fw-bold); line-height: var(--tri-lh-tight); letter-spacing: var(--tri-ls-tightest); color: var(--tri-fg-strong); }
-.tri-root h2, .tri-root .h2 { font-family: var(--tri-font-display); font-size: var(--tri-fs-36); font-weight: var(--tri-fw-bold); line-height: var(--tri-lh-snug);  letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
-.tri-root h3, .tri-root .h3 { font-family: var(--tri-font-display); font-size: var(--tri-fs-30); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
-.tri-root h4, .tri-root .h4 { font-family: var(--tri-font-display); font-size: var(--tri-fs-24); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
-.tri-root h5, .tri-root .h5 { font-family: var(--tri-font-display); font-size: var(--tri-fs-20); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  color: var(--tri-fg-strong); }
-.tri-root h6, .tri-root .h6 { font-family: var(--tri-font-display); font-size: var(--tri-fs-16); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  color: var(--tri-fg-strong); }
+/* Bare <h1>..<h6> inside .tri-root keep the display font, leading, tracking and
+   strong color (Tailwind preflight never reset these, so they applied on main),
+   but their SIZE and WEIGHT stay inherited — preflight reset font-size/weight to
+   `inherit` on main, so a component's bare heading takes the surrounding size.
+   Opt into the full display SIZE + WEIGHT with the `.h1`..`.h6` classes. */
+.tri-root h1 { font-family: var(--tri-font-display); line-height: var(--tri-lh-tight); letter-spacing: var(--tri-ls-tightest); color: var(--tri-fg-strong); }
+.tri-root h2 { font-family: var(--tri-font-display); line-height: var(--tri-lh-snug); letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
+.tri-root h3 { font-family: var(--tri-font-display); line-height: var(--tri-lh-snug); letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
+.tri-root h4 { font-family: var(--tri-font-display); line-height: var(--tri-lh-snug); letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
+.tri-root h5 { font-family: var(--tri-font-display); line-height: var(--tri-lh-snug); color: var(--tri-fg-strong); }
+.tri-root h6 { font-family: var(--tri-font-display); line-height: var(--tri-lh-snug); color: var(--tri-fg-strong); }
+
+.tri-root .h1 { font-family: var(--tri-font-display); font-size: var(--tri-fs-48); font-weight: var(--tri-fw-bold); line-height: var(--tri-lh-tight); letter-spacing: var(--tri-ls-tightest); color: var(--tri-fg-strong); }
+.tri-root .h2 { font-family: var(--tri-font-display); font-size: var(--tri-fs-36); font-weight: var(--tri-fw-bold); line-height: var(--tri-lh-snug);  letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
+.tri-root .h3 { font-family: var(--tri-font-display); font-size: var(--tri-fs-30); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
+.tri-root .h4 { font-family: var(--tri-font-display); font-size: var(--tri-fs-24); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  letter-spacing: var(--tri-ls-tight); color: var(--tri-fg-strong); }
+.tri-root .h5 { font-family: var(--tri-font-display); font-size: var(--tri-fs-20); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  color: var(--tri-fg-strong); }
+.tri-root .h6 { font-family: var(--tri-font-display); font-size: var(--tri-fs-16); font-weight: var(--tri-fw-semibold); line-height: var(--tri-lh-snug);  color: var(--tri-fg-strong); }
 
 .tri-root p, .tri-root .body  { font-size: var(--tri-fs-14); line-height: var(--tri-lh-relaxed); color: var(--tri-fg); letter-spacing: 0; }
 .tri-root .body-lg  { font-size: var(--tri-fs-16); line-height: var(--tri-lh-relaxed); }
@@ -251,8 +263,14 @@
 .tri-root .overline { font-size: var(--tri-fs-12); font-weight: var(--tri-fw-medium); letter-spacing: 0.08em; text-transform: uppercase; color: var(--tri-fg-muted); }
 .tri-root .label    { font-size: var(--tri-fs-14); font-weight: var(--tri-fw-medium); line-height: var(--tri-lh-snug); color: var(--tri-fg); }
 
-.tri-root code, .tri-root kbd, .tri-root pre, .tri-root .mono { font-family: var(--tri-font-mono); font-size: var(--tri-fs-12); letter-spacing: 0; }
+/* Monospace type is opt-in via `.mono`. Bare <code>/<kbd>/<pre> keep the
+   browser/preflight monospace default (matches main); only the muted box
+   below still applies to bare inline <code>. */
+.tri-root .mono { font-family: var(--tri-font-mono); font-size: var(--tri-fs-12); letter-spacing: 0; }
 .tri-root code { background: var(--tri-bg-muted); padding: 2px 6px; border-radius: var(--tri-radius-xs); }
 
-.tri-root a, .tri-root .link { color: var(--tri-link); text-decoration: none; transition: color var(--tri-dur-fast) var(--tri-ease-out); }
-.tri-root a:hover, .tri-root .link:hover { color: var(--tri-link-hover); text-decoration: underline; }
+/* Link styling is opt-in via `.link`. A bare <a> inside a component inherits
+   color/underline (matches main, where preflight reset <a> to inherit); use
+   className="link" for a TRI-styled anchor. */
+.tri-root .link { color: var(--tri-link); text-decoration: none; transition: color var(--tri-dur-fast) var(--tri-ease-out); }
+.tri-root .link:hover { color: var(--tri-link-hover); text-decoration: underline; }
