@@ -10,18 +10,18 @@ import { cn } from "../utils"
  * info. Rendered as a `role="status"` element for accessibility.
  */
 const spinnerVariants = cva(
-  "inline-block animate-spin rounded-full border-brand-gray border-solid",
+  "tri-inline-block tri-animate-spin tri-rounded-full tri-border-brand-gray tri-border-solid",
   {
     variants: {
       size: {
-        sm: "h-4 w-4 border-2",
-        md: "h-6 w-6 border-[3px]",
-        lg: "h-10 w-10 border-4",
+        sm: "tri-h-4 tri-w-4 tri-border-2",
+        md: "tri-h-6 tri-w-6 tri-border-[3px]",
+        lg: "tri-h-10 tri-w-10 tri-border-4",
       },
       variant: {
-        ink: "border-t-primary",
-        brand: "border-t-brand",
-        info: "border-t-info",
+        ink: "tri-border-t-primary",
+        brand: "tri-border-t-brand",
+        info: "tri-border-t-info",
       },
     },
     defaultVariants: {
@@ -47,7 +47,7 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
       className={cn(spinnerVariants({ size, variant }), className)}
       {...props}
     >
-      <span className="sr-only">{label}</span>
+      <span className="tri-sr-only">{label}</span>
     </div>
   )
 )
@@ -66,14 +66,14 @@ const FullPageLoader = React.forwardRef<
     ref={ref}
     role="status"
     className={cn(
-      "flex flex-col items-center justify-center gap-3 rounded-lg bg-[var(--bg-subtle)] p-10",
+      "tri-flex tri-flex-col tri-items-center tri-justify-center tri-gap-3 tri-rounded-lg tri-bg-[var(--tri-bg-subtle)] tri-p-10",
       className
     )}
     {...props}
   >
     <Spinner size="lg" />
     {message && (
-      <span className="text-[13px] text-[var(--fg-subtle)]">{message}</span>
+      <span className="tri-text-[13px] tri-text-[var(--tri-fg-subtle)]">{message}</span>
     )}
   </div>
 ))

@@ -28,18 +28,18 @@ function renderToast(ui: React.ReactNode) {
 
 describe("toastVariants / toastIconVariants", () => {
   it("toastVariants applies the default variant classes", () => {
-    expect(toastVariants()).toContain("bg-background")
+    expect(toastVariants()).toContain("tri-bg-background")
   })
 
   it("toastVariants applies the info variant tint", () => {
-    expect(toastVariants({ variant: "info" })).toContain("bg-info-bg")
+    expect(toastVariants({ variant: "info" })).toContain("tri-bg-info-bg")
   })
 
   it("toastIconVariants colors per status", () => {
-    expect(toastIconVariants({ variant: "success" })).toContain("bg-success-bg")
-    expect(toastIconVariants({ variant: "error" })).toContain("bg-error-bg")
-    expect(toastIconVariants({ variant: "info" })).toContain("bg-[#ECF6FF]")
-    expect(toastIconVariants({ variant: "default" })).toContain("bg-muted")
+    expect(toastIconVariants({ variant: "success" })).toContain("tri-bg-success-bg")
+    expect(toastIconVariants({ variant: "error" })).toContain("tri-bg-error-bg")
+    expect(toastIconVariants({ variant: "info" })).toContain("tri-bg-[#ECF6FF]")
+    expect(toastIconVariants({ variant: "default" })).toContain("tri-bg-muted")
   })
 })
 
@@ -96,7 +96,7 @@ describe("Toast primitives", () => {
       </Toast>
     )
 
-    expect(screen.getByTestId("toast")).toHaveClass("bg-info-bg")
+    expect(screen.getByTestId("toast")).toHaveClass("tri-bg-info-bg")
   })
 
   it("merges a custom className onto the root", () => {

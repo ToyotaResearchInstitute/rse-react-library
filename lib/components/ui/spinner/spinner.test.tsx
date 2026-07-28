@@ -12,7 +12,7 @@ describe("Spinner", () => {
 
   it("renders an sr-only label text", () => {
     render(<Spinner />)
-    expect(screen.getByText("Loading")).toHaveClass("sr-only")
+    expect(screen.getByText("Loading")).toHaveClass("tri-sr-only")
   })
 
   it("uses a custom label for aria-label and sr-only text", () => {
@@ -25,22 +25,22 @@ describe("Spinner", () => {
   it("applies default size (md) and variant (ink) classes", () => {
     render(<Spinner />)
     const status = screen.getByRole("status")
-    expect(status).toHaveClass("h-6", "w-6", "border-t-primary", "animate-spin")
+    expect(status).toHaveClass("tri-h-6", "tri-w-6", "tri-border-t-primary", "tri-animate-spin")
   })
 
   it.each([
-    ["sm", "h-4"],
-    ["md", "h-6"],
-    ["lg", "h-10"],
+    ["sm", "tri-h-4"],
+    ["md", "tri-h-6"],
+    ["lg", "tri-h-10"],
   ] as const)("renders size=%s", (size, expectedClass) => {
     render(<Spinner size={size} />)
     expect(screen.getByRole("status")).toHaveClass(expectedClass)
   })
 
   it.each([
-    ["ink", "border-t-primary"],
-    ["brand", "border-t-brand"],
-    ["info", "border-t-info"],
+    ["ink", "tri-border-t-primary"],
+    ["brand", "tri-border-t-brand"],
+    ["info", "tri-border-t-info"],
   ] as const)("renders variant=%s", (variant, expectedClass) => {
     render(<Spinner variant={variant} />)
     expect(screen.getByRole("status")).toHaveClass(expectedClass)
@@ -58,7 +58,7 @@ describe("Spinner", () => {
   })
 
   it("exports spinnerVariants that generate class strings", () => {
-    expect(spinnerVariants({ size: "lg", variant: "brand" })).toContain("h-10")
+    expect(spinnerVariants({ size: "lg", variant: "brand" })).toContain("tri-h-10")
   })
 })
 
@@ -85,7 +85,7 @@ describe("FullPageLoader", () => {
 
   it("renders a large spinner inside", () => {
     const { container } = render(<FullPageLoader />)
-    expect(container.querySelector(".h-10.w-10")).toBeInTheDocument()
+    expect(container.querySelector(".tri-h-10.tri-w-10")).toBeInTheDocument()
   })
 
   it("forwards ref", () => {
@@ -95,7 +95,7 @@ describe("FullPageLoader", () => {
   })
 
   it("merges custom className", () => {
-    const { container } = render(<FullPageLoader className="fixed inset-0" />)
-    expect(container.firstChild).toHaveClass("fixed", "inset-0")
+    const { container } = render(<FullPageLoader className="tri-fixed tri-inset-0" />)
+    expect(container.firstChild).toHaveClass("tri-fixed", "tri-inset-0")
   })
 })

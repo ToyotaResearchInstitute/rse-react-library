@@ -27,76 +27,76 @@ type Story = StoryObj<typeof Alert>;
 
 export const Info_: Story = {
   render: () => (
-    <Alert variant="info" className="max-w-2xl">
+    <Alert variant="info" className="tri-max-w-2xl">
       <Info />
       <AlertDescription>
         <AlertTitle>Maintenance window scheduled</AlertTitle>
         API access will be paused Tuesday, May 12 from 02:00–03:00 UTC for a
         routine database upgrade.
       </AlertDescription>
-      <X className="h-[18px] w-[18px] shrink-0 cursor-pointer opacity-75 hover:opacity-100" />
+      <X className="tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-cursor-pointer tri-opacity-75 hover:tri-opacity-100" />
     </Alert>
   ),
 };
 
 export const Success: Story = {
   render: () => (
-    <Alert variant="success" className="max-w-2xl">
+    <Alert variant="success" className="tri-max-w-2xl">
       <CircleCheckBig />
       <AlertDescription>
         <AlertTitle>Payment received</AlertTitle>
         Invoice INV-2086 has been marked as paid. Receipt sent to
         ana@tri.global.
       </AlertDescription>
-      <X className="h-[18px] w-[18px] shrink-0 cursor-pointer opacity-75 hover:opacity-100" />
+      <X className="tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-cursor-pointer tri-opacity-75 hover:tri-opacity-100" />
     </Alert>
   ),
 };
 
 export const Warning: Story = {
   render: () => (
-    <Alert variant="warning" className="max-w-2xl">
+    <Alert variant="warning" className="tri-max-w-2xl">
       <AlertTriangle />
       <AlertDescription>
         <AlertTitle>Storage at 87%</AlertTitle>
         Consider archiving older datasets — uploads will be rate-limited above
         90% capacity.
-        <div className="mt-2 flex gap-2">
-          <button className="rounded-sm border border-current px-2.5 py-1 text-xs font-semibold uppercase tracking-wide">
+        <div className="tri-mt-2 tri-flex tri-gap-2">
+          <button className="tri-rounded-sm tri-border tri-border-current tri-px-2.5 tri-py-1 tri-text-xs tri-font-semibold tri-uppercase tri-tracking-wide">
             Manage storage
           </button>
         </div>
       </AlertDescription>
-      <X className="h-[18px] w-[18px] shrink-0 cursor-pointer opacity-75 hover:opacity-100" />
+      <X className="tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-cursor-pointer tri-opacity-75 hover:tri-opacity-100" />
     </Alert>
   ),
 };
 
 export const Error_: Story = {
   render: () => (
-    <Alert variant="error" className="max-w-2xl">
+    <Alert variant="error" className="tri-max-w-2xl">
       <AlertCircle />
       <AlertDescription>
         <AlertTitle>Two webhooks failed</AlertTitle>
-        Endpoint <code className="font-mono text-[13px]">orders.paid</code>{" "}
+        Endpoint <code className="tri-font-mono tri-text-[13px]">orders.paid</code>{" "}
         returned 503. Last attempt: 12 min ago.
-        <div className="mt-2 flex gap-2">
-          <button className="rounded-sm border border-current px-2.5 py-1 text-xs font-semibold uppercase tracking-wide">
+        <div className="tri-mt-2 tri-flex tri-gap-2">
+          <button className="tri-rounded-sm tri-border tri-border-current tri-px-2.5 tri-py-1 tri-text-xs tri-font-semibold tri-uppercase tri-tracking-wide">
             Retry now
           </button>
-          <button className="rounded-sm border border-current px-2.5 py-1 text-xs font-semibold uppercase tracking-wide">
+          <button className="tri-rounded-sm tri-border tri-border-current tri-px-2.5 tri-py-1 tri-text-xs tri-font-semibold tri-uppercase tri-tracking-wide">
             View logs
           </button>
         </div>
       </AlertDescription>
-      <X className="h-[18px] w-[18px] shrink-0 cursor-pointer opacity-75 hover:opacity-100" />
+      <X className="tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-cursor-pointer tri-opacity-75 hover:tri-opacity-100" />
     </Alert>
   ),
 };
 
 export const Default: Story = {
   render: () => (
-    <Alert variant="default" className="max-w-2xl">
+    <Alert variant="default" className="tri-max-w-2xl">
       <Info />
       <AlertDescription>
         <AlertTitle>Heads up</AlertTitle>
@@ -108,7 +108,7 @@ export const Default: Story = {
 
 export const Info_Filled: Story = {
   render: () => (
-    <Alert variant="info-filled" className="max-w-2xl">
+    <Alert variant="info-filled" className="tri-max-w-2xl">
       <Info />
       <AlertDescription>
         New Version available -- refresh to update.
@@ -119,7 +119,7 @@ export const Info_Filled: Story = {
 
 export const Success_Filled: Story = {
   render: () => (
-    <Alert variant="success-filled" className="max-w-2xl">
+    <Alert variant="success-filled" className="tri-max-w-2xl">
       <CircleCheckBig />
       <AlertDescription>
         Profile updated successfully.
@@ -130,7 +130,7 @@ export const Success_Filled: Story = {
 
 export const Warning_Filled: Story = {
   render: () => (
-    <Alert variant="warning-filled" className="max-w-2xl">
+    <Alert variant="warning-filled" className="tri-max-w-2xl">
       <AlertTriangle />
       <AlertDescription>
         Session expires in 5 minutes.
@@ -141,7 +141,7 @@ export const Warning_Filled: Story = {
 
 export const Error_Filled: Story = {
   render: () => (
-    <Alert variant="error-filled" className="max-w-2xl">
+    <Alert variant="error-filled" className="tri-max-w-2xl">
       <AlertCircle />
       <AlertDescription>
         Unable to connect -- check your network.
@@ -152,7 +152,7 @@ export const Error_Filled: Story = {
 
 export const Info_Outlined: Story = {
   render: () => (
-    <Alert variant="info-outline" className="max-w-2xl">
+    <Alert variant="info-outline" className="tri-max-w-2xl">
       <Info />
       <AlertDescription>
         2 invitations pending approval.
@@ -163,7 +163,7 @@ export const Info_Outlined: Story = {
 
 export const Success_Outlined: Story = {
   render: () => (
-    <Alert variant="success-outline" className="max-w-2xl">
+    <Alert variant="success-outline" className="tri-max-w-2xl">
       <CircleCheckBig />
       <AlertDescription>
         Backup completed at 03:00 UTC.
@@ -174,7 +174,7 @@ export const Success_Outlined: Story = {
 
 export const Warning_Outlined: Story = {
   render: () => (
-    <Alert variant="warning-outline" className="max-w-2xl">
+    <Alert variant="warning-outline" className="tri-max-w-2xl">
       <AlertTriangle />
       <AlertDescription>
         Your trial expires in 3 days.
@@ -185,7 +185,7 @@ export const Warning_Outlined: Story = {
 
 export const Error_Outlined: Story = {
   render: () => (
-    <Alert variant="error-outline" className="max-w-2xl">
+    <Alert variant="error-outline" className="tri-max-w-2xl">
       <AlertCircle />
       <AlertDescription>
         3 Fields need attention before you can publish.
@@ -196,7 +196,7 @@ export const Error_Outlined: Story = {
 
 export const AllSeverities: Story = {
   render: () => (
-    <div className="flex max-w-2xl flex-col gap-3.5">
+    <div className="tri-flex tri-max-w-2xl tri-flex-col tri-gap-3.5">
       <Alert variant="info">
         <Info />
         <AlertDescription>

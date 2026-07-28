@@ -120,9 +120,9 @@ describe("Slider", () => {
   })
 
   it.each([
-    ["ink", "bg-primary"],
-    ["brand", "bg-brand"],
-    ["info", "bg-info"],
+    ["ink", "tri-bg-primary"],
+    ["brand", "tri-bg-brand"],
+    ["info", "tri-bg-info"],
   ] as const)("applies color=%s range accent", (color, expectedClass) => {
     const { container } = render(
       <Slider aria-label="volume" defaultValue={[50]} color={color} />

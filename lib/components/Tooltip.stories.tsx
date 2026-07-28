@@ -18,7 +18,7 @@ const meta: Meta<typeof Tooltip> = {
   decorators: [
     (Story) => (
       <TooltipProvider delayDuration={400}>
-        <div className="p-16">
+        <div className="tri-p-16">
           <Story />
         </div>
       </TooltipProvider>
@@ -37,7 +37,7 @@ const TargetButton = React.forwardRef<
   <button
     ref={ref}
     className={cn(
-      "inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#E5E5E5] bg-white text-[#0B0B0D] [&>svg]:h-[18px] [&>svg]:w-[18px]",
+      "tri-inline-flex tri-h-11 tri-w-11 tri-items-center tri-justify-center tri-rounded-md tri-border tri-border-[#E5E5E5] tri-bg-white tri-text-[#0B0B0D] [&>svg]:tri-h-[18px] [&>svg]:tri-w-[18px]",
       className
     )}
     {...props}
@@ -101,7 +101,7 @@ export const AnnotationPill: Story = {
 
 export const AllStyles: Story = {
   render: () => (
-    <div className="flex flex-wrap items-center gap-9">
+    <div className="tri-flex tri-flex-wrap tri-items-center tri-gap-9">
       <Tooltip>
         <TooltipTrigger asChild>
           <TargetButton>
@@ -145,7 +145,7 @@ export const AllStyles: Story = {
  */
 export const Sides: Story = {
   render: () => (
-    <div className="grid min-h-[360px] place-items-center gap-24 p-24">
+    <div className="tri-grid tri-min-h-[360px] tri-place-items-center tri-gap-24 tri-p-24">
       <Tooltip defaultOpen>
         <TooltipTrigger asChild>
           <TargetButton>
@@ -157,7 +157,7 @@ export const Sides: Story = {
         </TooltipContent>
       </Tooltip>
 
-      <div className="flex items-center gap-24">
+      <div className="tri-flex tri-items-center tri-gap-24">
         <Tooltip defaultOpen>
           <TooltipTrigger asChild>
             <TargetButton>

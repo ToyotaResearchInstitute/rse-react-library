@@ -15,9 +15,9 @@ const AppLayout = () => {
   const { token } = useUserAuth();
   const { amplifyEnabled, PreloginPage } = useTRIAppContext();
   return (
-    <div className="flex min-h-[100vh] flex-col">
+    <div className="tri-flex tri-min-h-[100vh] tri-flex-col">
       <Header />
-      <div className="relative flex grow flex-row bg-gray-50">
+      <div className="tri-relative tri-flex tri-grow tri-flex-row tri-bg-gray-50">
         <Suspense fallback={<div>Loading...</div>}>
           {!amplifyEnabled || token ? <Outlet /> : PreloginPage}
         </Suspense>

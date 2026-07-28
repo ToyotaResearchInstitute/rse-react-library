@@ -74,41 +74,41 @@ const RangeMonthGrid = ({
   };
 
   return (
-    <div className="w-[264px] p-3">
-      <div className="mb-2.5 flex items-center justify-between">
-        <span className="text-sm font-semibold text-foreground">
+    <div className="tri-w-[264px] tri-p-3">
+      <div className="tri-mb-2.5 tri-flex tri-items-center tri-justify-between">
+        <span className="tri-text-sm tri-font-semibold tri-text-foreground">
           {MONTHS[month]} {year}
         </span>
-        <div className="flex gap-1">
+        <div className="tri-flex tri-gap-1">
           <button
             type="button"
             aria-label="Previous month"
             onClick={() => setViewDate(new Date(year, month - 1, 1))}
-            className="inline-flex size-6 items-center justify-center rounded-md text-neutral-600 hover:bg-muted"
+            className="tri-inline-flex tri-size-6 tri-items-center tri-justify-center tri-rounded-md tri-text-neutral-600 hover:tri-bg-muted"
           >
-            <ChevronLeft className="size-3.5" />
+            <ChevronLeft className="tri-size-3.5" />
           </button>
           <button
             type="button"
             aria-label="Next month"
             onClick={() => setViewDate(new Date(year, month + 1, 1))}
-            className="inline-flex size-6 items-center justify-center rounded-md text-neutral-600 hover:bg-muted"
+            className="tri-inline-flex tri-size-6 tri-items-center tri-justify-center tri-rounded-md tri-text-neutral-600 hover:tri-bg-muted"
           >
-            <ChevronRight className="size-3.5" />
+            <ChevronRight className="tri-size-3.5" />
           </button>
         </div>
       </div>
-      <div className="mb-1 grid grid-cols-7 gap-0.5">
+      <div className="tri-mb-1 tri-grid tri-grid-cols-7 tri-gap-0.5">
         {WEEKDAYS.map((d, i) => (
           <div
             key={i}
-            className="py-1 text-center font-mono text-[10px] font-semibold uppercase text-muted-foreground"
+            className="tri-py-1 tri-text-center tri-font-mono tri-text-[10px] tri-font-semibold tri-uppercase tri-text-muted-foreground"
           >
             {d}
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-7 gap-y-0.5">
+      <div className="tri-grid tri-grid-cols-7 tri-gap-y-0.5">
         {days.map((date) => {
           const outside = date.getMonth() !== month;
           const isFrom = isSame(date, range.from);
@@ -121,13 +121,13 @@ const RangeMonthGrid = ({
               type="button"
               onClick={() => handleClick(date)}
               className={cn(
-                'relative flex h-8 items-center justify-center text-[13px] text-foreground transition-colors',
-                inRange && 'bg-brand-sky text-[#0F4F87]',
-                isFrom && 'rounded-l-md',
-                isTo && 'rounded-r-md',
-                !endpoint && !inRange && 'rounded-md hover:bg-muted',
-                outside && 'text-muted-foreground opacity-60',
-                endpoint && 'bg-primary font-semibold text-primary-foreground',
+                'tri-relative tri-flex tri-h-8 tri-items-center tri-justify-center tri-text-[13px] tri-text-foreground tri-transition-colors',
+                inRange && 'tri-bg-brand-sky tri-text-[#0F4F87]',
+                isFrom && 'tri-rounded-l-md',
+                isTo && 'tri-rounded-r-md',
+                !endpoint && !inRange && 'tri-rounded-md hover:tri-bg-muted',
+                outside && 'tri-text-muted-foreground tri-opacity-60',
+                endpoint && 'tri-bg-primary tri-font-semibold tri-text-primary-foreground',
               )}
             >
               {date.getDate()}
@@ -196,23 +196,23 @@ const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePickerProps
             ref={ref}
             type="button"
             className={cn(
-              'flex h-9 w-[240px] items-center gap-2 rounded-sm border border-input bg-background px-3 text-left text-sm transition-colors hover:border-[var(--border-hover)] focus-visible:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=open]:border-foreground',
+              'tri-flex tri-h-9 tri-w-[240px] tri-items-center tri-gap-2 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-3 tri-text-left tri-text-sm tri-transition-colors hover:tri-border-[var(--tri-border-hover)] focus-visible:tri-border-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 data-[state=open]:tri-border-foreground',
               className,
             )}
           >
-            <CalendarIcon className="size-4 shrink-0 text-muted-foreground" />
-            <span className={cn('flex-1', !label && 'text-muted-foreground')}>
+            <CalendarIcon className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
+            <span className={cn('tri-flex-1', !label && 'tri-text-muted-foreground')}>
               {label || placeholder}
             </span>
-            <ChevronDown className="size-4 shrink-0 text-muted-foreground" />
+            <ChevronDown className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
           </button>
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-auto p-0"
+          className="tri-w-auto tri-p-0"
         >
-          <div className="flex col-gap-0.5">
-            <div className="flex w-36 flex-col gap-0.5 border-r border-border p-2">
+          <div className="tri-flex tri-col-gap-0.5">
+            <div className="tri-flex tri-w-36 tri-flex-col tri-gap-0.5 tri-border-r tri-border-border tri-p-2">
               {presets.map((p) => (
                 <button
                   key={p.label}
@@ -222,16 +222,16 @@ const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePickerProps
                     if (p.range.from) setViewDate(startOfDay(p.range.from));
                   }}
                   className={cn(
-                    'rounded-sm px-2.5 py-1.5 text-left text-[13px] text-foreground transition-colors hover:bg-muted',
+                    'tri-rounded-sm tri-px-2.5 tri-py-1.5 tri-text-left tri-text-[13px] tri-text-foreground tri-transition-colors hover:tri-bg-muted',
                     isSame(draft.from, p.range.from) &&
                       isSame(draft.to, p.range.to) &&
-                      'bg-brand-sky text-info',
+                      'tri-bg-brand-sky tri-text-info',
                   )}
                 >
                   {p.label}
                 </button>
               ))}
-              <div className="flex justify-center gap-2 border-t border-border px-3 py-2.5 mt-auto">
+              <div className="tri-flex tri-justify-center tri-gap-2 tri-border-t tri-border-border tri-px-3 tri-py-2.5 tri-mt-auto">
                 <Button
                   variant="ghost"
                   size="sm"

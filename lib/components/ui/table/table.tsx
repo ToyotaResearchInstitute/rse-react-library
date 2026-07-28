@@ -24,8 +24,8 @@ const Table = React.forwardRef<
 >(({ className, bordered = false, striped = false, dense = false, ...props }, ref) => (
   <div
     className={cn(
-      "relative w-full overflow-x-auto",
-      bordered && "rounded-md border border-border"
+      "tri-relative tri-w-full tri-overflow-x-auto",
+      bordered && "tri-rounded-md tri-border tri-border-border"
     )}
   >
     <table
@@ -33,10 +33,10 @@ const Table = React.forwardRef<
       data-striped={striped ? "" : undefined}
       data-dense={dense ? "" : undefined}
       className={cn(
-        "w-full caption-bottom border-collapse text-[13px]",
+        "tri-w-full tri-caption-bottom tri-border-collapse tri-text-[13px]",
         striped &&
-          "[&_tbody_tr]:border-0 [&_tbody_tr:nth-child(even)]:bg-[var(--bg-subtle)] [&_tbody_tr:hover]:bg-[var(--neutral-150)]",
-        dense && "text-xs [&_td]:py-[7px] [&_th]:py-[7px]",
+          "[&_tbody_tr]:tri-border-0 [&_tbody_tr:nth-child(even)]:tri-bg-[var(--tri-bg-subtle)] [&_tbody_tr:hover]:tri-bg-[var(--tri-neutral-150)]",
+        dense && "tri-text-xs [&_td]:tri-py-[7px] [&_th]:tri-py-[7px]",
         className
       )}
       {...props}
@@ -57,8 +57,8 @@ const TableToolbar = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex items-center justify-between gap-3 border-b border-border px-3.5 py-3",
-      selected ? "bg-[#fbe5e8] text-[#8a1621]" : "bg-background",
+      "tri-flex tri-items-center tri-justify-between tri-gap-3 tri-border-b tri-border-border tri-px-3.5 tri-py-3",
+      selected ? "tri-bg-[#fbe5e8] tri-text-[#8a1621]" : "tri-bg-background",
       className
     )}
     {...props}
@@ -78,18 +78,18 @@ const TableSortButton = React.forwardRef<
     ref={ref}
     type="button"
     className={cn(
-      "inline-flex items-center gap-1 font-mono text-[11px] font-semibold uppercase tracking-[0.06em] text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+      "tri-inline-flex tri-items-center tri-gap-1 tri-font-mono tri-text-[11px] tri-font-semibold tri-uppercase tri-tracking-[0.06em] tri-text-muted-foreground hover:tri-text-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring",
       className
     )}
     {...props}
   >
     {children}
     {direction === "asc" ? (
-      <ArrowUp className="size-3 text-foreground" />
+      <ArrowUp className="tri-size-3 tri-text-foreground" />
     ) : direction === "desc" ? (
-      <ArrowDown className="size-3 text-foreground" />
+      <ArrowDown className="tri-size-3 tri-text-foreground" />
     ) : (
-      <ChevronsUpDown className="size-3 text-[var(--neutral-300)]" />
+      <ChevronsUpDown className="tri-size-3 tri-text-[var(--tri-neutral-300)]" />
     )}
   </button>
 ))
@@ -99,7 +99,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  <thead ref={ref} className={cn("[&_tr]:tri-border-b", className)} {...props} />
 ))
 TableHeader.displayName = "TableHeader"
 
@@ -109,7 +109,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("[&_tr:last-child]:border-0", className)}
+    className={cn("[&_tr:last-child]:tri-border-0", className)}
     {...props}
   />
 ))
@@ -122,7 +122,7 @@ const TableFooter = React.forwardRef<
   <tfoot
     ref={ref}
     className={cn(
-      "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
+      "tri-border-t tri-bg-muted/50 tri-font-medium [&>tr]:last:tri-border-b-0",
       className
     )}
     {...props}
@@ -137,7 +137,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-info-bg",
+      "tri-border-b tri-transition-colors hover:tri-bg-muted/50 data-[state=selected]:tri-bg-info-bg",
       className
     )}
     {...props}
@@ -152,7 +152,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "h-auto bg-[var(--bg-subtle)] px-3.5 py-2.5 text-left align-middle text-[11px] font-semibold uppercase tracking-[0.06em] text-muted-foreground font-mono [&:has([role=checkbox])]:pr-0",
+      "tri-h-auto tri-bg-[var(--tri-bg-subtle)] tri-px-3.5 tri-py-2.5 tri-text-left tri-align-middle tri-text-[11px] tri-font-semibold tri-uppercase tri-tracking-[0.06em] tri-text-muted-foreground tri-font-mono [&:has([role=checkbox])]:tri-pr-0",
       className
     )}
     {...props}
@@ -172,9 +172,9 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      "px-3.5 py-3 align-middle text-foreground [&:has([role=checkbox])]:pr-0",
-      align === "right" && "text-right",
-      mono && "font-mono text-xs text-[var(--fg-subtle)]",
+      "tri-px-3.5 tri-py-3 tri-align-middle tri-text-foreground [&:has([role=checkbox])]:tri-pr-0",
+      align === "right" && "tri-text-right",
+      mono && "tri-font-mono tri-text-xs tri-text-[var(--tri-fg-subtle)]",
       className
     )}
     {...props}
@@ -188,7 +188,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn("mt-4 text-sm text-muted-foreground", className)}
+    className={cn("tri-mt-4 tri-text-sm tri-text-muted-foreground", className)}
     {...props}
   />
 ))

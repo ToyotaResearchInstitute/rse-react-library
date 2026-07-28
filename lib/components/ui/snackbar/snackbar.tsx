@@ -25,17 +25,17 @@ const Snackbar = React.forwardRef<HTMLDivElement, SnackbarProps>(
       ref={ref}
       role="status"
       className={cn(
-        "inline-flex min-w-[280px] items-center gap-3.5 rounded-sm border border-[#cfe2f3] bg-brand-sky px-4 py-3 text-sm font-semibold text-info shadow-lg",
+        "tri-inline-flex tri-min-w-[280px] tri-items-center tri-gap-3.5 tri-rounded-sm tri-border tri-border-[#cfe2f3] tri-bg-brand-sky tri-px-4 tri-py-3 tri-text-sm tri-font-semibold tri-text-info tri-shadow-lg",
         className
       )}
       {...props}
     >
-      <span className="flex-1 text-info">{children}</span>
+      <span className="tri-flex-1 tri-text-info">{children}</span>
       {actionLabel && (
         <button
           type="button"
           onClick={onAction}
-          className="cursor-pointer border-none bg-transparent text-[13px] font-semibold uppercase tracking-[0.06em] text-info underline underline-offset-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="tri-cursor-pointer tri-border-none tri-bg-transparent tri-text-[13px] tri-font-semibold tri-uppercase tri-tracking-[0.06em] tri-text-info tri-underline tri-underline-offset-[3px] focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
         >
           {actionLabel}
         </button>
@@ -45,9 +45,9 @@ const Snackbar = React.forwardRef<HTMLDivElement, SnackbarProps>(
           type="button"
           aria-label="Dismiss"
           onClick={onClose}
-          className="inline-flex size-4 shrink-0 cursor-pointer items-center justify-center border-none bg-transparent p-0 text-info focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="tri-inline-flex tri-size-4 tri-shrink-0 tri-cursor-pointer tri-items-center tri-justify-center tri-border-none tri-bg-transparent tri-p-0 tri-text-info focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
         >
-          <X className="size-4" />
+          <X className="tri-size-4" />
         </button>
       )}
     </div>
@@ -67,7 +67,7 @@ const SnackbarViewport = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "pointer-events-none fixed inset-x-0 bottom-4 z-[100] flex justify-center [&>*]:pointer-events-auto",
+      "tri-pointer-events-none tri-fixed tri-inset-x-0 tri-bottom-4 tri-z-[100] tri-flex tri-justify-center [&>*]:tri-pointer-events-auto",
       className
     )}
     {...props}

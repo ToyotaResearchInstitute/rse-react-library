@@ -8,10 +8,10 @@ import { cn } from "../utils"
  * (ink default / brand / info / white for use on dark surfaces).
  */
 const dotColors = {
-  ink: "bg-primary",
-  brand: "bg-brand",
-  info: "bg-info",
-  white: "bg-white",
+  ink: "tri-bg-primary",
+  brand: "tri-bg-brand",
+  info: "tri-bg-info",
+  white: "tri-bg-white",
 } as const
 
 export interface DotsLoaderProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -27,17 +27,17 @@ const DotsLoader = React.forwardRef<HTMLSpanElement, DotsLoaderProps>(
       ref={ref}
       role="status"
       aria-label={label}
-      className={cn("inline-flex items-center gap-[5px]", className)}
+      className={cn("tri-inline-flex tri-items-center tri-gap-[5px]", className)}
       {...props}
     >
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          className={cn("inline-block rounded-pill animate-dot-bounce", dotColors[color])}
+          className={cn("tri-inline-block tri-rounded-pill tri-animate-dot-bounce", dotColors[color])}
           style={{ width: size, height: size, animationDelay: `${i * 0.15}s` }}
         />
       ))}
-      <span className="sr-only">{label}</span>
+      <span className="tri-sr-only">{label}</span>
     </span>
   )
 )

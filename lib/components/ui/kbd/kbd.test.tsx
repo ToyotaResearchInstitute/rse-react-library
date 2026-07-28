@@ -14,9 +14,9 @@ describe("Kbd", () => {
   it("applies base styling classes", () => {
     render(<Kbd>esc</Kbd>)
     expect(screen.getByText("esc")).toHaveClass(
-      "inline-flex",
-      "font-mono",
-      "bg-muted"
+      "tri-inline-flex",
+      "tri-font-mono",
+      "tri-bg-muted"
     )
   })
 

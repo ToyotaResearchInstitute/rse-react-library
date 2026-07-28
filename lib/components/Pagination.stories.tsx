@@ -32,7 +32,7 @@ const Template = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="tri-flex tri-flex-col tri-items-center tri-gap-3">
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -66,7 +66,7 @@ const Template = () => {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-      <p className="text-xs text-muted-foreground">
+      <p className="tri-text-xs tri-text-muted-foreground">
         Showing page {page} of {TOTAL}
       </p>
     </div>

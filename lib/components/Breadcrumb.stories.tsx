@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Breadcrumb>;
 
 export const Default: Story = {
   render: () => (
-    <div className="p-6">
+    <div className="tri-p-6">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

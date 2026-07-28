@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const Default: Story = {
   render: () => (
-    <div className="w-full max-w-[560px]">
+    <div className="tri-w-full tri-max-w-[560px]">
       <Accordion type="single" collapsible defaultValue="item-2">
         <AccordionItem value="item-1">
           <AccordionTrigger>Getting started</AccordionTrigger>
@@ -31,7 +31,7 @@ export const Default: Story = {
           <AccordionContent>
             Generate a key from <strong>Settings &rarr; API</strong>. Pass it in
             the{' '}
-            <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">
+            <code className="tri-rounded-sm tri-bg-muted tri-px-1.5 tri-py-0.5 tri-font-mono">
               Authorization: Bearer &hellip;
             </code>{' '}
             header.
@@ -50,24 +50,24 @@ export const Default: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div className="w-full max-w-[560px]">
+    <div className="tri-w-full tri-max-w-[560px]">
       <Accordion type="single" collapsible defaultValue="blue">
         <AccordionItem value="default">
           <AccordionTrigger>Getting started</AccordionTrigger>
           <AccordionContent>
-            Generate a key from <b>Settings → API</b>. Pass it in the <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">Authorization: Bearer &hellip;</code> header.
+            Generate a key from <b>Settings → API</b>. Pass it in the <code className="tri-rounded-sm tri-bg-muted tri-px-1.5 tri-py-0.5 tri-font-mono">Authorization: Bearer &hellip;</code> header.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="red" variant="error">
           <AccordionTrigger>Api authentication</AccordionTrigger>
           <AccordionContent>
-            Generate a key from <b>Settings → API</b>. Pass it in the <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">Authorization: Bearer &hellip;</code> header.
+            Generate a key from <b>Settings → API</b>. Pass it in the <code className="tri-rounded-sm tri-bg-muted tri-px-1.5 tri-py-0.5 tri-font-mono">Authorization: Bearer &hellip;</code> header.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="blue" variant="info">
           <AccordionTrigger>Rate limits</AccordionTrigger>
           <AccordionContent>
-            Generate a key from <b>Settings → API</b>. Pass it in the <code className="rounded-sm bg-muted px-1.5 py-0.5 font-mono">Authorization: Bearer &hellip;</code> header.
+            Generate a key from <b>Settings → API</b>. Pass it in the <code className="tri-rounded-sm tri-bg-muted tri-px-1.5 tri-py-0.5 tri-font-mono">Authorization: Bearer &hellip;</code> header.
           </AccordionContent>
         </AccordionItem>
       </Accordion>
@@ -77,7 +77,7 @@ export const Variants: Story = {
 
 export const Multiple: Story = {
   render: () => (
-    <div className="w-full max-w-[560px]">
+    <div className="tri-w-full tri-max-w-[560px]">
       <Accordion type="multiple" defaultValue={['item-1', 'item-3']}>
         <AccordionItem value="item-1">
           <AccordionTrigger>First section</AccordionTrigger>

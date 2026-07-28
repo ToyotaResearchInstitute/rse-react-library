@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Autocomplete>;
 
 const avatar = (initials: string, bg: string, fg: string) => (
   <span
-    className="flex size-6 items-center justify-center rounded-full text-[11px] font-semibold"
+    className="tri-flex tri-size-6 tri-items-center tri-justify-center tri-rounded-full tri-text-[11px] tri-font-semibold"
     style={{ background: bg, color: fg }}
   >
     {initials}
@@ -31,7 +31,7 @@ const PEOPLE: AutocompleteOption[] = [
 const Demo = () => {
   const [value, setValue] = useState<string[]>(["ana"]);
   return (
-    <div className="w-[360px] p-6">
+    <div className="tri-w-[360px] tri-p-6">
       <Autocomplete
         options={PEOPLE}
         value={value}

@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof NotificationDot>;
 
 const Anchor = ({ children }: { children: React.ReactNode }) => (
-  <NotificationAnchor className="h-9 w-9 items-center justify-center rounded-md bg-[#f4f4f5] text-[#0b0b0d]">
+  <NotificationAnchor className="tri-h-9 tri-w-9 tri-items-center tri-justify-center tri-rounded-md tri-bg-[#f4f4f5] tri-text-[#0b0b0d]">
     {children}
   </NotificationAnchor>
 );
@@ -26,7 +26,7 @@ const Anchor = ({ children }: { children: React.ReactNode }) => (
 export const Dot: Story = {
   render: () => (
     <Anchor>
-      <Bell className="h-5 w-5" />
+      <Bell className="tri-h-5 tri-w-5" />
       <NotificationDot />
     </Anchor>
   ),
@@ -35,7 +35,7 @@ export const Dot: Story = {
 export const Count: Story = {
   render: () => (
     <Anchor>
-      <Bell className="h-5 w-5" />
+      <Bell className="tri-h-5 tri-w-5" />
       <CountBadge count={3} />
     </Anchor>
   ),
@@ -43,24 +43,24 @@ export const Count: Story = {
 
 export const DotColors: Story = {
   render: () => (
-    <div className="flex items-center gap-6">
+    <div className="tri-flex tri-items-center tri-gap-6">
       <Anchor>
-        <Bell className="h-5 w-5" />
+        <Bell className="tri-h-5 tri-w-5" />
         <NotificationDot color="brand" />
       </Anchor>
       <Anchor>
-        <MessageSquare className="h-5 w-5" />
+        <MessageSquare className="tri-h-5 tri-w-5" />
         <NotificationDot color="info" />
       </Anchor>
       <Anchor>
-        <Mail className="h-5 w-5" />
+        <Mail className="tri-h-5 tri-w-5" />
         <NotificationDot color="success" />
       </Anchor>
       <Anchor>
-        <AlertTriangle className="h-5 w-5" />
+        <AlertTriangle className="tri-h-5 tri-w-5" />
         <NotificationDot color="warning" />
       </Anchor>
-      <NotificationAnchor className="h-9 w-9 items-center justify-center rounded-pill bg-[#fbe5e8] text-[13px] font-semibold text-[#a81b28]">
+      <NotificationAnchor className="tri-h-9 tri-w-9 tri-items-center tri-justify-center tri-rounded-pill tri-bg-[#fbe5e8] tri-text-[13px] tri-font-semibold tri-text-[#a81b28]">
         AS
         <NotificationDot color="ink" />
       </NotificationAnchor>
@@ -70,24 +70,24 @@ export const DotColors: Story = {
 
 export const CountVariants: Story = {
   render: () => (
-    <div className="flex items-center gap-6">
+    <div className="tri-flex tri-items-center tri-gap-6">
       <Anchor>
-        <Bell className="h-5 w-5" />
+        <Bell className="tri-h-5 tri-w-5" />
         <CountBadge count={3} color="brand" />
       </Anchor>
       <Anchor>
-        <MessageSquare className="h-5 w-5" />
+        <MessageSquare className="tri-h-5 tri-w-5" />
         <CountBadge count={12} color="info" />
       </Anchor>
       <Anchor>
-        <ShoppingBag className="h-5 w-5" />
+        <ShoppingBag className="tri-h-5 tri-w-5" />
         <CountBadge count={2} color="ink" />
       </Anchor>
       <Anchor>
-        <AlertTriangle className="h-5 w-5" />
+        <AlertTriangle className="tri-h-5 tri-w-5" />
         <CountBadge count={150} color="warning" />
       </Anchor>
-      <NotificationAnchor className="h-9 w-9 items-center justify-center rounded-pill bg-[#fbe5e8] text-[13px] font-semibold text-[#a81b28]">
+      <NotificationAnchor className="tri-h-9 tri-w-9 tri-items-center tri-justify-center tri-rounded-pill tri-bg-[#fbe5e8] tri-text-[13px] tri-font-semibold tri-text-[#a81b28]">
         AS
         <CountBadge count={5} color="brand" />
       </NotificationAnchor>

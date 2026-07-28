@@ -25,7 +25,7 @@ const DrawerOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-[var(--overlay)] backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "tri-fixed tri-inset-0 tri-z-50 tri-bg-[var(--tri-overlay)] tri-backdrop-blur-sm data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-fade-out-0 data-[state=open]:tri-fade-in-0",
       className
     )}
     {...props}
@@ -34,16 +34,16 @@ const DrawerOverlay = React.forwardRef<
 DrawerOverlay.displayName = DialogPrimitive.Overlay.displayName
 
 const drawerVariants = cva(
-  "fixed z-50 flex flex-col gap-0 bg-background shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-300",
+  "tri-fixed tri-z-50 tri-flex tri-flex-col tri-gap-0 tri-bg-background tri-shadow-lg tri-transition tri-ease-in-out data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-duration-300 data-[state=open]:tri-duration-300",
   {
     variants: {
       side: {
         right:
-          "inset-y-0 right-0 h-full w-3/4 max-w-md border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right",
-        left: "inset-y-0 left-0 h-full w-3/4 max-w-md border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left",
-        top: "inset-x-0 top-0 rounded-b-[14px] border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
+          "tri-inset-y-0 tri-right-0 tri-h-full tri-w-3/4 tri-max-w-md tri-border-l data-[state=closed]:tri-slide-out-to-right data-[state=open]:tri-slide-in-from-right",
+        left: "tri-inset-y-0 tri-left-0 tri-h-full tri-w-3/4 tri-max-w-md tri-border-r data-[state=closed]:tri-slide-out-to-left data-[state=open]:tri-slide-in-from-left",
+        top: "tri-inset-x-0 tri-top-0 tri-rounded-b-[14px] tri-border-b data-[state=closed]:tri-slide-out-to-top data-[state=open]:tri-slide-in-from-top",
         bottom:
-          "inset-x-0 bottom-0 rounded-t-[14px] border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
+          "tri-inset-x-0 tri-bottom-0 tri-rounded-t-[14px] tri-border-t data-[state=closed]:tri-slide-out-to-bottom data-[state=open]:tri-slide-in-from-bottom",
       },
     },
     defaultVariants: {
@@ -72,9 +72,9 @@ const DrawerContent = React.forwardRef<
     >
       {children}
       {!hideClose && (
-        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none">
-          <X className="h-[18px] w-[18px]" />
-          <span className="sr-only">Close</span>
+        <DialogPrimitive.Close className="tri-absolute tri-right-4 tri-top-4 tri-rounded-sm tri-text-muted-foreground tri-transition-colors hover:tri-text-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-pointer-events-none">
+          <X className="tri-h-[18px] tri-w-[18px]" />
+          <span className="tri-sr-only">Close</span>
         </DialogPrimitive.Close>
       )}
     </DialogPrimitive.Content>
@@ -88,7 +88,7 @@ const DrawerHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-shrink-0 items-center justify-between border-b border-[var(--border)] px-4 py-3.5",
+      "tri-flex tri-flex-shrink-0 tri-items-center tri-justify-between tri-border-b tri-border-[var(--tri-border)] tri-px-4 tri-py-3.5",
       className
     )}
     {...props}
@@ -102,7 +102,7 @@ const DrawerFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-shrink-0 justify-end gap-2 border-t border-[var(--border)] bg-[var(--bg-subtle,#fafafa)] px-4 py-3",
+      "tri-flex tri-flex-shrink-0 tri-justify-end tri-gap-2 tri-border-t tri-border-[var(--tri-border)] tri-bg-[var(--tri-bg-subtle,#fafafa)] tri-px-4 tri-py-3",
       className
     )}
     {...props}
@@ -116,7 +116,7 @@ const DrawerTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={cn("text-sm font-semibold text-foreground", className)}
+    className={cn("tri-text-sm tri-font-semibold tri-text-foreground", className)}
     {...props}
   />
 ))
@@ -128,7 +128,7 @@ const DrawerDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-[13px] leading-snug text-muted-foreground", className)}
+    className={cn("tri-text-[13px] tri-leading-snug tri-text-muted-foreground", className)}
     {...props}
   />
 ))

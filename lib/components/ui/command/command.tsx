@@ -91,7 +91,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>(
       >
         <div
           ref={ref}
-          className={cn("flex flex-col overflow-hidden", className)}
+          className={cn("tri-flex tri-flex-col tri-overflow-hidden", className)}
           onKeyDown={onKeyDown}
           {...props}
         >
@@ -122,8 +122,8 @@ const CommandInput = React.forwardRef<
 >(({ className, showEsc = true, placeholder = "Type a command or search…", ...props }, ref) => {
   const ctx = React.useContext(CommandSearchContext)
   return (
-    <div className="flex items-center gap-3 border-b border-border px-4">
-      <SearchIcon className="size-[18px] shrink-0 text-muted-foreground" />
+    <div className="tri-flex tri-items-center tri-gap-3 tri-border-b tri-border-border tri-px-4">
+      <SearchIcon className="tri-size-[18px] tri-shrink-0 tri-text-muted-foreground" />
       <input
         ref={ref}
         autoFocus
@@ -131,13 +131,13 @@ const CommandInput = React.forwardRef<
         onChange={(e) => ctx?.setSearch(e.target.value)}
         placeholder={placeholder}
         className={cn(
-          "h-12 flex-1 border-none bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground",
+          "tri-h-12 tri-flex-1 tri-border-none tri-bg-transparent tri-text-sm tri-text-foreground tri-outline-none placeholder:tri-text-muted-foreground",
           className
         )}
         {...props}
       />
       {showEsc && (
-        <kbd className="rounded-xs border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground">
+        <kbd className="tri-rounded-xs tri-border tri-border-border tri-bg-muted tri-px-1.5 tri-py-0.5 tri-font-mono tri-text-[11px] tri-text-muted-foreground">
           esc
         </kbd>
       )}
@@ -153,7 +153,7 @@ const CommandList = React.forwardRef<
   <div
     ref={ref}
     role="listbox"
-    className={cn("max-h-[360px] overflow-y-auto overflow-x-hidden p-2", className)}
+    className={cn("tri-max-h-[360px] tri-overflow-y-auto tri-overflow-x-hidden tri-p-2", className)}
     {...props}
   />
 ))
@@ -163,9 +163,9 @@ const CommandGroup = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { heading?: React.ReactNode }
 >(({ className, heading, children, ...props }, ref) => (
-  <div ref={ref} className={cn("pb-1", className)} {...props}>
+  <div ref={ref} className={cn("tri-pb-1", className)} {...props}>
     {heading && (
-      <div className="px-2 pb-1 pt-2 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--neutral-300)]">
+      <div className="tri-px-2 tri-pb-1 tri-pt-2 tri-font-mono tri-text-[10px] tri-font-semibold tri-uppercase tri-tracking-[0.08em] tri-text-[var(--tri-neutral-300)]">
         {heading}
       </div>
     )}
@@ -210,8 +210,8 @@ const CommandItem = React.forwardRef<HTMLDivElement, CommandItemProps>(
         onMouseEnter={() => setActiveValue(value)}
         onClick={() => onSelect?.(value)}
         className={cn(
-          "flex cursor-pointer select-none items-center gap-2.5 rounded-sm px-2 py-2 text-sm text-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-[var(--neutral-600)]",
-          active && "bg-brand-sky",
+          "tri-flex tri-cursor-pointer tri-select-none tri-items-center tri-gap-2.5 tri-rounded-sm tri-px-2 tri-py-2 tri-text-sm tri-text-foreground [&_svg]:tri-size-4 [&_svg]:tri-shrink-0 [&_svg]:tri-text-[var(--tri-neutral-600)]",
+          active && "tri-bg-brand-sky",
           className
         )}
         {...props}
@@ -230,7 +230,7 @@ const CommandShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => (
   <span
     className={cn(
-      "ml-auto font-mono text-[11px] tracking-normal text-[var(--neutral-300)]",
+      "tri-ml-auto tri-font-mono tri-text-[11px] tri-tracking-normal tri-text-[var(--tri-neutral-300)]",
       className
     )}
     {...props}
@@ -249,7 +249,7 @@ const CommandEmpty = ({
   if (search.trim() === "") return null
   return (
     <div
-      className={cn("px-2 py-6 text-center text-[13px] text-muted-foreground", className)}
+      className={cn("tri-px-2 tri-py-6 tri-text-center tri-text-[13px] tri-text-muted-foreground", className)}
       {...props}
     >
       {children}
@@ -262,7 +262,7 @@ const CommandSeparator = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("-mx-2 my-1 h-px bg-[var(--neutral-150)]", className)} {...props} />
+  <div className={cn("-tri-mx-2 tri-my-1 tri-h-px tri-bg-[var(--tri-neutral-150)]", className)} {...props} />
 )
 CommandSeparator.displayName = "CommandSeparator"
 
@@ -281,7 +281,7 @@ const CommandDialog = ({
   <Dialog open={open} onOpenChange={onOpenChange}>
     <DialogContent
       hideClose
-      className="max-w-[560px] gap-0 overflow-hidden p-0 shadow-[0_24px_64px_rgba(0,0,0,0.24)]"
+      className="tri-max-w-[560px] tri-gap-0 tri-overflow-hidden tri-p-0 tri-shadow-[0_24px_64px_rgba(0,0,0,0.24)]"
     >
       <Command {...props}>{children}</Command>
     </DialogContent>

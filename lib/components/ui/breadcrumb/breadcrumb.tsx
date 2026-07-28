@@ -15,7 +15,7 @@ const Breadcrumb = React.forwardRef<
   <nav
     ref={ref}
     aria-label="breadcrumb"
-    className={cn("flex items-center gap-2 text-sm text-muted-foreground", className)}
+    className={cn("tri-flex tri-items-center tri-gap-2 tri-text-sm tri-text-muted-foreground", className)}
     {...props}
   />
 ))
@@ -27,7 +27,7 @@ const BreadcrumbList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ol
     ref={ref}
-    className={cn("flex items-center gap-2", className)}
+    className={cn("tri-flex tri-items-center tri-gap-2", className)}
     {...props}
   />
 ))
@@ -37,7 +37,7 @@ const BreadcrumbItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<"li">
 >(({ className, ...props }, ref) => (
-  <li ref={ref} className={cn("inline-flex items-center gap-2", className)} {...props} />
+  <li ref={ref} className={cn("tri-inline-flex tri-items-center tri-gap-2", className)} {...props} />
 ))
 BreadcrumbItem.displayName = "BreadcrumbItem"
 
@@ -48,7 +48,7 @@ const BreadcrumbLink = React.forwardRef<
   <a
     ref={ref}
     className={cn(
-      "text-info underline underline-offset-2 hover:text-[var(--link-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      "tri-text-info tri-underline tri-underline-offset-2 hover:tri-text-[var(--tri-link-hover)] focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2",
       className
     )}
     {...props}
@@ -66,7 +66,7 @@ const BreadcrumbPage = React.forwardRef<
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn("font-medium text-foreground", className)}
+    className={cn("tri-font-medium tri-text-foreground", className)}
     {...props}
   />
 ))
@@ -80,7 +80,7 @@ const BreadcrumbSeparator = ({
   <span
     role="presentation"
     aria-hidden="true"
-    className={cn("inline-flex text-[var(--neutral-300)] [&_svg]:size-3.5", className)}
+    className={cn("tri-inline-flex tri-text-[var(--tri-neutral-300)] [&_svg]:tri-size-3.5", className)}
     {...props}
   >
     {children ?? <ChevronRight />}

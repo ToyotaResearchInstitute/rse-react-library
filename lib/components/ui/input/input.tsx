@@ -31,18 +31,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         data-error={error ? "" : undefined}
         data-disabled={disabled ? "" : undefined}
         className={cn(
-          "flex h-9 items-center gap-2 rounded-sm border border-input bg-background px-3 transition-colors",
-          "hover:border-[var(--border-hover)]",
-          "focus-within:border-foreground focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
+          "tri-flex tri-h-9 tri-items-center tri-gap-2 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-3 tri-transition-colors",
+          "hover:tri-border-[var(--tri-border-hover)]",
+          "focus-within:tri-border-foreground focus-within:tri-outline-none focus-within:tri-ring-2 focus-within:tri-ring-ring focus-within:tri-ring-offset-2",
           error &&
-            "border-error hover:border-error focus-within:border-error focus-within:ring-error/30",
+            "tri-border-error hover:tri-border-error focus-within:tri-border-error focus-within:tri-ring-error/30",
           disabled &&
-            "cursor-not-allowed bg-[#fafafa] opacity-70 hover:border-input",
+            "tri-cursor-not-allowed tri-bg-[#fafafa] tri-opacity-70 hover:tri-border-input",
           wrapperClassName
         )}
       >
         {icon ? (
-          <span className="flex shrink-0 items-center justify-center text-muted-foreground [&_svg]:size-4 [&_svg]:shrink-0">
+          <span className="tri-flex tri-shrink-0 tri-items-center tri-justify-center tri-text-muted-foreground [&_svg]:tri-size-4 [&_svg]:tri-shrink-0">
             {icon}
           </span>
         ) : null}
@@ -51,16 +51,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           disabled={disabled}
           className={cn(
-            "h-full w-full flex-1 border-0 bg-transparent p-0 text-sm text-foreground outline-none",
-            "placeholder:text-muted-foreground",
-            "disabled:cursor-not-allowed",
-            "file:border-0 file:bg-transparent file:text-sm file:font-medium",
+            "tri-h-full tri-w-full tri-flex-1 tri-border-0 tri-bg-transparent tri-p-0 tri-text-sm tri-text-foreground tri-outline-none",
+            "placeholder:tri-text-muted-foreground",
+            "disabled:tri-cursor-not-allowed",
+            "file:tri-border-0 file:tri-bg-transparent file:tri-text-sm file:tri-font-medium",
             className
           )}
           {...props}
         />
         {trailing ? (
-          <span className="flex shrink-0 items-center justify-center text-muted-foreground">
+          <span className="tri-flex tri-shrink-0 tri-items-center tri-justify-center tri-text-muted-foreground">
             {trailing}
           </span>
         ) : null}

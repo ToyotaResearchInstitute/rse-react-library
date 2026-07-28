@@ -9,17 +9,17 @@ import { cn } from "../utils"
  * media, KPI tiles, articles, etc. `clickable` adds the interactive hover-lift.
  */
 const cardVariants = cva(
-  "rounded-lg text-foreground transition-shadow",
+  "tri-rounded-lg tri-text-foreground tri-transition-shadow",
   {
     variants: {
       variant: {
-        outlined: "border border-border bg-card shadow-none",
+        outlined: "tri-border tri-border-border tri-bg-card tri-shadow-none",
         elevated:
-          "border border-transparent bg-card shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.04)]",
-        flat: "border-none bg-muted",
+          "tri-border tri-border-transparent tri-bg-card tri-shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.04)]",
+        flat: "tri-border-none tri-bg-muted",
       },
       clickable: {
-        true: "cursor-pointer transition-all duration-150 hover:-translate-y-px hover:border-[var(--border-strong)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)]",
+        true: "tri-cursor-pointer tri-transition-all tri-duration-150 hover:-tri-translate-y-px hover:tri-border-[var(--tri-border-strong)] hover:tri-shadow-[0_4px_12px_rgba(0,0,0,0.06)]",
         false: "",
       },
     },
@@ -47,7 +47,7 @@ const CardMedia = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex h-[140px] items-center justify-center bg-gradient-to-br from-[#fbe5e8] to-[#ECF6FF] font-mono text-[11px] uppercase tracking-[0.08em] text-[#a81b28]",
+      "tri-flex tri-h-[140px] tri-items-center tri-justify-center tri-bg-gradient-to-br tri-from-[#fbe5e8] tri-to-[#ECF6FF] tri-font-mono tri-text-[11px] tri-uppercase tri-tracking-[0.08em] tri-text-[#a81b28]",
       className
     )}
     {...props}
@@ -63,7 +63,7 @@ const CardEyebrow = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "font-mono text-[10px] uppercase tracking-[0.08em] text-muted-foreground",
+      "tri-font-mono tri-text-[10px] tri-uppercase tri-tracking-[0.08em] tri-text-muted-foreground",
       className
     )}
     {...props}
@@ -77,7 +77,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col gap-1.5 p-6", className)}
+    className={cn("tri-flex tri-flex-col tri-gap-1.5 tri-p-6", className)}
     {...props}
   />
 ))
@@ -90,7 +90,7 @@ const CardTitle = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "text-base font-semibold leading-snug tracking-tight text-foreground",
+      "tri-text-base tri-font-semibold tri-leading-snug tri-tracking-tight tri-text-foreground",
       className
     )}
     {...props}
@@ -104,7 +104,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-[13px] leading-normal text-muted-foreground", className)}
+    className={cn("tri-text-[13px] tri-leading-normal tri-text-muted-foreground", className)}
     {...props}
   />
 ))
@@ -114,7 +114,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  <div ref={ref} className={cn("tri-p-6 tri-pt-0", className)} {...props} />
 ))
 CardContent.displayName = "CardContent"
 
@@ -125,7 +125,7 @@ const CardFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex items-center justify-between gap-2 border-t border-border p-6 pt-4",
+      "tri-flex tri-items-center tri-justify-between tri-gap-2 tri-border-t tri-border-border tri-p-6 tri-pt-4",
       className
     )}
     {...props}
@@ -151,21 +151,21 @@ const StatCard = React.forwardRef<
 >(({ className, label, value, delta, deltaDirection = "up", icon, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col gap-1 px-5 py-[18px]", className)}
+    className={cn("tri-flex tri-flex-col tri-gap-1 tri-px-5 tri-py-[18px]", className)}
     {...props}
   >
-    <span className="flex items-center gap-1.5 text-xs text-muted-foreground [&_svg]:size-3.5">
+    <span className="tri-flex tri-items-center tri-gap-1.5 tri-text-xs tri-text-muted-foreground [&_svg]:tri-size-3.5">
       {icon}
       {label}
     </span>
-    <span className="text-[32px] font-semibold tracking-[-0.02em] text-foreground [font-feature-settings:'tnum']">
+    <span className="tri-text-[32px] tri-font-semibold tri-tracking-[-0.02em] tri-text-foreground tri-[font-feature-settings:'tnum']">
       {value}
     </span>
     {delta != null && (
       <span
         className={cn(
-          "text-xs font-medium",
-          deltaDirection === "down" ? "text-[#c93030]" : "text-[#256628]"
+          "tri-text-xs tri-font-medium",
+          deltaDirection === "down" ? "tri-text-[#c93030]" : "tri-text-[#256628]"
         )}
       >
         {delta}

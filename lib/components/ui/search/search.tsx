@@ -19,15 +19,15 @@ export interface SearchProps extends Omit<InputProps, "icon" | "type" | "size"> 
 }
 
 const sizeWrapper = {
-  sm: "h-[30px] px-2.5",
+  sm: "tri-h-[30px] tri-px-2.5",
   md: "",
-  lg: "h-12 px-4",
+  lg: "tri-h-12 tri-px-4",
 } as const
 
 const sizeInput = {
-  sm: "text-[13px]",
+  sm: "tri-text-[13px]",
   md: "",
-  lg: "text-base",
+  lg: "tri-text-base",
 } as const
 
 /**
@@ -51,15 +51,15 @@ const Search = React.forwardRef<HTMLInputElement, SearchProps>(
     ref
   ) => {
     const trailing = (
-      <span className="flex items-center gap-2">
+      <span className="tri-flex tri-items-center tri-gap-2">
         {onClear && (
           <button
             type="button"
             aria-label="Clear search"
             onClick={onClear}
-            className="inline-flex size-4 shrink-0 cursor-pointer items-center justify-center rounded-pill bg-[var(--brand-gray)] p-0.5 text-[var(--fg-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="tri-inline-flex tri-size-4 tri-shrink-0 tri-cursor-pointer tri-items-center tri-justify-center tri-rounded-pill tri-bg-[var(--tri-brand-gray)] tri-p-0.5 tri-text-[var(--tri-fg-muted)] focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
           >
-            <X className="size-3" />
+            <X className="tri-size-3" />
           </button>
         )}
         {kbdHint && <Kbd>{kbdHint}</Kbd>}
@@ -75,12 +75,12 @@ const Search = React.forwardRef<HTMLInputElement, SearchProps>(
         placeholder={placeholder}
         wrapperClassName={cn(
           sizeWrapper[size],
-          pill && "rounded-pill border-transparent bg-muted hover:border-transparent hover:bg-[var(--brand-gray)]",
+          pill && "tri-rounded-pill tri-border-transparent tri-bg-muted hover:tri-border-transparent hover:tri-bg-[var(--tri-brand-gray)]",
           wrapperClassName
         )}
         className={cn(
           sizeInput[size],
-          "[&::-webkit-search-cancel-button]:appearance-none",
+          "[&::-webkit-search-cancel-button]:tri-appearance-none",
           className
         )}
         {...props}

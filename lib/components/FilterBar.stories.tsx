@@ -16,9 +16,9 @@ type Story = StoryObj<typeof FilterBar>;
 const Demo = () => {
   const [filters, setFilters] = useState(["Status: Active", "Region: US"]);
   return (
-    <div className="w-[640px] p-6">
+    <div className="tri-w-[640px] tri-p-6">
       <FilterBar>
-        <Search className="min-w-[160px]" pill placeholder="Filter…" wrapperClassName="flex-1" />
+        <Search className="tri-min-w-[160px]" pill placeholder="Filter…" wrapperClassName="tri-flex-1" />
         {filters.map((f) => (
           <FilterChip
             key={f}

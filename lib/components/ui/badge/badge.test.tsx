@@ -10,14 +10,17 @@ describe("Badge", () => {
 
   it("applies the default variant classes", () => {
     render(<Badge>New</Badge>)
-    expect(screen.getByText("New")).toHaveClass("bg-primary", "rounded-full")
+    expect(screen.getByText("New")).toHaveClass(
+      "tri-bg-primary",
+      "tri-rounded-full"
+    )
   })
 
   it.each([
-    ["default", "bg-primary"],
-    ["secondary", "bg-secondary"],
-    ["destructive", "bg-destructive"],
-    ["outline", "text-foreground"],
+    ["default", "tri-bg-primary"],
+    ["secondary", "tri-bg-secondary"],
+    ["destructive", "tri-bg-destructive"],
+    ["outline", "tri-text-foreground"],
   ] as const)("renders variant=%s", (variant, expectedClass) => {
     render(<Badge variant={variant}>Badge</Badge>)
     expect(screen.getByText("Badge")).toHaveClass(expectedClass)
@@ -39,6 +42,8 @@ describe("Badge", () => {
   })
 
   it("exports badgeVariants that generate class strings", () => {
-    expect(badgeVariants({ variant: "outline" })).toContain("text-foreground")
+    expect(badgeVariants({ variant: "outline" })).toContain(
+      "tri-text-foreground"
+    )
   })
 })

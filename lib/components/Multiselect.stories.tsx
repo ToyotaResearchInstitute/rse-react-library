@@ -17,7 +17,7 @@ const DefaultDemo = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   return (
-    <div className="w-[300px]">
+    <div className="tri-w-[300px]">
       <Multiselect
         label="Select options"
         options={["Apple", "Banana", "Cherry", "Date"]}
@@ -41,7 +41,7 @@ const PreselectedDemo = () => {
   ]);
 
   return (
-    <div className="w-[280px]">
+    <div className="tri-w-[280px]">
       <Multiselect
         label="Select options"
         options={["Apple", "Banana", "Cherry", "Date"]}

@@ -34,14 +34,14 @@ export const WithImage: Story = {
 export const Fallback: Story = {
   render: () => (
     <Avatar>
-      <AvatarFallback className="bg-[#fbe5e8] text-[#a81b28]">AS</AvatarFallback>
+      <AvatarFallback className="tri-bg-[#fbe5e8] tri-text-[#a81b28]">AS</AvatarFallback>
     </Avatar>
   ),
 };
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-end gap-3">
+    <div className="tri-flex tri-items-end tri-gap-3">
       {(['xs', 's', 'm', 'l', 'xl'] as const).map((s) => (
         <Avatar
           key={s}
@@ -56,7 +56,7 @@ export const Sizes: Story = {
 
 export const ColorTokens: Story = {
   render: () => (
-    <div className="flex gap-2">
+    <div className="tri-flex tri-gap-2">
       {(['red', 'blue', 'green', 'amber', 'purple', 'steel', 'dark'] as const).map((c) => (
         <Avatar key={c}>
           <AvatarFallback color={c}>{c[0]?.toUpperCase()}</AvatarFallback>
@@ -68,7 +68,7 @@ export const ColorTokens: Story = {
 
 export const Shapes: Story = {
   render: () => (
-    <div className="flex gap-3">
+    <div className="tri-flex tri-gap-3">
       {(['circle', 'rounded', 'square'] as const).map((sh) => (
         <Avatar
           key={sh}
@@ -83,7 +83,7 @@ export const Shapes: Story = {
 
 export const Presence: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div className="tri-flex tri-gap-4">
       {(['online', 'away', 'offline'] as const).map((st) => (
         <AvatarWrap key={st}>
           <Avatar size="l">
@@ -98,7 +98,7 @@ export const Presence: Story = {
 
 export const Icons: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div className="tri-flex tri-gap-4">
       <Avatar>
         <AvatarFallback>
           <User />
@@ -120,7 +120,7 @@ export const Icons: Story = {
 
 export const Group: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div className="tri-flex tri-gap-4">
       <AvatarGroup>
         <Avatar>
           <AvatarImage

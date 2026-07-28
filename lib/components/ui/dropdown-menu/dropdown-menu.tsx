@@ -33,14 +33,14 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-pointer select-none items-center gap-2.5 rounded-sm px-3 py-2 text-sm text-foreground outline-none focus:bg-brand-sky data-[state=open]:bg-brand-sky [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-[var(--neutral-600)]",
-      inset && "pl-8",
+      "tri-flex tri-cursor-pointer tri-select-none tri-items-center tri-gap-2.5 tri-rounded-sm tri-px-3 tri-py-2 tri-text-sm tri-text-foreground tri-outline-none focus:tri-bg-brand-sky data-[state=open]:tri-bg-brand-sky [&_svg]:tri-size-4 [&_svg]:tri-shrink-0 [&_svg]:tri-text-[var(--tri-neutral-600)]",
+      inset && "tri-pl-8",
       className
     )}
     {...props}
   >
     {children}
-    <ChevronRight className="ml-auto" />
+    <ChevronRight className="tri-ml-auto" />
   </DropdownMenuPrimitive.SubTrigger>
 ))
 DropdownMenuSubTrigger.displayName =
@@ -53,7 +53,7 @@ const DropdownMenuSubContent = React.forwardRef<
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "z-50 min-w-[200px] overflow-hidden rounded-lg border border-border bg-background p-1 shadow-[0_8px_24px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+      "tri-z-50 tri-min-w-[200px] tri-overflow-hidden tri-rounded-lg tri-border tri-border-border tri-bg-background tri-p-1 tri-shadow-[0_8px_24px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-fade-out-0 data-[state=open]:tri-fade-in-0 data-[state=closed]:tri-zoom-out-95 data-[state=open]:tri-zoom-in-95",
       className
     )}
     {...props}
@@ -71,7 +71,7 @@ const DropdownMenuContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 min-w-[200px] overflow-hidden rounded-lg border border-border bg-background p-1 shadow-[0_8px_24px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+        "tri-z-50 tri-min-w-[200px] tri-overflow-hidden tri-rounded-lg tri-border tri-border-border tri-bg-background tri-p-1 tri-shadow-[0_8px_24px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] data-[state=open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-fade-out-0 data-[state=open]:tri-fade-in-0 data-[state=closed]:tri-zoom-out-95 data-[state=open]:tri-zoom-in-95",
         className
       )}
       {...props}
@@ -91,10 +91,10 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center gap-2.5 rounded-sm px-3 py-2 text-sm text-foreground outline-none transition-colors focus:bg-brand-sky data-[disabled]:pointer-events-none data-[disabled]:text-[var(--neutral-300)] [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-[var(--neutral-600)]",
-      inset && "pl-8",
+      "tri-relative tri-flex tri-cursor-pointer tri-select-none tri-items-center tri-gap-2.5 tri-rounded-sm tri-px-3 tri-py-2 tri-text-sm tri-text-foreground tri-outline-none tri-transition-colors focus:tri-bg-brand-sky data-[disabled]:tri-pointer-events-none data-[disabled]:tri-text-[var(--tri-neutral-300)] [&_svg]:tri-size-4 [&_svg]:tri-shrink-0 [&_svg]:tri-text-[var(--tri-neutral-600)]",
+      inset && "tri-pl-8",
       variant === "danger" &&
-        "text-[#c93030] focus:bg-[#ffecec] focus:text-[#c93030] [&_svg]:text-[#c93030]",
+        "tri-text-[#c93030] focus:tri-bg-[#ffecec] focus:tri-text-[#c93030] [&_svg]:tri-text-[#c93030]",
       className
     )}
     {...props}
@@ -109,15 +109,15 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center gap-2.5 rounded-sm py-2 pl-8 pr-3 text-sm text-foreground outline-none transition-colors focus:bg-brand-sky data-[disabled]:pointer-events-none data-[disabled]:text-[var(--neutral-300)]",
+      "tri-relative tri-flex tri-cursor-pointer tri-select-none tri-items-center tri-gap-2.5 tri-rounded-sm tri-py-2 tri-pl-8 tri-pr-3 tri-text-sm tri-text-foreground tri-outline-none tri-transition-colors focus:tri-bg-brand-sky data-[disabled]:tri-pointer-events-none data-[disabled]:tri-text-[var(--tri-neutral-300)]",
       className
     )}
     checked={checked}
     {...props}
   >
-    <span className="absolute left-3 flex size-3.5 items-center justify-center">
+    <span className="tri-absolute tri-left-3 tri-flex tri-size-3.5 tri-items-center tri-justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <Check className="size-3.5" />
+        <Check className="tri-size-3.5" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -133,14 +133,14 @@ const DropdownMenuRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center gap-2.5 rounded-sm py-2 pl-8 pr-3 text-sm text-foreground outline-none transition-colors focus:bg-brand-sky data-[disabled]:pointer-events-none data-[disabled]:text-[var(--neutral-300)]",
+      "tri-relative tri-flex tri-cursor-pointer tri-select-none tri-items-center tri-gap-2.5 tri-rounded-sm tri-py-2 tri-pl-8 tri-pr-3 tri-text-sm tri-text-foreground tri-outline-none tri-transition-colors focus:tri-bg-brand-sky data-[disabled]:tri-pointer-events-none data-[disabled]:tri-text-[var(--tri-neutral-300)]",
       className
     )}
     {...props}
   >
-    <span className="absolute left-3 flex size-3.5 items-center justify-center">
+    <span className="tri-absolute tri-left-3 tri-flex tri-size-3.5 tri-items-center tri-justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <Circle className="size-2 fill-current" />
+        <Circle className="tri-size-2 tri-fill-current" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -157,8 +157,8 @@ const DropdownMenuLabel = React.forwardRef<
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "px-3 pb-1 pt-2 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--neutral-300)]",
-      inset && "pl-8",
+      "tri-px-3 tri-pb-1 tri-pt-2 tri-font-mono tri-text-[10px] tri-font-semibold tri-uppercase tri-tracking-[0.08em] tri-text-[var(--tri-neutral-300)]",
+      inset && "tri-pl-8",
       className
     )}
     {...props}
@@ -172,7 +172,7 @@ const DropdownMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
-    className={cn("my-1 h-px bg-[var(--neutral-150)]", className)}
+    className={cn("tri-my-1 tri-h-px tri-bg-[var(--tri-neutral-150)]", className)}
     {...props}
   />
 ))
@@ -185,7 +185,7 @@ const DropdownMenuShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => (
   <span
     className={cn(
-      "ml-auto font-mono text-[11px] tracking-normal text-[var(--neutral-300)]",
+      "tri-ml-auto tri-font-mono tri-text-[11px] tri-tracking-normal tri-text-[var(--tri-neutral-300)]",
       className
     )}
     {...props}

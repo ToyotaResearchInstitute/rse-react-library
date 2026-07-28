@@ -65,7 +65,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
           const n = Math.min(max, Math.max(key === 'hour' ? 1 : 0, Number(raw)));
           setDraft((d) => ({ ...d, [key]: n }));
         }}
-        className="h-9 w-11 rounded-sm border border-input bg-background text-center font-mono text-sm outline-none transition-colors focus:border-foreground focus-visible:ring-2 focus-visible:ring-ring"
+        className="tri-h-9 tri-w-11 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-text-center tri-font-mono tri-text-sm tri-outline-none tri-transition-colors focus:tri-border-foreground focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
       />
     );
 
@@ -79,45 +79,45 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
             ref={ref}
             type="button"
             className={cn(
-              'flex h-9 w-[280px] items-center gap-2 rounded-sm border border-input bg-background px-3 text-left text-sm transition-colors hover:border-[var(--border-hover)] focus-visible:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=open]:border-foreground',
+              'tri-flex tri-h-9 tri-w-[280px] tri-items-center tri-gap-2 tri-rounded-sm tri-border tri-border-input tri-bg-background tri-px-3 tri-text-left tri-text-sm tri-transition-colors hover:tri-border-[var(--tri-border-hover)] focus-visible:tri-border-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 data-[state=open]:tri-border-foreground',
               className,
             )}
           >
-            <CalendarIcon className="size-4 shrink-0 text-muted-foreground" />
-            <span className={cn('flex-1 truncate', !value?.date && 'text-muted-foreground')}>
+            <CalendarIcon className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
+            <span className={cn('tri-flex-1 tri-truncate', !value?.date && 'tri-text-muted-foreground')}>
               {value?.date ? label(value) : placeholder}
             </span>
-            <ChevronDown className="size-4 shrink-0 text-muted-foreground" />
+            <ChevronDown className="tri-size-4 tri-shrink-0 tri-text-muted-foreground" />
           </button>
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-auto p-0"
+          className="tri-w-auto tri-p-0"
         >
-          <div className="flex">
+          <div className="tri-flex">
             <Calendar
               value={draft.date}
               onChange={(date) => setDraft((d) => ({ ...d, date }))}
-              className="border-0 shadow-none"
+              className="tri-border-0 tri-shadow-none"
             />
-            <div className="flex w-48 flex-col gap-3 border-l border-border p-3.5">
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="flex items-center gap-1.5">
+            <div className="tri-flex tri-w-48 tri-flex-col tri-gap-3 tri-border-l tri-border-border tri-p-3.5">
+              <div className="tri-flex tri-flex-wrap tri-items-center tri-gap-2">
+                <div className="tri-flex tri-items-center tri-gap-1.5">
                   {numberField('hour', 12)}
-                  <span className="font-mono text-sm text-muted-foreground">:</span>
+                  <span className="tri-font-mono tri-text-sm tri-text-muted-foreground">:</span>
                   {numberField('minute', 59)}
                 </div>
-                <div className="inline-flex overflow-hidden rounded-sm border border-input">
+                <div className="tri-inline-flex tri-overflow-hidden tri-rounded-sm tri-border tri-border-input">
                   {(['AM', 'PM'] as const).map((m) => (
                     <button
                       key={m}
                       type="button"
                       onClick={() => setDraft((d) => ({ ...d, meridiem: m }))}
                       className={cn(
-                        'px-2.5 py-1.5 font-mono text-xs transition-colors focus:outline-none focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring',
+                        'tri-px-2.5 tri-py-1.5 tri-font-mono tri-text-xs tri-transition-colors focus:tri-outline-none focus-visible:tri-relative focus-visible:tri-z-10 focus-visible:tri-ring-2 focus-visible:tri-ring-inset focus-visible:tri-ring-ring',
                         draft.meridiem === m
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-background text-foreground hover:bg-muted',
+                          ? 'tri-bg-primary tri-text-primary-foreground'
+                          : 'tri-bg-background tri-text-foreground hover:tri-bg-muted',
                       )}
                     >
                       {m}
@@ -125,7 +125,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                   ))}
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="tri-grid tri-grid-cols-2 tri-gap-1.5">
                 {TIME_PRESETS.map((p) => (
                   <button
                     key={p.label}
@@ -138,13 +138,13 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                         meridiem: p.meridiem,
                       }))
                     }
-                    className="rounded-sm border border-border px-2 py-1.5 text-xs text-foreground transition-colors hover:bg-muted"
+                    className="tri-rounded-sm tri-border tri-border-border tri-px-2 tri-py-1.5 tri-text-xs tri-text-foreground tri-transition-colors hover:tri-bg-muted"
                   >
                     {p.label}
                   </button>
                 ))}
               </div>
-              <div className="mt-auto flex justify-end gap-2 px-3 py-2.5 ">
+              <div className="tri-mt-auto tri-flex tri-justify-end tri-gap-2 tri-px-3 tri-py-2.5 ">
                 <Button
                   variant="ghost"
                   size="sm"

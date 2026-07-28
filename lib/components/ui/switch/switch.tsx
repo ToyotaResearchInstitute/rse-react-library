@@ -10,9 +10,9 @@ import { cn } from "../utils"
  * brand-red or blue alternatives.
  */
 const switchColors = {
-  ink: "data-[state=checked]:bg-primary",
-  brand: "data-[state=checked]:bg-brand",
-  blue: "data-[state=checked]:bg-info",
+  ink: "data-[state=checked]:tri-bg-primary",
+  brand: "data-[state=checked]:tri-bg-brand",
+  blue: "data-[state=checked]:tri-bg-info",
 } as const
 
 const Switch = React.forwardRef<
@@ -25,7 +25,7 @@ const Switch = React.forwardRef<
   <SwitchPrimitives.Root
     ref={ref}
     className={cn(
-      "peer inline-flex h-[22px] w-[38px] shrink-0 cursor-pointer items-center rounded-pill border border-transparent ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=unchecked]:bg-[var(--border-hover)] data-[disabled]:bg-[#eeeeee]",
+      "tri-peer tri-inline-flex tri-h-[22px] tri-w-[38px] tri-shrink-0 tri-cursor-pointer tri-items-center tri-rounded-pill tri-border tri-border-transparent tri-ring-offset-background tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-cursor-not-allowed disabled:tri-opacity-50 data-[state=unchecked]:tri-bg-[var(--tri-border-hover)] data-[disabled]:tri-bg-[#eeeeee]",
       switchColors[color],
       className
     )}
@@ -33,7 +33,7 @@ const Switch = React.forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        "pointer-events-none block h-[18px] w-[18px] rounded-pill bg-white shadow-[0_1px_3px_rgba(0,0,0,0.18)] ring-0 transition-transform data-[state=checked]:translate-x-[16px] data-[state=unchecked]:translate-x-[2px] data-[disabled]:bg-[#fafafa]"
+        "tri-pointer-events-none tri-block tri-h-[18px] tri-w-[18px] tri-rounded-pill tri-bg-white tri-shadow-[0_1px_3px_rgba(0,0,0,0.18)] tri-ring-0 tri-transition-transform data-[state=checked]:tri-translate-x-[16px] data-[state=unchecked]:tri-translate-x-[2px] data-[disabled]:tri-bg-[#fafafa]"
       )}
     />
   </SwitchPrimitives.Root>

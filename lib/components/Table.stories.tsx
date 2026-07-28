@@ -34,16 +34,16 @@ const rows = [
 ];
 
 const statusPill: Record<string, string> = {
-  Ready: "bg-[#EAF4EA] text-[#256628]",
-  Indexing: "bg-[#ECF6FF] text-[#155a96]",
-  Review: "bg-[#FDF0E2] text-[#c45800]",
-  Failed: "bg-[#FFECEC] text-[#c93030]",
-  Draft: "bg-[#eeeeee] text-[#404040]",
+  Ready: "tri-bg-[#EAF4EA] tri-text-[#256628]",
+  Indexing: "tri-bg-[#ECF6FF] tri-text-[#155a96]",
+  Review: "tri-bg-[#FDF0E2] tri-text-[#c45800]",
+  Failed: "tri-bg-[#FFECEC] tri-text-[#c93030]",
+  Draft: "tri-bg-[#eeeeee] tri-text-[#404040]",
 };
 
 const Pill = ({ status }: { status: string }) => (
   <span
-    className={`inline-block rounded-full px-2 py-0.5 text-[11px] font-semibold tracking-[0.02em] ${statusPill[status]}`}
+    className={`tri-inline-block tri-rounded-full tri-px-2 tri-py-0.5 tri-text-[11px] tri-font-semibold tri-tracking-[0.02em] ${statusPill[status]}`}
   >
     {status}
   </span>
@@ -51,27 +51,27 @@ const Pill = ({ status }: { status: string }) => (
 
 export const Default: Story = {
   render: () => (
-    <div className="w-full max-w-[760px] overflow-hidden rounded-lg border">
+    <div className="tri-w-full tri-max-w-[760px] tri-overflow-hidden tri-rounded-lg tri-border">
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead>Dataset</TableHead>
             <TableHead>Owner</TableHead>
             <TableHead>Status</TableHead>
-            <TableHead className="text-right">Rows</TableHead>
+            <TableHead className="tri-text-right">Rows</TableHead>
             <TableHead>Updated</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {rows.map((r, i) => (
             <TableRow key={r.name} data-state={i === 0 ? "selected" : undefined}>
-              <TableCell className="font-semibold">{r.name}</TableCell>
+              <TableCell className="tri-font-semibold">{r.name}</TableCell>
               <TableCell>{r.owner}</TableCell>
               <TableCell>
                 <Pill status={r.status} />
               </TableCell>
-              <TableCell className="text-right font-mono">{r.rows}</TableCell>
-              <TableCell className="font-mono text-muted-foreground">{r.updated}</TableCell>
+              <TableCell className="tri-text-right tri-font-mono">{r.rows}</TableCell>
+              <TableCell className="tri-font-mono tri-text-muted-foreground">{r.updated}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -82,38 +82,38 @@ export const Default: Story = {
 
 export const WithFooterAndCaption: Story = {
   render: () => (
-    <div className="w-full max-w-[520px]">
+    <div className="tri-w-full tri-max-w-[520px]">
       <Table>
         <TableCaption>Quarterly fleet metrics.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Metric</TableHead>
-            <TableHead className="text-right">Q1</TableHead>
-            <TableHead className="text-right">Q2</TableHead>
+            <TableHead className="tri-text-right">Q1</TableHead>
+            <TableHead className="tri-text-right">Q2</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           <TableRow>
             <TableCell>Active drives</TableCell>
-            <TableCell className="text-right font-mono">2,310</TableCell>
-            <TableCell className="text-right font-mono">2,884</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">2,310</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">2,884</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Avg labels / hr</TableCell>
-            <TableCell className="text-right font-mono">412</TableCell>
-            <TableCell className="text-right font-mono">501</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">412</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">501</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Storage (TB)</TableCell>
-            <TableCell className="text-right font-mono">88.0</TableCell>
-            <TableCell className="text-right font-mono">121.4</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">88.0</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">121.4</TableCell>
           </TableRow>
         </TableBody>
         <TableFooter>
           <TableRow>
             <TableCell>Total</TableCell>
-            <TableCell className="text-right font-mono">2,810.1</TableCell>
-            <TableCell className="text-right font-mono">3,506.4</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">2,810.1</TableCell>
+            <TableCell className="tri-text-right tri-font-mono">3,506.4</TableCell>
           </TableRow>
         </TableFooter>
       </Table>
@@ -135,17 +135,17 @@ const DataTableDemo = () => {
     setSelected((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));
 
   return (
-    <div className="w-[720px] p-6">
-      <div className="overflow-hidden rounded-md border border-border">
+    <div className="tri-w-[720px] tri-p-6">
+      <div className="tri-overflow-hidden tri-rounded-md tri-border tri-border-border">
         <TableToolbar selected={selected.length > 0}>
-          <span className="text-sm font-semibold">
+          <span className="tri-text-sm tri-font-semibold">
             {selected.length > 0 ? `${selected.length} selected` : `Datasets · ${ROWS.length}`}
           </span>
         </TableToolbar>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-8">
+              <TableHead className="tri-w-8">
                 <Checkbox
                   checked={allSelected ? true : selected.length ? "indeterminate" : false}
                   onCheckedChange={(c) => setSelected(c ? ROWS.map((r) => r.id) : [])}
@@ -155,7 +155,7 @@ const DataTableDemo = () => {
               <TableHead><TableSortButton direction="asc">Dataset</TableSortButton></TableHead>
               <TableHead>Owner</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">
+              <TableHead className="tri-text-right">
                 <TableSortButton>Size</TableSortButton>
               </TableHead>
             </TableRow>
@@ -191,13 +191,13 @@ export const DataTable: Story = {
 
 export const Striped: Story = {
   render: () => (
-    <div className="w-[520px] p-6">
+    <div className="tri-w-[520px] tri-p-6">
       <Table striped>
         <TableHeader>
           <TableRow>
             <TableHead>Dataset</TableHead>
             <TableHead>Owner</TableHead>
-            <TableHead className="text-right">Size</TableHead>
+            <TableHead className="tri-text-right">Size</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -216,13 +216,13 @@ export const Striped: Story = {
 
 export const Dense: Story = {
   render: () => (
-    <div className="w-[520px] p-6">
+    <div className="tri-w-[520px] tri-p-6">
       <Table dense bordered>
         <TableHeader>
           <TableRow>
             <TableHead>Dataset</TableHead>
             <TableHead>Owner</TableHead>
-            <TableHead className="text-right">Size</TableHead>
+            <TableHead className="tri-text-right">Size</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

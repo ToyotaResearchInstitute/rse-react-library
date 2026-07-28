@@ -12,7 +12,7 @@ describe("DotsLoader", () => {
 
   it("renders an sr-only label", () => {
     render(<DotsLoader />)
-    expect(screen.getByText("Loading")).toHaveClass("sr-only")
+    expect(screen.getByText("Loading")).toHaveClass("tri-sr-only")
   })
 
   it("uses a custom label", () => {
@@ -23,12 +23,12 @@ describe("DotsLoader", () => {
 
   it("renders three animated dots", () => {
     const { container } = render(<DotsLoader />)
-    expect(container.querySelectorAll(".animate-dot-bounce")).toHaveLength(3)
+    expect(container.querySelectorAll(".tri-animate-dot-bounce")).toHaveLength(3)
   })
 
   it("applies staggered animation delays", () => {
     const { container } = render(<DotsLoader />)
-    const dots = container.querySelectorAll<HTMLElement>(".animate-dot-bounce")
+    const dots = container.querySelectorAll<HTMLElement>(".tri-animate-dot-bounce")
     expect(dots[0]!.style.animationDelay).toBe("0s")
     expect(dots[1]!.style.animationDelay).toBe("0.15s")
     expect(dots[2]!.style.animationDelay).toBe("0.3s")
@@ -36,34 +36,34 @@ describe("DotsLoader", () => {
 
   it("applies default size of 6px to each dot", () => {
     const { container } = render(<DotsLoader />)
-    const dot = container.querySelector<HTMLElement>(".animate-dot-bounce")!
+    const dot = container.querySelector<HTMLElement>(".tri-animate-dot-bounce")!
     expect(dot.style.width).toBe("6px")
     expect(dot.style.height).toBe("6px")
   })
 
   it("applies a custom size", () => {
     const { container } = render(<DotsLoader size={10} />)
-    const dot = container.querySelector<HTMLElement>(".animate-dot-bounce")!
+    const dot = container.querySelector<HTMLElement>(".tri-animate-dot-bounce")!
     expect(dot.style.width).toBe("10px")
     expect(dot.style.height).toBe("10px")
   })
 
   it.each([
-    ["ink", "bg-primary"],
-    ["brand", "bg-brand"],
-    ["info", "bg-info"],
-    ["white", "bg-white"],
+    ["ink", "tri-bg-primary"],
+    ["brand", "tri-bg-brand"],
+    ["info", "tri-bg-info"],
+    ["white", "tri-bg-white"],
   ] as const)("renders color=%s", (color, expectedClass) => {
     const { container } = render(<DotsLoader color={color} />)
-    expect(container.querySelector(".animate-dot-bounce")).toHaveClass(
+    expect(container.querySelector(".tri-animate-dot-bounce")).toHaveClass(
       expectedClass
     )
   })
 
   it("defaults to ink color", () => {
     const { container } = render(<DotsLoader />)
-    expect(container.querySelector(".animate-dot-bounce")).toHaveClass(
-      "bg-primary"
+    expect(container.querySelector(".tri-animate-dot-bounce")).toHaveClass(
+      "tri-bg-primary"
     )
   })
 

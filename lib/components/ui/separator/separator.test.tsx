@@ -10,21 +10,21 @@ describe("Separator", () => {
     expect(sep).toBeInTheDocument()
     // decorative separators expose no orientation attribute but carry data-orientation
     expect(sep).toHaveAttribute("data-orientation", "horizontal")
-    expect(sep).toHaveClass("bg-border", "h-px", "w-full")
+    expect(sep).toHaveClass("tri-bg-border", "tri-h-px", "tri-w-full")
   })
 
   it("renders vertical orientation classes", () => {
     const { container } = render(<Separator orientation="vertical" />)
     const sep = container.firstChild as HTMLElement
     expect(sep).toHaveAttribute("data-orientation", "vertical")
-    expect(sep).toHaveClass("h-full", "w-px")
+    expect(sep).toHaveClass("tri-h-full", "tri-w-px")
   })
 
   it.each([
-    ["default", "bg-border"],
-    ["strong", "bg-primary"],
-    ["dashed", "border-dashed"],
-    ["gradient", "bg-gradient-to-r"],
+    ["default", "tri-bg-border"],
+    ["strong", "tri-bg-primary"],
+    ["dashed", "tri-border-dashed"],
+    ["gradient", "tri-bg-gradient-to-r"],
   ] as const)("renders variant=%s (horizontal)", (variant, expectedClass) => {
     const { container } = render(<Separator variant={variant} />)
     expect(container.firstChild).toHaveClass(expectedClass)
@@ -34,14 +34,14 @@ describe("Separator", () => {
     const { container } = render(
       <Separator variant="gradient" orientation="vertical" />
     )
-    expect(container.firstChild).toHaveClass("bg-gradient-to-b")
+    expect(container.firstChild).toHaveClass("tri-bg-gradient-to-b")
   })
 
   it("renders vertical dashed variant with left border", () => {
     const { container } = render(
       <Separator variant="dashed" orientation="vertical" />
     )
-    expect(container.firstChild).toHaveClass("border-l", "border-dashed")
+    expect(container.firstChild).toHaveClass("tri-border-l", "tri-border-dashed")
   })
 
   it("is decorative by default (role presentation / none)", () => {
@@ -77,7 +77,7 @@ describe("LabeledSeparator", () => {
 
   it("applies base layout classes", () => {
     render(<LabeledSeparator>OR</LabeledSeparator>)
-    expect(screen.getByRole("separator")).toHaveClass("flex", "items-center")
+    expect(screen.getByRole("separator")).toHaveClass("tri-flex", "tri-items-center")
   })
 
   it("forwards ref", () => {

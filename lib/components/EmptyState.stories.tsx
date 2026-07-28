@@ -15,12 +15,12 @@ type Story = StoryObj<typeof EmptyState>;
 
 export const NoResults: Story = {
   render: () => (
-    <div className="flex justify-center p-8">
+    <div className="tri-flex tri-justify-center tri-p-8">
       <EmptyState
         icon={<SearchX />}
         title="No customers match “acme”"
         description="Try a different search term or clear your filters."
-        className="max-w-[420px]"
+        className="tri-max-w-[420px]"
       >
         <Button variant="outline" size="sm">
           Clear filters

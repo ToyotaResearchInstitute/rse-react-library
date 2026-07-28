@@ -23,21 +23,21 @@ const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
     <div
       ref={ref}
       className={cn(
-        "flex flex-col items-center gap-2 rounded-lg border border-border bg-background p-6 text-center [&>svg]:size-9 [&>svg]:text-[var(--neutral-300)]",
+        "tri-flex tri-flex-col tri-items-center tri-gap-2 tri-rounded-lg tri-border tri-border-border tri-bg-background tri-p-6 tri-text-center [&>svg]:tri-size-9 [&>svg]:tri-text-[var(--tri-neutral-300)]",
         className
       )}
       {...props}
     >
       {icon && (
-        <span className="text-[var(--neutral-300)] [&_svg]:size-9 [&_svg]:stroke-[1.5]">
+        <span className="tri-text-[var(--tri-neutral-300)] [&_svg]:tri-size-9 [&_svg]:tri-stroke-[1.5]">
           {icon}
         </span>
       )}
-      <div className="text-sm font-semibold text-foreground">{title}</div>
+      <div className="tri-text-sm tri-font-semibold tri-text-foreground">{title}</div>
       {description && (
-        <div className="text-[13px] text-muted-foreground">{description}</div>
+        <div className="tri-text-[13px] tri-text-muted-foreground">{description}</div>
       )}
-      {children && <div className="mt-2">{children}</div>}
+      {children && <div className="tri-mt-2">{children}</div>}
     </div>
   )
 )

@@ -39,7 +39,7 @@ describe("Highlight", () => {
       </MemoryRouter>
     )
     // Highlighter provider renders nothing visible; no overlay wrapper produced
-    expect(container.querySelector(".relative")).not.toBeInTheDocument()
+    expect(container.querySelector(".tri-relative")).not.toBeInTheDocument()
   })
 
   it("throws when given multiple children", () => {
@@ -66,9 +66,9 @@ describe("Highlight", () => {
         <span>Target</span>
       </Highlight>
     )
-    const overlay = container.querySelector(".opacity-1")
+    const overlay = container.querySelector(".tri-opacity-1")
     expect(overlay).toBeInTheDocument()
-    expect(container.querySelector(".opacity-0")).not.toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-0")).not.toBeInTheDocument()
   })
 
   it("applies the unhighlighted (opacity-0) class when the hash does not match", () => {
@@ -78,8 +78,8 @@ describe("Highlight", () => {
         <span>Target</span>
       </Highlight>
     )
-    expect(container.querySelector(".opacity-0")).toBeInTheDocument()
-    expect(container.querySelector(".opacity-1")).not.toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-0")).toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-1")).not.toBeInTheDocument()
   })
 
   it("is unhighlighted when there is no hash", () => {
@@ -89,7 +89,7 @@ describe("Highlight", () => {
         <span>Target</span>
       </Highlight>
     )
-    expect(container.querySelector(".opacity-0")).toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-0")).toBeInTheDocument()
   })
 
   it("uses the transitionDuration from context in the inline style", () => {
@@ -100,7 +100,7 @@ describe("Highlight", () => {
       </Highlight>,
       { transitionDuration: 500 }
     )
-    const overlay = container.querySelector(".opacity-1") as HTMLElement
+    const overlay = container.querySelector(".tri-opacity-1") as HTMLElement
     expect(overlay.style.transition).toContain("500ms")
   })
 
@@ -111,7 +111,7 @@ describe("Highlight", () => {
         <span>Target</span>
       </Highlight>
     )
-    const overlay = container.querySelector(".opacity-1") as HTMLElement
+    const overlay = container.querySelector(".tri-opacity-1") as HTMLElement
     expect(overlay.style.transition).toContain("1000ms")
   })
 })
@@ -133,14 +133,14 @@ describe("Highlighter timeout behavior", () => {
       </MemoryRouter>
     )
     // initially highlighted
-    expect(container.querySelector(".opacity-1")).toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-1")).toBeInTheDocument()
 
     // advance past the combined timer (200ms)
     act(() => {
       vi.advanceTimersByTime(250)
     })
 
-    expect(container.querySelector(".opacity-1")).not.toBeInTheDocument()
-    expect(container.querySelector(".opacity-0")).toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-1")).not.toBeInTheDocument()
+    expect(container.querySelector(".tri-opacity-0")).toBeInTheDocument()
   })
 })

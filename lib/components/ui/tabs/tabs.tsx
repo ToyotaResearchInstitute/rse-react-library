@@ -20,9 +20,9 @@ const TabsStyleContext = React.createContext<{
 const Tabs = TabsPrimitive.Root
 
 const listVariant: Record<TabsVariant, string> = {
-  underline: "inline-flex w-full items-center gap-0 overflow-x-auto border-b border-border",
-  pills: "inline-flex items-center gap-1.5",
-  segmented: "inline-flex items-center gap-0.5 rounded-lg bg-muted p-1",
+  underline: "tri-inline-flex tri-w-full tri-items-center tri-gap-0 tri-overflow-x-auto tri-border-b tri-border-border",
+  pills: "tri-inline-flex tri-items-center tri-gap-1.5",
+  segmented: "tri-inline-flex tri-items-center tri-gap-0.5 tri-rounded-lg tri-bg-muted tri-p-1",
 }
 
 const TabsList = React.forwardRef<
@@ -44,16 +44,16 @@ TabsList.displayName = TabsPrimitive.List.displayName
 
 const activeAccent: Record<TabsColor, { underline: string; pill: string }> = {
   ink: {
-    underline: "data-[state=active]:border-primary data-[state=active]:text-foreground",
-    pill: "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground",
+    underline: "data-[state=active]:tri-border-primary data-[state=active]:tri-text-foreground",
+    pill: "data-[state=active]:tri-bg-primary data-[state=active]:tri-text-primary-foreground",
   },
   brand: {
-    underline: "data-[state=active]:border-brand data-[state=active]:text-brand",
-    pill: "data-[state=active]:bg-brand data-[state=active]:text-brand-foreground",
+    underline: "data-[state=active]:tri-border-brand data-[state=active]:tri-text-brand",
+    pill: "data-[state=active]:tri-bg-brand data-[state=active]:tri-text-brand-foreground",
   },
   blue: {
-    underline: "data-[state=active]:border-info data-[state=active]:text-info",
-    pill: "data-[state=active]:bg-info data-[state=active]:text-white",
+    underline: "data-[state=active]:tri-border-info data-[state=active]:tri-text-info",
+    pill: "data-[state=active]:tri-bg-info data-[state=active]:tri-text-white",
   },
 }
 
@@ -63,18 +63,18 @@ const TabsTrigger = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { variant, color } = React.useContext(TabsStyleContext)
   const base =
-    "inline-flex items-center gap-2 whitespace-nowrap font-medium leading-none transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:text-[#d4d4d4]"
+    "tri-inline-flex tri-items-center tri-gap-2 tri-whitespace-nowrap tri-font-medium tri-leading-none tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-pointer-events-none disabled:tri-text-[#d4d4d4]"
   const byVariant: Record<TabsVariant, string> = {
     underline: cn(
-      "-mb-px border-b-2 border-transparent px-4 py-2.5 text-[13px] text-muted-foreground hover:text-foreground",
+      "-tri-mb-px tri-border-b-2 tri-border-transparent tri-px-4 tri-py-2.5 tri-text-[13px] tri-text-muted-foreground hover:tri-text-foreground",
       activeAccent[color].underline
     ),
     pills: cn(
-      "cursor-pointer rounded-pill px-3.5 py-1.5 text-[13px] text-[#404040] hover:bg-[#f5f5f5]",
+      "tri-cursor-pointer tri-rounded-pill tri-px-3.5 tri-py-1.5 tri-text-[13px] tri-text-[#404040] hover:tri-bg-[#f5f5f5]",
       activeAccent[color].pill
     ),
     segmented:
-      "cursor-pointer rounded-sm px-3.5 py-1.5 text-[13px] text-[#525252] data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      "tri-cursor-pointer tri-rounded-sm tri-px-3.5 tri-py-1.5 tri-text-[13px] tri-text-[#525252] data-[state=active]:tri-bg-white data-[state=active]:tri-text-foreground data-[state=active]:tri-shadow-sm",
   }
   return (
     <TabsPrimitive.Trigger
@@ -94,7 +94,7 @@ const TabsTriggerCount = React.forwardRef<
   <span
     ref={ref}
     className={cn(
-      "rounded-pill bg-[#eeeeee] px-[7px] py-px text-[11px] font-semibold leading-normal text-[#525252]",
+      "tri-rounded-pill tri-bg-[#eeeeee] tri-px-[7px] tri-py-px tri-text-[11px] tri-font-semibold tri-leading-normal tri-text-[#525252]",
       className
     )}
     {...props}
@@ -109,7 +109,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-4 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      "tri-mt-4 tri-text-sm tri-text-foreground focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2",
       className
     )}
     {...props}

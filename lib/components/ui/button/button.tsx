@@ -10,31 +10,31 @@ import { cn } from "../utils"
  * Three hierarchy levels: primary (filled), secondary (outline), ghost.
  */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-transparent text-sm font-medium leading-none transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "tri-inline-flex tri-items-center tri-justify-center tri-gap-2 tri-whitespace-nowrap tri-rounded-sm tri-border tri-border-transparent tri-text-sm tri-font-medium tri-leading-none tri-transition-colors tri-duration-150 focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-pointer-events-none disabled:tri-opacity-50 [&_svg]:tri-pointer-events-none [&_svg]:tri-size-4 [&_svg]:tri-shrink-0",
   {
     variants: {
       variant: {
         // Recommended — Brand Red primary
-        default: "bg-brand text-brand-foreground hover:bg-brand-hover",
+        default: "tri-bg-brand tri-text-brand-foreground hover:tri-bg-brand-hover",
         // Neutral secondary (white + ink border) — e.g. Cancel
-        secondary: "bg-background text-foreground border-foreground hover:bg-secondary",
+        secondary: "tri-bg-background tri-text-foreground tri-border-foreground hover:tri-bg-secondary",
         // Ghost — dense UI / table rows
-        ghost: "bg-transparent text-foreground hover:bg-muted",
+        ghost: "tri-bg-transparent tri-text-foreground hover:tri-bg-muted",
         // Neutral outline (kept for compatibility, e.g. Multiselect trigger)
-        outline: "border-input bg-background text-foreground hover:bg-muted",
+        outline: "tri-border-input tri-bg-background tri-text-foreground hover:tri-bg-muted",
         // Destructive
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        destructive: "tri-bg-destructive tri-text-destructive-foreground hover:tri-bg-destructive/90",
         // Link
-        link: "text-link underline-offset-4 hover:underline",
+        link: "tri-text-link tri-underline-offset-4 hover:tri-underline",
         // Alternative accents (filled primary)
-        ink: "bg-primary text-primary-foreground hover:bg-neutral-700",
-        blue: "bg-info text-white hover:bg-[var(--blue-700)]",
+        ink: "tri-bg-primary tri-text-primary-foreground hover:tri-bg-neutral-700",
+        blue: "tri-bg-info tri-text-white hover:tri-bg-[var(--tri-blue-700)]",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 px-3 text-sm",
-        lg: "h-10 px-6",
-        icon: "h-9 w-9",
+        default: "tri-h-9 tri-px-4 tri-py-2",
+        sm: "tri-h-8 tri-px-3 tri-text-sm",
+        lg: "tri-h-10 tri-px-6",
+        icon: "tri-h-9 tri-w-9",
       },
     },
     defaultVariants: {
@@ -59,7 +59,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // spinner (the caller composes it); otherwise render the loading spinner.
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }), loading && "cursor-wait")}
+        className={cn(buttonVariants({ variant, size, className }), loading && "tri-cursor-wait")}
         ref={ref}
         disabled={disabled || loading}
         aria-busy={loading || undefined}
@@ -68,7 +68,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {!asChild && loading && (
           <span
             aria-hidden
-            className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent opacity-70"
+            className="tri-size-4 tri-animate-spin tri-rounded-full tri-border-2 tri-border-current tri-border-t-transparent tri-opacity-70"
           />
         )}
         {children}

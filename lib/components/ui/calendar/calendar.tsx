@@ -178,44 +178,44 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
       <div
         ref={ref}
         className={cn(
-          "w-[280px] rounded-lg border bg-background p-3.5 shadow-lg",
+          "tri-w-[280px] tri-rounded-lg tri-border tri-bg-background tri-p-3.5 tri-shadow-lg",
           className
         )}
         {...props}
       >
         {/* Header */}
-        <div className="mb-2.5 flex items-center justify-between">
-          <span className="text-sm font-semibold text-foreground">
+        <div className="tri-mb-2.5 tri-flex tri-items-center tri-justify-between">
+          <span className="tri-text-sm tri-font-semibold tri-text-foreground">
             {MONTH_NAMES[month]} {year}
           </span>
-          <div className="flex gap-1">
+          <div className="tri-flex tri-gap-1">
             <button
               type="button"
               aria-label="Previous month"
               onClick={() => goToMonth(-1)}
-              className="inline-flex size-6 items-center justify-center rounded-md text-neutral-600 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="tri-inline-flex tri-size-6 tri-items-center tri-justify-center tri-rounded-md tri-text-neutral-600 tri-transition-colors hover:tri-bg-muted focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
             >
-              <ChevronLeft className="size-3.5" />
+              <ChevronLeft className="tri-size-3.5" />
             </button>
             <button
               type="button"
               aria-label="Next month"
               onClick={() => goToMonth(1)}
-              className="inline-flex size-6 items-center justify-center rounded-md text-neutral-600 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="tri-inline-flex tri-size-6 tri-items-center tri-justify-center tri-rounded-md tri-text-neutral-600 tri-transition-colors hover:tri-bg-muted focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring"
             >
-              <ChevronRight className="size-3.5" />
+              <ChevronRight className="tri-size-3.5" />
             </button>
           </div>
         </div>
 
         {/* Weekday header */}
-        <div role="row" className="mb-1 grid grid-cols-7 gap-0.5">
+        <div role="row" className="tri-mb-1 tri-grid tri-grid-cols-7 tri-gap-0.5">
           {WEEKDAYS.map((d, i) => (
             <div
               key={i}
               role="columnheader"
               aria-label={WEEKDAY_NAMES[i]}
-              className="py-1 text-center font-mono text-[10px] font-semibold uppercase tracking-wide text-muted-foreground"
+              className="tri-py-1 tri-text-center tri-font-mono tri-text-[10px] tri-font-semibold tri-uppercase tri-tracking-wide tri-text-muted-foreground"
             >
               {d}
             </div>
@@ -226,10 +226,10 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
         <div
           role="grid"
           aria-label={`${MONTH_NAMES[month]} ${year}`}
-          className="flex flex-col gap-0.5"
+          className="tri-flex tri-flex-col tri-gap-0.5"
         >
           {weeks.map((week, wi) => (
-            <div role="row" key={wi} className="grid grid-cols-7 gap-0.5">
+            <div role="row" key={wi} className="tri-grid tri-grid-cols-7 tri-gap-0.5">
               {week.map((date) => {
                 const outside = date.getMonth() !== month
                 const selected = value != null && isSameDay(date, value)
@@ -253,17 +253,17 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                     aria-selected={selected}
                     aria-current={isToday ? "date" : undefined}
                     className={cn(
-                      "relative flex aspect-square items-center justify-center rounded-md text-[13px] text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                      !selected && "hover:bg-muted",
-                      outside && "text-muted-foreground opacity-60",
-                      isToday && "font-semibold",
+                      "tri-relative tri-flex tri-aspect-square tri-items-center tri-justify-center tri-rounded-md tri-text-[13px] tri-text-foreground tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring",
+                      !selected && "hover:tri-bg-muted",
+                      outside && "tri-text-muted-foreground tri-opacity-60",
+                      isToday && "tri-font-semibold",
                       selected &&
-                        "bg-primary font-semibold text-primary-foreground hover:bg-primary"
+                        "tri-bg-primary tri-font-semibold tri-text-primary-foreground hover:tri-bg-primary"
                     )}
                   >
                     {date.getDate()}
                     {isToday && !selected && (
-                      <span className="absolute bottom-1 size-[3px] rounded-full bg-info" />
+                      <span className="tri-absolute tri-bottom-1 tri-size-[3px] tri-rounded-full tri-bg-info" />
                     )}
                   </button>
                 )

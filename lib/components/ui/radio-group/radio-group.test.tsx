@@ -147,9 +147,9 @@ describe("RadioGroup", () => {
   })
 
   it.each([
-    ["ink", "data-[state=checked]:border-primary"],
-    ["brand", "data-[state=checked]:border-brand"],
-    ["blue", "data-[state=checked]:border-info"],
+    ["ink", "data-[state=checked]:tri-border-primary"],
+    ["brand", "data-[state=checked]:tri-border-brand"],
+    ["blue", "data-[state=checked]:tri-border-info"],
   ] as const)("applies item color=%s classes", (color, expectedClass) => {
     render(
       <RadioGroup aria-label="fruit">

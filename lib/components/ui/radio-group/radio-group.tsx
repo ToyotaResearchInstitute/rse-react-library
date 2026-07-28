@@ -15,16 +15,16 @@ const RadioGroup = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Root
     ref={ref}
-    className={cn("grid gap-2", className)}
+    className={cn("tri-grid tri-gap-2", className)}
     {...props}
   />
 ))
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
 const radioColors = {
-  ink: "text-primary data-[state=checked]:border-primary",
-  brand: "text-brand data-[state=checked]:border-brand",
-  blue: "text-info data-[state=checked]:border-info",
+  ink: "tri-text-primary data-[state=checked]:tri-border-primary",
+  brand: "tri-text-brand data-[state=checked]:tri-border-brand",
+  blue: "tri-text-info data-[state=checked]:tri-border-info",
 } as const
 
 const RadioGroupItem = React.forwardRef<
@@ -37,14 +37,14 @@ const RadioGroupItem = React.forwardRef<
   <RadioGroupPrimitive.Item
     ref={ref}
     className={cn(
-      "aspect-square h-[18px] w-[18px] shrink-0 rounded-pill border-[1.5px] border-[var(--border-strong)] bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-input disabled:bg-[#fafafa] disabled:opacity-50",
+      "tri-aspect-square tri-h-[18px] tri-w-[18px] tri-shrink-0 tri-rounded-pill tri-border-[1.5px] tri-border-[var(--tri-border-strong)] tri-bg-background tri-ring-offset-background tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-2 disabled:tri-cursor-not-allowed disabled:tri-border-input disabled:tri-bg-[#fafafa] disabled:tri-opacity-50",
       radioColors[color],
       className
     )}
     {...props}
   >
-    <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-      <Circle className="h-[9px] w-[9px] fill-current text-current" />
+    <RadioGroupPrimitive.Indicator className="tri-flex tri-items-center tri-justify-center">
+      <Circle className="tri-h-[9px] tri-w-[9px] tri-fill-current tri-text-current" />
     </RadioGroupPrimitive.Indicator>
   </RadioGroupPrimitive.Item>
 ))

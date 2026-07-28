@@ -12,16 +12,16 @@ import { cn } from "../utils"
  * accent (brand / ink / info). Pass `onRemove` to render a removable × button.
  */
 const chipVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-pill px-2.5 py-1 text-xs font-medium leading-snug transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 border border-transparent",
+  "tri-inline-flex tri-items-center tri-gap-1.5 tri-rounded-pill tri-px-2.5 tri-py-1 tri-text-xs tri-font-medium tri-leading-snug tri-transition-colors focus-visible:tri-outline-none focus-visible:tri-ring-2 focus-visible:tri-ring-ring focus-visible:tri-ring-offset-1 tri-border tri-border-transparent",
   {
     variants: {
       variant: {
-        filled: "bg-[#eeeeee] text-[#0b0b0d] hover:bg-[#e4e4e4]",
+        filled: "tri-bg-[#eeeeee] tri-text-[#0b0b0d] hover:tri-bg-[#e4e4e4]",
         outlined:
-          "bg-transparent text-[#0b0b0d] border-[#d4d4d4] hover:bg-[#f5f5f5]",
+          "tri-bg-transparent tri-text-[#0b0b0d] tri-border-[#d4d4d4] hover:tri-bg-[#f5f5f5]",
         // Dashed "+ Add" affordance
         dashed:
-          "bg-transparent text-[#737373] border-dashed border-[#d4d4d4] hover:bg-[#f5f5f5]",
+          "tri-bg-transparent tri-text-[#737373] tri-border-dashed tri-border-[#d4d4d4] hover:tri-bg-[#f5f5f5]",
       },
       color: {
         brand: "",
@@ -39,38 +39,38 @@ const chipVariants = cva(
         variant: "filled",
         color: "brand",
         selected: true,
-        className: "bg-brand text-white hover:bg-brand",
+        className: "tri-bg-brand tri-text-white hover:tri-bg-brand",
       },
       {
         variant: "filled",
         color: "ink",
         selected: true,
-        className: "bg-primary text-white hover:bg-primary",
+        className: "tri-bg-primary tri-text-white hover:tri-bg-primary",
       },
       {
         variant: "filled",
         color: "info",
         selected: true,
-        className: "bg-info text-white hover:bg-info",
+        className: "tri-bg-info tri-text-white hover:tri-bg-info",
       },
       // Outlined · selected — soft tint + accent border
       {
         variant: "outlined",
         color: "brand",
         selected: true,
-        className: "bg-[#fbe5e8] text-[#a81b28] border-brand",
+        className: "tri-bg-[#fbe5e8] tri-text-[#a81b28] tri-border-brand",
       },
       {
         variant: "outlined",
         color: "ink",
         selected: true,
-        className: "bg-[#f5f5f5] text-[#0b0b0d] border-primary",
+        className: "tri-bg-[#f5f5f5] tri-text-[#0b0b0d] tri-border-primary",
       },
       {
         variant: "outlined",
         color: "info",
         selected: true,
-        className: "bg-[#ECF6FF] text-info border-info",
+        className: "tri-bg-[#ECF6FF] tri-text-info tri-border-info",
       },
     ],
     defaultVariants: {
@@ -108,7 +108,7 @@ const Chip = React.forwardRef<HTMLSpanElement, ChipProps>(
       ref={ref}
       className={cn(
         chipVariants({ variant, color, selected }),
-        onRemove && "pr-1",
+        onRemove && "tri-pr-1",
         className
       )}
       {...props}
@@ -120,11 +120,11 @@ const Chip = React.forwardRef<HTMLSpanElement, ChipProps>(
           aria-label={removeLabel}
           onClick={onRemove}
           className={cn(
-            "inline-flex h-4 w-4 items-center justify-center rounded-pill text-white transition-colors",
-            selected ? "bg-white/30 hover:bg-white/40" : "bg-black/[0.18] hover:bg-black/30"
+            "tri-inline-flex tri-h-4 tri-w-4 tri-items-center tri-justify-center tri-rounded-pill tri-text-white tri-transition-colors",
+            selected ? "tri-bg-white/30 hover:tri-bg-white/40" : "tri-bg-black/[0.18] hover:tri-bg-black/30"
           )}
         >
-          <X className="h-2 w-2" strokeWidth={3} />
+          <X className="tri-h-2 tri-w-2" strokeWidth={3} />
         </button>
       )}
     </span>

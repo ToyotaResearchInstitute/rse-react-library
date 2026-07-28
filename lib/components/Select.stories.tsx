@@ -22,7 +22,7 @@ const Template = () => {
   const [value, setValue] = useState('banana');
 
   return (
-    <div className="w-72">
+    <div className="tri-w-72">
       <Select
         id="fruit-select"
         options={options}

@@ -26,26 +26,26 @@ export const Multiselect = ({
   };
 
   return (
-    <div className="w-full">
+    <div className="tri-w-full">
       <Popover>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="h-auto min-h-9 w-full flex-wrap justify-start py-1.5"
+            className="tri-h-auto tri-min-h-9 tri-w-full tri-flex-wrap tri-justify-start tri-py-1.5"
           >
             {selectedOptions.length > 0 ? (
-              <div className="flex w-full flex-wrap gap-1">
+              <div className="tri-flex tri-w-full tri-flex-wrap tri-gap-1">
                 {selectedOptions.map((opt, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1 rounded-xs bg-brand-gray px-2 py-0.5 text-xs font-normal text-foreground"
+                    className="tri-inline-flex tri-items-center tri-gap-1 tri-rounded-xs tri-bg-brand-gray tri-px-2 tri-py-0.5 tri-text-xs tri-font-normal tri-text-foreground"
                   >
                     {opt}
                     <span
                       role="button"
                       aria-label={`Remove ${opt}`}
                       tabIndex={0}
-                      className="inline-flex cursor-pointer items-center text-muted-foreground hover:text-foreground"
+                      className="tri-inline-flex tri-cursor-pointer tri-items-center tri-text-muted-foreground hover:tri-text-foreground"
                       // Stop the event on pointerDown so Radix's trigger (which opens
                       // on pointerDown) never fires — otherwise the popover opens
                       // instead of removing the tag.
@@ -66,7 +66,7 @@ export const Multiselect = ({
                         }
                       }}
                     >
-                      <X className="h-3 w-3" />
+                      <X className="tri-h-3 tri-w-3" />
                     </span>
                   </span>
                 ))}
@@ -76,20 +76,20 @@ export const Multiselect = ({
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="w-[--radix-popover-trigger-width] p-2">
-          <div className="flex flex-col gap-1">
+        <PopoverContent align="start" className="tri-w-[--radix-popover-trigger-width] tri-p-2">
+          <div className="tri-flex tri-flex-col tri-gap-1">
             {options.map((option, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => handleSelect(option)}
-                className="flex items-center justify-between px-2 py-1 w-full rounded hover:bg-muted text-left"
+                className="tri-flex tri-items-center tri-justify-between tri-px-2 tri-py-1 tri-w-full tri-rounded hover:tri-bg-muted tri-text-left"
               >
                 <span>{option}</span>
                 <Checkbox
                   checked={selectedOptions.includes(option)}
                   onCheckedChange={() => {}}
-                  className="pointer-events-none"
+                  className="tri-pointer-events-none"
                 />
               </button>
             ))}

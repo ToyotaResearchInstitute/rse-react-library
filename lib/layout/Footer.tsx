@@ -8,8 +8,8 @@ const Footer = () => {
   const { token } = useUserAuth();
 
   return (
-    <footer className="flex items-center gap-6 bg-gray-900 px-6 py-10 text-white">
-      <nav className="flex items-center justify-end gap-6">
+    <footer className="tri-flex tri-items-center tri-gap-6 tri-bg-gray-900 tri-px-6 tri-py-10 tri-text-white">
+      <nav className="tri-flex tri-items-center tri-justify-end tri-gap-6">
         {(!amplifyEnabled || token) && (
           <>
             <Link to="/about">About</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
           </>
         )}
       </nav>
-      <span className="flex grow justify-end">© Copyright Toyota Research Institute {year}</span>
+      <span className="tri-flex tri-grow tri-justify-end">© Copyright Toyota Research Institute {year}</span>
     </footer>
   );
 };

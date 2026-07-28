@@ -78,7 +78,7 @@ describe("PaginationLink", () => {
     const link = screen.getByRole("link", { name: "3" })
     expect(link).toHaveAttribute("aria-current", "page")
     expect(link).toHaveAttribute("data-active", "")
-    expect(link).toHaveClass("bg-primary")
+    expect(link).toHaveClass("tri-bg-primary")
   })
 
   it("inactive link has no aria-current or data-active", () => {

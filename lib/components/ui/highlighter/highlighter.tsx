@@ -5,9 +5,9 @@ const defaultHighlightDuration = 1000;
 const defaultTransitionDuration = 1000;
 // TODO: Add props to override these defaults, if the need arises
 const defaultHighlightClassName =
-  'z-0 inset-[-1em] shadow-[0_0_10px_0_#757575] rounded-lg bg-white';
-const defaultHighlightedClassName = 'opacity-1';
-const defaultUnhighlightedClassName = 'opacity-0';
+  'tri-z-0 tri-inset-[-1em] tri-shadow-[0_0_10px_0_#757575] tri-rounded-lg tri-bg-white';
+const defaultHighlightedClassName = 'tri-opacity-1';
+const defaultUnhighlightedClassName = 'tri-opacity-0';
 const defaultClassName = 'z1';
 
 interface HighlighterContextProps {
@@ -81,7 +81,7 @@ export const Highlight = ({ id, children: child }: HighlightProps) => {
   }`;
 
   return (
-    <div className="relative">
+    <div className="tri-relative">
       <div
         className={highlightClassName}
         style={{

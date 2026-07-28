@@ -140,14 +140,14 @@ describe("Tabs", () => {
   it("applies pills active accent for a given color", () => {
     renderTabs({ defaultValue: "one" }, { variant: "pills", color: "brand" })
     expect(screen.getByRole("tab", { name: "One" })).toHaveClass(
-      "data-[state=active]:bg-brand"
+      "data-[state=active]:tri-bg-brand"
     )
   })
 
   it("applies underline active accent for a given color", () => {
     renderTabs({ defaultValue: "one" }, { variant: "underline", color: "blue" })
     expect(screen.getByRole("tab", { name: "One" })).toHaveClass(
-      "data-[state=active]:text-info"
+      "data-[state=active]:tri-text-info"
     )
   })
 
@@ -164,7 +164,7 @@ describe("Tabs", () => {
     )
     const count = screen.getByText("5")
     expect(count).toBeInTheDocument()
-    expect(count).toHaveClass("rounded-pill")
+    expect(count).toHaveClass("tri-rounded-pill")
   })
 
   it("merges custom classNames", () => {

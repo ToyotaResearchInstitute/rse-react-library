@@ -51,8 +51,8 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
         role="list"
         aria-label="progress"
         className={cn(
-          "flex w-full overflow-x-auto",
-          vertical ? "flex-col" : "items-center",
+          "tri-flex tri-w-full tri-overflow-x-auto",
+          vertical ? "tri-flex-col" : "tri-items-center",
           className
         )}
         {...props}
@@ -68,31 +68,31 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           const marker = dot ? (
             <span
               className={cn(
-                "block shrink-0 rounded-pill transition-colors",
+                "tri-block tri-shrink-0 tri-rounded-pill tri-transition-colors",
                 isError
-                  ? "size-2.5 bg-brand"
+                  ? "tri-size-2.5 tri-bg-brand"
                   : active
-                    ? "size-2.5 bg-primary"
-                    : "size-2 bg-[#d4d4d4]",
-                isCurrent && "ring-4 ring-[rgba(11,11,13,0.18)]"
+                    ? "tri-size-2.5 tri-bg-primary"
+                    : "tri-size-2 tri-bg-[#d4d4d4]",
+                isCurrent && "tri-ring-4 tri-ring-[rgba(11,11,13,0.18)]"
               )}
             />
           ) : (
             <span
               className={cn(
-                "flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-pill text-xs font-semibold transition-colors",
+                "tri-flex tri-h-[26px] tri-w-[26px] tri-shrink-0 tri-items-center tri-justify-center tri-rounded-pill tri-text-xs tri-font-semibold tri-transition-colors",
                 isError
-                  ? "bg-brand text-white"
+                  ? "tri-bg-brand tri-text-white"
                   : active
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-[#eeeeee] text-[#525252]",
-                isCurrent && "ring-4 ring-[rgba(11,11,13,0.18)]"
+                    ? "tri-bg-primary tri-text-primary-foreground"
+                    : "tri-bg-[#eeeeee] tri-text-[#525252]",
+                isCurrent && "tri-ring-4 tri-ring-[rgba(11,11,13,0.18)]"
               )}
             >
               {isError ? (
-                <X className="h-3.5 w-3.5" strokeWidth={3} />
+                <X className="tri-h-3.5 tri-w-3.5" strokeWidth={3} />
               ) : isCompleted ? (
-                <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                <Check className="tri-h-3.5 tri-w-3.5" strokeWidth={3} />
               ) : (
                 index + 1
               )}
@@ -100,17 +100,17 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           )
 
           const labelBlock = (
-            <span className="flex flex-col gap-px">
+            <span className="tri-flex tri-flex-col tri-gap-px">
               <span
                 className={cn(
-                  "text-[13px] font-medium leading-tight",
-                  isError ? "text-brand" : active ? "text-foreground" : "text-muted-foreground"
+                  "tri-text-[13px] tri-font-medium tri-leading-tight",
+                  isError ? "tri-text-brand" : active ? "tri-text-foreground" : "tri-text-muted-foreground"
                 )}
               >
                 {label}
               </span>
               {description ? (
-                <span className="text-[11px] leading-tight text-[#a1a1aa]">
+                <span className="tri-text-[11px] tri-leading-tight tri-text-[#a1a1aa]">
                   {description}
                 </span>
               ) : null}
@@ -121,23 +121,23 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             <span
               aria-hidden
               className={cn(
-                "transition-colors",
-                vertical ? "my-1 ml-[12px] w-px flex-1 self-stretch" : "mx-3.5 h-px flex-1",
-                isCompleted ? "bg-primary" : "bg-border",
-                vertical && "min-h-4"
+                "tri-transition-colors",
+                vertical ? "tri-my-1 tri-ml-[12px] tri-w-px tri-flex-1 tri-self-stretch" : "tri-mx-3.5 tri-h-px tri-flex-1",
+                isCompleted ? "tri-bg-primary" : "tri-bg-border",
+                vertical && "tri-min-h-4"
               )}
             />
           ) : null
 
           if (vertical) {
             return (
-              <div key={index} className="flex flex-col">
+              <div key={index} className="tri-flex tri-flex-col">
                 <div
                   role="listitem"
                   aria-current={isCurrent ? "step" : undefined}
-                  className="flex items-center gap-2.5"
+                  className="tri-flex tri-items-center tri-gap-2.5"
                 >
-                  <span className="flex w-[26px] justify-center">{marker}</span>
+                  <span className="tri-flex tri-w-[26px] tri-justify-center">{marker}</span>
                   {labelBlock}
                 </div>
                 {connector}
@@ -150,7 +150,7 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
               <div
                 role="listitem"
                 aria-current={isCurrent ? "step" : undefined}
-                className="flex items-center gap-2.5"
+                className="tri-flex tri-items-center tri-gap-2.5"
               >
                 {marker}
                 {labelBlock}

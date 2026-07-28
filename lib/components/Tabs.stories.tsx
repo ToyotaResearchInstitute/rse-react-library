@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
   render: () => (
-    <div className="w-full max-w-[560px]">
+    <div className="tri-w-full tri-max-w-[560px]">
       <Tabs defaultValue="overview">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
@@ -48,7 +48,7 @@ export const Default: Story = {
 
 export const Pills: Story = {
   render: () => (
-    <Tabs defaultValue="all" className="w-[420px]">
+    <Tabs defaultValue="all" className="tri-w-[420px]">
       <TabsList variant="pills">
         <TabsTrigger value="all">All</TabsTrigger>
         <TabsTrigger value="open">Open</TabsTrigger>
@@ -65,7 +65,7 @@ export const Pills: Story = {
 
 export const Segmented: Story = {
   render: () => (
-    <Tabs defaultValue="day" className="w-[420px]">
+    <Tabs defaultValue="day" className="tri-w-[420px]">
       <TabsList variant="segmented">
         <TabsTrigger value="day">Day</TabsTrigger>
         <TabsTrigger value="week">Week</TabsTrigger>

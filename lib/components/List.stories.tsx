@@ -40,8 +40,8 @@ const Avatar = ({
 }) => (
   <ListItemIcon unstyled>
     <span
-      className={`flex size-9 items-center justify-center rounded-full text-[13px] font-semibold ${
-        className ?? "bg-[#fbe5e8] text-[#a81b28]"
+      className={`tri-flex tri-size-9 tri-items-center tri-justify-center tri-rounded-full tri-text-[13px] tri-font-semibold ${
+        className ?? "tri-bg-[#fbe5e8] tri-text-[#a81b28]"
       }`}
     >
       {children}
@@ -51,26 +51,26 @@ const Avatar = ({
 
 export const Contacts: Story = {
   render: () => (
-    <List className="w-80">
+    <List className="tri-w-80">
       <ListItem active>
         <Avatar>AS</Avatar>
         <ListItemText primary="Ana Silva" secondary="Reviewed your changes · 2h" />
-        <ChevronRight className="size-[18px] text-muted-foreground" />
+        <ChevronRight className="tri-size-[18px] tri-text-muted-foreground" />
       </ListItem>
       <ListItem>
-        <Avatar className="bg-brand-sky text-[#155a96]">RK</Avatar>
+        <Avatar className="tri-bg-brand-sky tri-text-[#155a96]">RK</Avatar>
         <ListItemText primary="Ravi Krishnan" secondary="Mentioned you in Atlas SDK" />
-        <span className="font-mono text-[11px] text-muted-foreground">5m</span>
+        <span className="tri-font-mono tri-text-[11px] tri-text-muted-foreground">5m</span>
       </ListItem>
       <ListItem>
-        <Avatar className="bg-[#EAF4EA] text-[#256628]">MO</Avatar>
+        <Avatar className="tri-bg-[#EAF4EA] tri-text-[#256628]">MO</Avatar>
         <ListItemText primary="Mei Otani" secondary={'Shared "fleet-events-2024"'} />
-        <span className="font-mono text-[11px] text-muted-foreground">1h</span>
+        <span className="tri-font-mono tri-text-[11px] tri-text-muted-foreground">1h</span>
       </ListItem>
       <ListItem>
-        <Avatar className="bg-[#FDF0E2] text-[#c45800]">JD</Avatar>
+        <Avatar className="tri-bg-[#FDF0E2] tri-text-[#c45800]">JD</Avatar>
         <ListItemText primary="Jamie D." secondary="Requested access" />
-        <span className="font-mono text-[11px] text-muted-foreground">3h</span>
+        <span className="tri-font-mono tri-text-[11px] tri-text-muted-foreground">3h</span>
       </ListItem>
     </List>
   ),
@@ -78,15 +78,15 @@ export const Contacts: Story = {
 
 export const SettingsGrouped: Story = {
   render: () => (
-    <List className="w-full max-w-96">
+    <List className="tri-w-full tri-max-w-96">
       <ListSubheader>General</ListSubheader>
       <ListItem>
         <ListItemIcon>
           <Mail />
         </ListItemIcon>
         <ListItemText primary="Email notifications" secondary="Daily digest at 8:00 AM" />
-        <span className="inline-flex h-[18px] w-8 items-center rounded-full bg-primary px-0.5">
-          <span className="size-3.5 translate-x-3.5 rounded-full bg-white transition" />
+        <span className="tri-inline-flex tri-h-[18px] tri-w-8 tri-items-center tri-rounded-full tri-bg-primary tri-px-0.5">
+          <span className="tri-size-3.5 tri-translate-x-3.5 tri-rounded-full tri-bg-white tri-transition" />
         </span>
       </ListItem>
       <ListItem>
@@ -94,8 +94,8 @@ export const SettingsGrouped: Story = {
           <Bell />
         </ListItemIcon>
         <ListItemText primary="Push notifications" secondary="Webhook failures and incidents" />
-        <span className="inline-flex h-[18px] w-8 items-center rounded-full bg-neutral-300 px-0.5">
-          <span className="size-3.5 rounded-full bg-white transition" />
+        <span className="tri-inline-flex tri-h-[18px] tri-w-8 tri-items-center tri-rounded-full tri-bg-neutral-300 tri-px-0.5">
+          <span className="tri-size-3.5 tri-rounded-full tri-bg-white tri-transition" />
         </span>
       </ListItem>
       <ListSubheader>Security</ListSubheader>
@@ -104,7 +104,7 @@ export const SettingsGrouped: Story = {
           <Shield />
         </ListItemIcon>
         <ListItemText primary="Two-factor authentication" secondary="Authenticator app" />
-        <span className="rounded-full bg-[#EAF4EA] px-2 py-0.5 font-mono text-[11px] text-[#256628]">
+        <span className="tri-rounded-full tri-bg-[#EAF4EA] tri-px-2 tri-py-0.5 tri-font-mono tri-text-[11px] tri-text-[#256628]">
           Enabled
         </span>
       </ListItem>
@@ -113,7 +113,7 @@ export const SettingsGrouped: Story = {
           <KeyRound />
         </ListItemIcon>
         <ListItemText primary="API keys" secondary="2 active keys" />
-        <ChevronRight className="size-[18px] text-muted-foreground" />
+        <ChevronRight className="tri-size-[18px] tri-text-muted-foreground" />
       </ListItem>
     </List>
   ),
@@ -129,22 +129,22 @@ export const SidebarNav: Story = {
       { icon: <Settings />, label: "Settings" },
     ];
     return (
-      <div className="flex w-72 flex-col gap-0.5 rounded-md border bg-background p-2">
+      <div className="tri-flex tri-w-72 tri-flex-col tri-gap-0.5 tri-rounded-md tri-border tri-bg-background tri-p-2">
         {items.map((it) => (
           <button
             key={it.label}
-            className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
+            className={`tri-flex tri-items-center tri-gap-3 tri-rounded-md tri-px-3 tri-py-2 tri-text-sm tri-transition-colors ${
               it.active
-                ? "bg-brand-sky font-medium text-info"
-                : "text-neutral-700 hover:bg-muted"
+                ? "tri-bg-brand-sky tri-font-medium tri-text-info"
+                : "tri-text-neutral-700 hover:tri-bg-muted"
             }`}
           >
-            <span className="[&_svg]:size-4">{it.icon}</span>
+            <span className="[&_svg]:tri-size-4">{it.icon}</span>
             {it.label}
             {it.count != null && (
               <span
-                className={`ml-auto rounded-full px-1.5 py-px font-mono text-[11px] ${
-                  it.active ? "bg-white text-info" : "bg-neutral-200 text-neutral-600"
+                className={`tri-ml-auto tri-rounded-full tri-px-1.5 tri-py-px tri-font-mono tri-text-[11px] ${
+                  it.active ? "tri-bg-white tri-text-info" : "tri-bg-neutral-200 tri-text-neutral-600"
                 }`}
               >
                 {it.count}
@@ -183,14 +183,14 @@ export const Checklist: Story = {
       );
 
     return (
-      <List className="w-full max-w-96">
+      <List className="tri-w-full tri-max-w-96">
         {tasks.map((task) => (
           <ListItem key={task.id}>
             <Checkbox checked={task.done} onCheckedChange={toggle(task.id)} />
             <ListItemText
               primary={
                 task.done ? (
-                  <span className="text-muted-foreground line-through">
+                  <span className="tri-text-muted-foreground tri-line-through">
                     {task.label}
                   </span>
                 ) : (

@@ -16,18 +16,18 @@ const Tooltip = TooltipPrimitive.Root
 const TooltipTrigger = TooltipPrimitive.Trigger
 
 const tooltipVariants = cva(
-  "z-50 max-w-xs overflow-hidden text-xs font-medium shadow-md data-[state=delayed-open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=delayed-open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=delayed-open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+  "tri-z-50 tri-max-w-xs tri-overflow-hidden tri-text-xs tri-font-medium tri-shadow-md data-[state=delayed-open]:tri-animate-in data-[state=closed]:tri-animate-out data-[state=closed]:tri-fade-out-0 data-[state=delayed-open]:tri-fade-in-0 data-[state=closed]:tri-zoom-out-95 data-[state=delayed-open]:tri-zoom-in-95 data-[side=bottom]:tri-slide-in-from-top-2 data-[side=left]:tri-slide-in-from-right-2 data-[side=right]:tri-slide-in-from-left-2 data-[side=top]:tri-slide-in-from-bottom-2",
   {
     variants: {
       variant: {
         // Dark · default — #0B0B0D / white, 6px radius, 6×10 padding
-        dark: "rounded-sm bg-[#0B0B0D] px-2.5 py-1.5 text-white",
+        dark: "tri-rounded-sm tri-bg-[#0B0B0D] tri-px-2.5 tri-py-1.5 tri-text-white",
         // Light · info — white surface with hairline border
-        light: "rounded-sm border border-[var(--border)] bg-background px-2.5 py-1.5 text-foreground",
+        light: "tri-rounded-sm tri-border tri-border-[var(--tri-border)] tri-bg-background tri-px-2.5 tri-py-1.5 tri-text-foreground",
         // Blue · action hint
-        blue: "rounded-sm bg-[#1D73BF] px-2.5 py-1.5 text-white",
+        blue: "tri-rounded-sm tri-bg-[#1D73BF] tri-px-2.5 tri-py-1.5 tri-text-white",
         // Annotation · pill — sky-blue, always-on label
-        annotation: "rounded-full bg-[#A9D6FF] px-[11px] py-[5px] text-[13px] text-[#0B0B0D]",
+        annotation: "tri-rounded-full tri-bg-[#A9D6FF] tri-px-[11px] tri-py-[5px] tri-text-[13px] tri-text-[#0B0B0D]",
       },
     },
     defaultVariants: {
@@ -38,10 +38,10 @@ const tooltipVariants = cva(
 
 /** Arrow fill matched to each tooltip variant's surface. */
 const arrowFill = {
-  dark: "fill-[#0B0B0D]",
-  light: "fill-background",
-  blue: "fill-[#1D73BF]",
-  annotation: "fill-[#A9D6FF]",
+  dark: "tri-fill-[#0B0B0D]",
+  light: "tri-fill-background",
+  blue: "tri-fill-[#1D73BF]",
+  annotation: "tri-fill-[#A9D6FF]",
 } as const
 
 interface TooltipContentProps
@@ -65,7 +65,7 @@ const TooltipContent = React.forwardRef<
       {props.children}
       {showArrow && (
         <TooltipPrimitive.Arrow
-          className={cn("size-2.5", arrowFill[variant ?? "dark"])}
+          className={cn("tri-size-2.5", arrowFill[variant ?? "dark"])}
         />
       )}
     </TooltipPrimitive.Content>
@@ -88,15 +88,15 @@ export interface AnnotationTooltipProps
 const tailClasses = {
   // pointer below the bubble (bubble sits above the target)
   below:
-    "after:left-1/2 after:top-full after:-translate-x-1/2 after:border-t-[#A9D6FF] after:border-b-0",
+    "after:tri-left-1/2 after:tri-top-full after:-tri-translate-x-1/2 after:tri-border-t-[#A9D6FF] after:tri-border-b-0",
   // pointer above the bubble (bubble sits below the target)
   above:
-    "after:bottom-full after:left-1/2 after:-translate-x-1/2 after:border-b-[#A9D6FF] after:border-t-0",
+    "after:tri-bottom-full after:tri-left-1/2 after:-tri-translate-x-1/2 after:tri-border-b-[#A9D6FF] after:tri-border-t-0",
   // pointer on the left (bubble sits to the right of the target)
-  left: "after:right-full after:top-1/2 after:-translate-y-1/2 after:border-r-[#A9D6FF] after:border-l-0",
+  left: "after:tri-right-full after:tri-top-1/2 after:-tri-translate-y-1/2 after:tri-border-r-[#A9D6FF] after:tri-border-l-0",
   // pointer on the right (bubble sits to the left of the target)
   right:
-    "after:left-full after:top-1/2 after:-translate-y-1/2 after:border-l-[#A9D6FF] after:border-r-0",
+    "after:tri-left-full after:tri-top-1/2 after:-tri-translate-y-1/2 after:tri-border-l-[#A9D6FF] after:tri-border-r-0",
 } as const
 
 const AnnotationTooltip = React.forwardRef<
@@ -107,8 +107,8 @@ const AnnotationTooltip = React.forwardRef<
     ref={ref}
     role="note"
     className={cn(
-      "relative inline-block whitespace-nowrap rounded-full bg-[#A9D6FF] px-[11px] py-[5px] text-[13px] font-medium text-[#0B0B0D] shadow-sm",
-      "after:absolute after:h-0 after:w-0 after:border-[6px] after:border-transparent after:content-['']",
+      "tri-relative tri-inline-block tri-whitespace-nowrap tri-rounded-full tri-bg-[#A9D6FF] tri-px-[11px] tri-py-[5px] tri-text-[13px] tri-font-medium tri-text-[#0B0B0D] tri-shadow-sm",
+      "after:tri-absolute after:tri-h-0 after:tri-w-0 after:tri-border-[6px] after:tri-border-transparent after:tri-content-['']",
       tailClasses[tail],
       className
     )}

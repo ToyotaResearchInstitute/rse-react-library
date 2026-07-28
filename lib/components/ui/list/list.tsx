@@ -24,7 +24,7 @@ const List = React.forwardRef<
   <ul
     ref={ref}
     className={cn(
-      "overflow-hidden rounded-md border bg-background",
+      "tri-overflow-hidden tri-rounded-md tri-border tri-bg-background",
       className
     )}
     {...props}
@@ -42,7 +42,7 @@ const ListSubheader = React.forwardRef<
   <li
     ref={ref}
     className={cn(
-      "border-b bg-muted px-3.5 pb-1 pt-2.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-muted-foreground",
+      "tri-border-b tri-bg-muted tri-px-3.5 tri-pb-1 tri-pt-2.5 tri-font-mono tri-text-[10px] tri-font-semibold tri-uppercase tri-tracking-wider tri-text-muted-foreground",
       className
     )}
     {...props}
@@ -75,10 +75,10 @@ const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
       ref={ref}
       data-active={active || undefined}
       className={cn(
-        "flex items-center gap-3 px-3.5 py-3 text-foreground transition-colors",
-        !disableDivider && "border-b last:border-b-0",
-        interactive && "cursor-pointer hover:bg-muted",
-        active && "bg-brand-sky hover:bg-brand-sky",
+        "tri-flex tri-items-center tri-gap-3 tri-px-3.5 tri-py-3 tri-text-foreground tri-transition-colors",
+        !disableDivider && "tri-border-b last:tri-border-b-0",
+        interactive && "tri-cursor-pointer hover:tri-bg-muted",
+        active && "tri-bg-brand-sky hover:tri-bg-brand-sky",
         className
       )}
       {...props}
@@ -105,11 +105,11 @@ const ListItemIcon = React.forwardRef<HTMLSpanElement, ListItemIconProps>(
     <span
       ref={ref}
       className={cn(
-        "flex shrink-0 items-center justify-center [&_svg]:size-4",
+        "tri-flex tri-shrink-0 tri-items-center tri-justify-center [&_svg]:tri-size-4",
         !unstyled &&
           (plain
-            ? "size-4 text-current [&_svg]:size-4"
-            : "size-8 rounded-md bg-muted text-neutral-600"),
+            ? "tri-size-4 tri-text-current [&_svg]:tri-size-4"
+            : "tri-size-8 tri-rounded-md tri-bg-muted tri-text-neutral-600"),
         className
       )}
       {...props}
@@ -126,14 +126,14 @@ export interface ListItemTextProps
 
 const ListItemText = React.forwardRef<HTMLDivElement, ListItemTextProps>(
   ({ className, primary, secondary, children, ...props }, ref) => (
-    <div ref={ref} className={cn("min-w-0 flex-1", className)} {...props}>
+    <div ref={ref} className={cn("tri-min-w-0 tri-flex-1", className)} {...props}>
       {primary != null && (
-        <div className="text-sm font-medium leading-tight text-foreground">
+        <div className="tri-text-sm tri-font-medium tri-leading-tight tri-text-foreground">
           {primary}
         </div>
       )}
       {secondary != null && (
-        <div className="mt-0.5 text-xs text-muted-foreground">{secondary}</div>
+        <div className="tri-mt-0.5 tri-text-xs tri-text-muted-foreground">{secondary}</div>
       )}
       {children}
     </div>
@@ -152,8 +152,8 @@ const ListItemCount = React.forwardRef<
   <span
     ref={ref}
     className={cn(
-      "ml-auto inline-flex min-w-5 items-center justify-center rounded-pill px-1.5 py-0.5 text-[11px] font-semibold leading-none",
-      active ? "bg-background text-info" : "bg-neutral-200 text-[var(--fg-muted)]",
+      "tri-ml-auto tri-inline-flex tri-min-w-5 tri-items-center tri-justify-center tri-rounded-pill tri-px-1.5 tri-py-0.5 tri-text-[11px] tri-font-semibold tri-leading-none",
+      active ? "tri-bg-background tri-text-info" : "tri-bg-neutral-200 tri-text-[var(--tri-fg-muted)]",
       className
     )}
     {...props}

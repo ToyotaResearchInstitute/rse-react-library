@@ -52,7 +52,7 @@ describe("Input", () => {
       const { container } = render(<Input aria-label="field" error />)
       const wrapper = container.firstChild as HTMLElement
       expect(wrapper).toHaveAttribute("data-error", "")
-      expect(wrapper).toHaveClass("border-error")
+      expect(wrapper).toHaveClass("tri-border-error")
     })
 
     it("omits data-error when error is false", () => {

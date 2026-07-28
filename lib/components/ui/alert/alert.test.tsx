@@ -20,23 +20,23 @@ describe("Alert", () => {
   it("applies the default variant classes when no variant is given", () => {
     render(<Alert>Default</Alert>)
     const alert = screen.getByRole("alert")
-    expect(alert).toHaveClass("bg-background", "text-foreground")
+    expect(alert).toHaveClass("tri-bg-background", "tri-text-foreground")
   })
 
   it.each([
-    ["info", "bg-[#ECF6FF]", "text-[#0F4F87]"],
-    ["success", "bg-[#EAF4EA]", "text-[#1F5E22]"],
-    ["warning", "bg-[#FDF0E2]", "text-[#D14900]"],
-    ["error", "bg-[#FFECEC]", "text-[#A1242C]"],
-    ["destructive", "bg-[#FFECEC]", "text-[#A1242C]"],
-    ["info-filled", "bg-[#1D73BF]", "text-white"],
-    ["success-filled", "bg-[#2E7D32]", "text-white"],
-    ["warning-filled", "bg-[#D14900]", "text-white"],
-    ["error-filled", "bg-[#EB0000]", "text-white"],
-    ["info-outline", "bg-transparent", "text-[#0F4F87]"],
-    ["success-outline", "bg-transparent", "text-[#1F5E22]"],
-    ["warning-outline", "bg-transparent", "text-[#D14900]"],
-    ["error-outline", "bg-transparent", "text-[#A1242C]"],
+    ["info", "tri-bg-[#ECF6FF]", "tri-text-[#0F4F87]"],
+    ["success", "tri-bg-[#EAF4EA]", "tri-text-[#1F5E22]"],
+    ["warning", "tri-bg-[#FDF0E2]", "tri-text-[#D14900]"],
+    ["error", "tri-bg-[#FFECEC]", "tri-text-[#A1242C]"],
+    ["destructive", "tri-bg-[#FFECEC]", "tri-text-[#A1242C]"],
+    ["info-filled", "tri-bg-[#1D73BF]", "tri-text-white"],
+    ["success-filled", "tri-bg-[#2E7D32]", "tri-text-white"],
+    ["warning-filled", "tri-bg-[#D14900]", "tri-text-white"],
+    ["error-filled", "tri-bg-[#EB0000]", "tri-text-white"],
+    ["info-outline", "tri-bg-transparent", "tri-text-[#0F4F87]"],
+    ["success-outline", "tri-bg-transparent", "tri-text-[#1F5E22]"],
+    ["warning-outline", "tri-bg-transparent", "tri-text-[#D14900]"],
+    ["error-outline", "tri-bg-transparent", "tri-text-[#A1242C]"],
   ] as const)("renders the %s variant classes", (variant, bg, text) => {
     render(<Alert variant={variant}>Body</Alert>)
     expect(screen.getByRole("alert")).toHaveClass(bg, text)
@@ -52,7 +52,7 @@ describe("Alert", () => {
     render(<Alert className="custom-class">Body</Alert>)
     const alert = screen.getByRole("alert")
     expect(alert).toHaveClass("custom-class")
-    expect(alert).toHaveClass("bg-background")
+    expect(alert).toHaveClass("tri-bg-background")
   })
 
   it("forwards arbitrary HTML attributes", () => {
@@ -65,19 +65,19 @@ describe("Alert", () => {
 describe("alertVariants", () => {
   it("returns default variant classes when called with no args", () => {
     const out = alertVariants()
-    expect(out).toContain("bg-background")
-    expect(out).toContain("text-foreground")
+    expect(out).toContain("tri-bg-background")
+    expect(out).toContain("tri-text-foreground")
   })
 
   it("returns the requested variant classes", () => {
-    expect(alertVariants({ variant: "warning" })).toContain("bg-[#FDF0E2]")
-    expect(alertVariants({ variant: "error-filled" })).toContain("text-white")
+    expect(alertVariants({ variant: "warning" })).toContain("tri-bg-[#FDF0E2]")
+    expect(alertVariants({ variant: "error-filled" })).toContain("tri-text-white")
   })
 
   it("always includes base layout classes", () => {
     const out = alertVariants({ variant: "info" })
-    expect(out).toContain("relative")
-    expect(out).toContain("rounded-md")
+    expect(out).toContain("tri-relative")
+    expect(out).toContain("tri-rounded-md")
   })
 })
 
@@ -91,7 +91,7 @@ describe("AlertTitle", () => {
 
   it("merges custom className", () => {
     render(<AlertTitle className="mt-x">Title</AlertTitle>)
-    expect(screen.getByRole("heading")).toHaveClass("mt-x", "font-semibold")
+    expect(screen.getByRole("heading")).toHaveClass("mt-x", "tri-font-semibold")
   })
 
   it("forwards ref", () => {
@@ -111,7 +111,7 @@ describe("AlertDescription", () => {
 
   it("merges custom className", () => {
     render(<AlertDescription className="desc-x">Body</AlertDescription>)
-    expect(screen.getByText("Body")).toHaveClass("desc-x", "flex-1")
+    expect(screen.getByText("Body")).toHaveClass("desc-x", "tri-flex-1")
   })
 
   it("forwards ref", () => {
@@ -136,14 +136,14 @@ describe("AlertAction", () => {
 
   it("uses currentColor border by default", () => {
     render(<AlertAction>Act</AlertAction>)
-    expect(screen.getByRole("button")).toHaveClass("border-current")
+    expect(screen.getByRole("button")).toHaveClass("tri-border-current")
   })
 
   it("softens the border to translucent white when onFilled is set", () => {
     render(<AlertAction onFilled>Act</AlertAction>)
     const btn = screen.getByRole("button")
-    expect(btn).toHaveClass("border-white/70")
-    expect(btn).not.toHaveClass("border-current")
+    expect(btn).toHaveClass("tri-border-white/70")
+    expect(btn).not.toHaveClass("tri-border-current")
   })
 
   it("forwards onClick", async () => {
